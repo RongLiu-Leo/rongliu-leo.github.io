@@ -10,7 +10,7 @@ name: Rong Liu
 title: USC Master Student in Computer Science (AI)
 email: rliu8691@usc.edu
 # email_title: Email (Email title override)
-# phone: Your phone number (optional)
+phone: (213)519-8268
 # phone_title: Phone (Phone title override)
 # website: Your website (eg. https://google.com)(optional)
 # website_title: Web (Website title override)
@@ -96,7 +96,6 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        about_profile_image: images/profile.jpg
 
         description: | # this will include new lines to allow paragraphs
           **GPA: 88.0/100**
@@ -124,7 +123,10 @@ content:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link):
 
           Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
-          - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html)
+          - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html):
+
+          Experienced on Perceptron, SVM, Nerual Network, SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and Kaggle competition (Final report).
+
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
