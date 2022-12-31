@@ -96,6 +96,8 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
+        about_profile_image: images/profile.jpg
+
         description: | # this will include new lines to allow paragraphs
           GPA: 88.0/100
 
@@ -106,9 +108,7 @@ content:
       - layout: left
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
-        caption: | 
-        2022 - present
-        [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html)
+        caption: 2022 - present
           
         description: | # this will include new lines to allow paragraphs
           GPA: 4.0/4.0
