@@ -99,23 +99,31 @@ content:
         about_profile_image: images/profile.jpg
 
         description: | # this will include new lines to allow paragraphs
-          GPA: 88.0/100
+          **GPA: 88.0/100**
 
           Selected Courses:
 
-          Program Design Basics and C Programming; Object-Oriented Method and C++ Program Design; Computer Organization and Structure; 
-          Data Structures and Algorithms; Database; Software Engineering; Operating System; Computer Network; Artificial Intelligence
+          - Program Design Basics and C Programming
+          - Object-Oriented Method and C++ Program Design
+          - Computer Organization and Structure 
+          - Data Structures and Algorithms
+          - Database
+          - Software Engineering
+          - Operating System
+          - Computer Network
+          - Artificial Intelligence
       - layout: left
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - present
           
         description: | # this will include new lines to allow paragraphs
-          GPA: 4.0/4.0
+          **GPA: 4.0/4.0**
 
           Courses:
-          - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link)
-          Experience on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
+          - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link):
+
+          Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
           - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html)
   - title: A Little More About Me
     layout: text
