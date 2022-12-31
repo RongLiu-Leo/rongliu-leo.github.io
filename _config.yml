@@ -121,8 +121,7 @@ content:
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
-    ![](/images/USC.png)
-    ![](/images/DLUT.png)
+    ![alt text](/images/USC.png "Trees")
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
