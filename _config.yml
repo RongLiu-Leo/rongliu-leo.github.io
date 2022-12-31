@@ -100,10 +100,6 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        content:
-          - layout: left
-          description: |
-          test
         description: | # this will include new lines to allow paragraphs
           GPA: 88.0/100
 
@@ -118,7 +114,7 @@ content:
           
         description: | # this will include new lines to allow paragraphs
           GPA: 4.0/4.0
-          
+
           Courses:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link)
           Experience on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
@@ -126,7 +122,6 @@ content:
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
-    ![alt text](/images/USC.png "Trees")
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
