@@ -104,6 +104,7 @@ content:
           GPA: 88.0/100
         description: | # this will include new lines to allow paragraphs
           Selected Courses:
+
           Program Design Basics and C Programming; Object-Oriented Method and C++ Program Design; Computer Organization and Structure; 
           Data Structures and Algorithms; Database; Software Engineering; Operating System; Computer Network; Artificial Intelligence
       - layout: top-right
@@ -120,6 +121,8 @@ content:
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
+    ![](/images/USC.png)
+    ![](/images/DLUT.png)
       This is where you can write a little more about yourself. You could title this section **Interests** and include some of your other interests.
 
       Or you could title it **Skills** and write a bit more about things that make you more desirable, like *leadership* or *teamwork*
