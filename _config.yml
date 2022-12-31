@@ -96,7 +96,6 @@ content:
   - title: Education
     layout: list
     content:
-      hello
       - layout: top-right
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
