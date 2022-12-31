@@ -53,7 +53,7 @@ googlescholar_username: Rong Liu
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
-
+  ![](images/USC.png)
 
 
 content:
