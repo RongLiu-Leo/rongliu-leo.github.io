@@ -100,9 +100,13 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        quote: >
-          GPA: 88.0/100
+        content:
+          - layout: left
+          description: |
+          test
         description: | # this will include new lines to allow paragraphs
+          GPA: 88.0/100
+
           Selected Courses:
 
           Program Design Basics and C Programming; Object-Oriented Method and C++ Program Design; Computer Organization and Structure; 
@@ -111,9 +115,10 @@ content:
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - present
-        quote: >
-          GPA: 4.0/4.0
+          
         description: | # this will include new lines to allow paragraphs
+          GPA: 4.0/4.0
+          
           Courses:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link)
           Experience on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
