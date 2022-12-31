@@ -96,22 +96,24 @@ content:
   - title: Education
     layout: list
     content:
-      - layout: top-left
+      - layout: top-right
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
         quote: >
-          Short institution or course description (optional)
+          GPA: 88.0/100
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
-      - layout: top-left
+          Selected Courses:
+      - layout: top-right
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - now
         quote: >
-          Short institution or course description (optional)
+          GPA: 4.0/4.0
         description: | # this will include new lines to allow paragraphs
-          Description of qualification
+          Courses:
+          - CSCI 561 Foundations of AI
+          - CSCI 567 Machine Learning
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
