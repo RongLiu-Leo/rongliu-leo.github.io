@@ -116,6 +116,7 @@ content:
         description: | # this will include new lines to allow paragraphs
           Courses:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link)
+          Experience on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
           - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html)
   - title: A Little More About Me
     layout: text
