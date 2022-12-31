@@ -96,7 +96,7 @@ content:
   - title: Education
     layout: list
     content:
-      - layout: top-right
+      - layout: left
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
@@ -107,7 +107,7 @@ content:
 
           Program Design Basics and C Programming; Object-Oriented Method and C++ Program Design; Computer Organization and Structure; 
           Data Structures and Algorithms; Database; Software Engineering; Operating System; Computer Network; Artificial Intelligence
-      - layout: top-right
+      - layout: left
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - present
