@@ -96,10 +96,18 @@ content:
   - title: Education
     layout: list
     content:
-      - layout: top-right
-        title: Institution name
-        sub_title: Qualifications (eg. BA Performing Arts)
-        caption: Date Range (eg. 2016 - 2019)
+      - layout: top-left
+        title: Dalian University of Technology
+        sub_title: Bachelor of Engineering in Cyber Engineering
+        caption: 2018 - 2022
+        quote: >
+          Short institution or course description (optional)
+        description: | # this will include new lines to allow paragraphs
+          Description of qualification
+      - layout: top-left
+        title: University of Southern California
+        sub_title: Master of Science in Computer Science (AI)
+        caption: 2022 - now
         quote: >
           Short institution or course description (optional)
         description: | # this will include new lines to allow paragraphs
