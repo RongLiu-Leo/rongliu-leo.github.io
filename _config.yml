@@ -106,7 +106,9 @@ content:
       - layout: left
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
-        caption: 2022 - present
+        caption: | 
+        2022 - present
+        [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html)
           
         description: | # this will include new lines to allow paragraphs
           GPA: 4.0/4.0
