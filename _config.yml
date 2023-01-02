@@ -65,7 +65,7 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        image: images/profile.jpg
+        about_profile_image: images/profile.jpg
 
 
         description: | # this will include new lines to allow paragraphs
