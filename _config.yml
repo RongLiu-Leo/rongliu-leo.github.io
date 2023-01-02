@@ -96,8 +96,8 @@ content:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link):
             - Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
           - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html):
-            - Experienced on Perceptron, SVM, Nerual Network, SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and Kaggle competition (Final report).
-          1 ｜ 2
+            - Experienced on SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and Kaggle [competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) ([Final report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)).
+         ｜ 1 ｜ 2 ｜
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
