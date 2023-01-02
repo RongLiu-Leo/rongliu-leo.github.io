@@ -53,12 +53,8 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  👋 Hi, I‘m Rong Liu, who is
-- a first-year master student at USC
-- interested in Computer Vision and Deep Learning
-- currently learning Image Style Transfer and Image Generation
-- expecting the potential of AI & Art
-- looking for research opportunities 
+  Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
+
 
 
 content:
@@ -100,7 +96,11 @@ content:
           - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link):
             - Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
           - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html):
-            - Experienced on SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and Kaggle [competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) ([Final report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)).
+            - Experienced on SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and Kaggle [competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) (Final report).
+  
+  
+  
+  
   - title: Projects # Title for the section
     layout: list # Type of content section (list/text)
     content:
@@ -122,6 +122,8 @@ content:
         description: | # this will include new lines to allow paragraphs
           Description about the work on/with the project
 
+  
+  
   - title: A Little More About Me
     layout: text
     content: | # this will include new lines to allow paragraphs
@@ -131,9 +133,7 @@ content:
 
 
 
-# Build settings
-# theme: modern-resume-theme (Use this is you are hosting your resume yourself)
-# remote_theme: sproogen/modern-resume-theme (Use this if you are hosting your resume on GitHub)
+
 
 sass:
   sass_dir: _sass
