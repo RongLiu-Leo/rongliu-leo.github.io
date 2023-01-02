@@ -3,19 +3,19 @@
 
       {%- if item.seal -%}
       <div class="col-xs-12 col-sm-2 col-md-2 no-print">
-        <img src="{{item.seal}}" style="  width: 100px;
-        height: 100px;
+        <img src="{{item.seal}}" style="  width: 120px;
+        height: 120px;
         margin: 0 auto;
         margin-bottom: 20px;
         display: block;
-        border-radius: 50px;
+        border-radius: 60px;
         background-size: cover;
         background-position: center;
         background-repeat: repeat, no-repeat;"/>
       </div>
 
       <div class="col-xs-12 col-sm-10 col-md-10 col-print-12 content">
-        <h4 id="{{ item.title | slugify }}"><b>{{ item._title }}</b></h4>
+        <h4 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h4>
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
