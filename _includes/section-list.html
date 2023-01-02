@@ -2,9 +2,9 @@
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">
 
       {%- if item.seal -%}
-      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+      <div class="col-xs-12 col-sm-4 col-md-3 no-print" style="text-align: center">
         <!-- <span class="profile-img" style="background-image: url({{ item.about_profile_image | relative_url }})"></span> -->
-        <img width="100" height="100" style="margin: 0 auto" src="{{item.seal}}"/>
+        <img width="100" height="100" src="{{item.seal}}"/>
 
       </div>
       {%- endif -%}
