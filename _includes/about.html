@@ -5,7 +5,7 @@
     {%- if site.about_profile_image -%}
       <div class="col-xs-12 col-sm-4 col-md-3 no-print">
         <!-- <span class="profile-img" style="background-image: url({{ site.about_profile_image | relative_url }})"></span> -->
-        <img class="profile-img" src="images/profile.jpg"/>
+        <img class="profile-img" src="{{ site.about_profile_image}}"/>
 
       </div>
     {%- endif -%}
