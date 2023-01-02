@@ -85,7 +85,7 @@ content:
           - Artificial Intelligence
       - layout: left
         title: University of Southern California
-        sub_title: Master of Science in Computer Science (AI)
+        sub_title: Master of Science in Computer Science (<a href="https://www.cs.usc.edu/academic-programs/masters/artificial-intelligence/">AI</a>)
         caption: 2022 - present
         seal: images/USC.png
 
