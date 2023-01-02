@@ -18,6 +18,13 @@
           </a>
         {% endfor %}
       </p>
+
+      {%- if item.image -%}
+      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+        <span class="img" style="background-image: url({{ site.image | relative_url }})"></span>
+      </div>
+      {%- endif -%}
+
     </div>
     <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
       {%- if item.quote -%}
