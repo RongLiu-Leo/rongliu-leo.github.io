@@ -65,7 +65,7 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        about_profile_image: images/profile.jpg
+        about_profile_image: images/DLUT.png
 
 
         description: | # this will include new lines to allow paragraphs
@@ -86,6 +86,8 @@ content:
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - present
+        about_profile_image: images/USC.png
+
           
         description: | # this will include new lines to allow paragraphs
           **GPA: 4.0/4.0**

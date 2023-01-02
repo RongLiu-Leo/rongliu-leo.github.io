@@ -10,9 +10,9 @@
 
     </div>
     <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-      <h4 id="{{ item.title | slugify }}">{{ item.title }}</h4>
-      {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
-      {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
+      <h4 id="{{ item.title | slugify }}" align=center>{{ item.title }}</h4>
+      {%- if item.sub_title -%}<p align=center><b>{{ item.sub_title }}</b></p>{%- endif -%}
+      {%- if item.caption -%}<p align=center>{{ item.caption }}</p>{%- endif -%}
       {%- if item.quote -%}
         <p class="quote">{{ item.quote }}</p>
       {%- endif -%}
