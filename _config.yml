@@ -54,7 +54,6 @@ googlescholar_username: MrWUyWkAAAAJ
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Write an awesome description about yourself here, this supports markdown, so you can add [links](http://foobar.com) and highlight things <mark>like this</mark>.
-   <img src="images/USC.png" width = "50" height = "50" align=center />
 
 
 
