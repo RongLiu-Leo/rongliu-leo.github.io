@@ -71,17 +71,6 @@ content:
         description: | # this will include new lines to allow paragraphs
           **GPA: 88/100**
 
-          Selected Courses:
-
-          - Program Design Basics and C Programming
-          - Object-Oriented Method and C++ Program Design
-          - Computer Organization and Structure 
-          - Data Structures and Algorithms
-          - Database
-          - Software Engineering
-          - Operating System
-          - Computer Network
-          - Artificial Intelligence
       - layout: left
         title: University of Southern California
         sub_title: Master of Science in Computer Science (<a href="https://www.cs.usc.edu/academic-programs/masters/artificial-intelligence/">AI</a>)
