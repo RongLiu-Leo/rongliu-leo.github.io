@@ -8,7 +8,6 @@ version: 2
 # Personal info
 name: Rong Liu
 title: Master Student in Computer Science (AI) 
-school: Viterbi School of Engineering
 affiliation: University of Southern California
 email: rliu8691@usc.edu
 # email_title: Email (Email title override)
@@ -67,7 +66,7 @@ content:
         title: Dalian University of Technology
         sub_title: Bachelor of Engineering in Cyber Engineering
         caption: 2018 - 2022
-        about_profile_image: images/DLUT.png
+        seal: images/DLUT.png
 
 
         description: | # this will include new lines to allow paragraphs
@@ -88,7 +87,7 @@ content:
         title: University of Southern California
         sub_title: Master of Science in Computer Science (AI)
         caption: 2022 - present
-        about_profile_image: images/USC.png
+        seal: images/USC.png
 
           
         description: | # this will include new lines to allow paragraphs

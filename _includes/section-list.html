@@ -1,10 +1,18 @@
 {% for item in include.content %}
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">
 
-      {%- if item.about_profile_image -%}
+      {%- if item.seal -%}
       <div class="col-xs-12 col-sm-4 col-md-3 no-print">
         <!-- <span class="profile-img" style="background-image: url({{ item.about_profile_image | relative_url }})"></span> -->
-        <img src="{{ item.about_profile_image}}"/>
+        <img class="profile-img" src="{{item.seal}}"/>
+
+      </div>
+      {%- endif -%}
+
+      {%- if item.project -%}
+      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+        <!-- <span class="profile-img" style="background-image: url({{ item.about_profile_image | relative_url }})"></span> -->
+        <img src="{{item.project}}"/>
 
       </div>
       {%- endif -%}
