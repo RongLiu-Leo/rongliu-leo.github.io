@@ -61,28 +61,6 @@ about_content: | # this will include new lines to allow paragraphs
 
 
 content:
-  - title: Education
-    layout: list
-    content:
-      - layout: left
-        title: Dalian University of Technology
-        sub_title: Bachelor of Engineering in Cyber Engineering
-        caption: 2018 - 2022
-        seal: images/DLUT.png
-
-
-        description: | # this will include new lines to allow paragraphs
-          **GPA: 88/100**
-
-      - layout: left
-        title: University of Southern California
-        sub_title: Master of Science in Computer Science (<a href="https://www.cs.usc.edu/academic-programs/masters/artificial-intelligence/">AI</a>)
-        caption: 2022 - present
-        seal: images/USC.png
-
-          
-        description: | # this will include new lines to allow paragraphs
-          # **GPA: 4.0/4.0**
 
           # Courses:
           # - [CSCI 561 Foundations of AI](https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link):
