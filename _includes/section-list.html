@@ -2,10 +2,8 @@
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">
 
       {%- if item.seal -%}
+      
       <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-        <img src="{{item.seal}}" class="profile-img"/>
-      </div>
-      <!-- <div class="col-xs-12 col-sm-4 col-md-3 no-print">
         <img src="{{item.seal}}" style="  width: 120px;
         height: 120px;
         margin: 0 auto;
@@ -15,7 +13,7 @@
         background-size: cover;
         background-position: center;
         background-repeat: repeat, no-repeat;"/>
-      </div> -->
+      </div>
 
       <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
         <h5 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h5>
