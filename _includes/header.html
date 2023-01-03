@@ -1,11 +1,15 @@
 <div class="container header-container">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
+      <img class="profile-img" src="{{site.about_profile_image}}"/>
+
       <h1>{{ site.name | escape }}</h1>
       <h2>{{ site.title | escape }}</h2>
       <h2>{{ site.affiliation | escape }}</h2>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
+      {{ site.about_content | strip | markdownify }}
+
       <ul class="icons no-print">
         {%- if site.dribbble_username -%}
           <li>

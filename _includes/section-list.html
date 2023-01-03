@@ -16,7 +16,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-        <h5 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h5>
+        <h4 id="{{ item.title | slugify }}">{{ item.title }}</h4>
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
