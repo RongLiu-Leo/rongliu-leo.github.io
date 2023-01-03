@@ -13,7 +13,7 @@
   font-weight:500;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 991px) {
   .header-container div{
     text-align: center;
   }
@@ -82,7 +82,7 @@
       }
     }
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 991px) {
       text-align: center!important;
 
       p {
@@ -130,7 +130,7 @@
 }
 
 .layout-left, .layout-right {
-  @media screen and (max-width: 992px) {
+  @media screen and (max-width: 991px) {
     flex-direction: column;
   }
 
