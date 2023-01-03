@@ -53,30 +53,60 @@
         "About Me" }}</h3>
       {{ site.about_content | strip | markdownify }}
 
-      <h3 id="Education">Education</h3>
-      {% for item in include.content %}
-        {%- if item.seal -%}
+      
+      <div class="container list-container">
+        <h3 id="education">Education</h3>
         
-        <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-          <img src="{{item.seal}}" style="  width: 120px;
-          height: 120px;
-          margin: 0 auto;
-          margin-bottom: 20px;
-          display: block;
-          border-radius: 60px;
-          background-size: cover;
-          background-position: center;
-          background-repeat: repeat, no-repeat;"/>
-        </div>
+<div class="row clearfix layout layout-left border-no"><div class="col-xs-12 col-sm-4 col-md-3 no-print">
+    <img src="images/DLUT.png" style="  width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 60px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat, no-repeat;">
+  </div>
 
-        <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-          <h4 id="{{ item.title | slugify }}">{{ item.title }}</h4>
-          {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
-          {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
-          {{ item.description | strip | markdownify }}
-        </div>
-        {%- endif -%}  
-      {% endfor %}
+  <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+    <h4 id="dalian-university-of-technology">Dalian University of Technology</h4><p><b>Bachelor of Engineering in Cyber Engineering</b></p><p>2018 - 2022</p><p><strong>GPA: 88/100</strong></p>
+
+  </div></div>
+
+<div class="row clearfix layout layout-left border-no"><div class="col-xs-12 col-sm-4 col-md-3 no-print">
+    <img src="images/USC.png" style="  width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 60px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat, no-repeat;">
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+    <h4 id="university-of-southern-california">University of Southern California</h4><p><b>Master of Science in Computer Science (<a href="https://www.cs.usc.edu/academic-programs/masters/artificial-intelligence/">AI</a>)</b></p><p>2022 - present</p><p><strong>GPA: 4.0/4.0</strong></p>
+
+<p>Courses:</p>
+<ul>
+<li><a href="https://drive.google.com/file/d/1xQ9tMWfQO7vQyQjUaxkMetBQNxXPGAaY/view?usp=share_link">CSCI 561 Foundations of AI</a>:
+<ul>
+  <li>Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.</li>
+</ul>
+</li>
+<li><a href="https://vatsalsharan.github.io/fall22.html">CSCI 567 Machine Learning</a>:
+<ul>
+  <li>Experienced on SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and <a href="https://www.kaggle.com/competitions/store-sales-time-series-forecasting">Kaggle competition</a> (<a href="https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link">Final report</a>).</li>
+</ul>
+</li>
+</ul>
+
+  </div></div>
+
+
+      </div>
 
 
 
