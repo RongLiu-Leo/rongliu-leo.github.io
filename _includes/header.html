@@ -49,6 +49,8 @@
       {%- endif -%}
     </div>
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
+      <h3 id="{{ site.about_title | slugify | default: 'about-me' }}">{{ site.about_title | default:
+        "About Me" }}</h3>
       {{ site.about_content | strip | markdownify }}
 
 
