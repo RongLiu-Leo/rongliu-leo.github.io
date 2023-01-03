@@ -81,7 +81,7 @@ content:
         seal: images/USC.png
 
           
-        # description: | # this will include new lines to allow paragraphs
+        description: | # this will include new lines to allow paragraphs
           # **GPA: 4.0/4.0**
 
           # Courses:
