@@ -1,6 +1,6 @@
 <div class="container header-container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 header-left">
+    <div class="col-xs-12 col-sm-5 col-md-7 col-lg-7 header-left">
       <img class="profile-img" src="{{site.about_profile_image}}"/>
 
       <h1>{{ site.name | escape }}</h1>
@@ -48,7 +48,7 @@
         </p>
       {%- endif -%}
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 header-right">
+    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 header-right">
       <h3 id="{{ site.about_title | slugify | default: 'about-me' }}">{{ site.about_title | default:
         "About Me" }}</h3>
       {{ site.about_content | strip | markdownify }}
