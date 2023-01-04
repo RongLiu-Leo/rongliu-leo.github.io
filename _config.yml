@@ -42,11 +42,11 @@ googlescholar_username: MrWUyWkAAAAJ
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   Hi, I'm Rong Liu, who is 
-   a first-year master student at USC
-   interested in Computer Vision and Deep Learning
-   currently learning Image Style Transfer and Image Generation
-   expecting the potential of AI & Art
-   looking for research opportunities 
+  - a first-year master student at USC
+  - interested in Computer Vision and Deep Learning
+  - currently learning Image Style Transfer and Image Generation
+  - expecting the potential of AI & Art
+  - looking for research opportunities 
 
 
 content:
