@@ -39,11 +39,17 @@ h1 {
   font-size: 3rem;
   margin-bottom: 0.1rem;
   font-weight: 500;
+  @media print {
+    text-align: center;
+  }
 }
 
 h2 {
   font-weight: 300;
   font-size: 2rem;
+  @media print {
+    text-align: center;
+  }
 }
 
 h3 {
