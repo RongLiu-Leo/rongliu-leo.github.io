@@ -55,27 +55,26 @@ content:
           #   - Experienced on Genetic Algorithm, Min-Max and Reinforcement Learning, and Neural Network.
           # - [CSCI 567 Machine Learning](https://vatsalsharan.github.io/fall22.html):
           #   - Experienced on SVM, Decision Trees, Ensemble Methods, Clustering, PCA, and [Kaggle competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) ([Final report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)).
-   
-  - title: Projects # Title for the section
-    layout: list # Type of content section (list/text)
+
+  - title: Publication
+    layout: image
     content:
-      - layout: left
-        border: weak  # Value of `weak` will display a weak border below this item. # Any 
-                      # other value (or no value) means no border will be displayed
-        title: Project name
-        link: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        link_text: Link Text
-        additional_links:
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-          - title:  Github page for project (eg. sproogen/modern-resume-theme)
-            icon: fab fa-github
-            url: Link to project (eg. sproogen.github.io/modern-resume-theme)(optional)
-        quote: >
-          Short overview of the project (optional)
+      - title: UAV
+        description: |
+
+
+  - title: Projects # Title for the section
+    layout: image # Type of content section (list/text)
+    content:
+      - title: Project name
         description: | # this will include new lines to allow paragraphs
           Description about the work on/with the project
+
+  - title: Experience
+    layout: list
+    content:
+      - title: 
+        description: |
 
   
   

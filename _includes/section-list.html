@@ -1,41 +1,12 @@
 {% for item in include.content %}
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">
-
-      {%- if item.seal -%}
-      
-      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-        <img src="{{item.seal}}" style="  width: 120px;
-        height: 120px;
-        margin: 0 auto;
-        margin-bottom: 20px;
-        display: block;
-        border-radius: 60px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: repeat, no-repeat;"/>
-      </div>
-
-      <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-        <h4 id="{{ item.title | slugify }}">{{ item.title }}</h4>
-        {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
-        {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
-        {{ item.description | strip | markdownify }}
-      </div>
-      {%- endif -%}
-
-      {%- if item.project -%}
-      <div class="col-xs-12 col-sm-4 col-md-3 no-print">
-        <img src="{{item.project}}"/>
-      </div>
-
-      <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-        <h4 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h4>
-        {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
-        {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
-        {{ item.description | strip | markdownify }}
-      </div>
-      {%- endif -%}
-
-    
+    <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
+      <h4 id="{{ item.title | slugify }}">{{ item.title }}</h4>
+      {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
+      {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+      {{ item.description | strip | markdownify }}
+    </div>
   </div>
 {% endfor %}
