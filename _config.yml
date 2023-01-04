@@ -41,10 +41,13 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  interested in Computer Vision and Deep Learning
-  currently learning Image Style Transfer and Image Generation
-  expecting the potential of AI & Art
-  looking for research opportunities 
+  Interested in Computer Vision and Deep Learning
+
+  Currently learning Image Style Transfer and Image Generation
+
+  Expecting the potential of AI & Art
+  
+  Looking for research opportunities 
 
 
 content:
