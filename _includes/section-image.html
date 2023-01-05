@@ -2,8 +2,8 @@
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">       
 
       {%- if item.image -%}
-      <div class="col-xs-12 col-sm-12 col-md-3 no-print">
-        <img src="{{item.image}}" style="width: 250px; margin: 0 auto;"/>
+      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;">
+        <img src="{{item.image}}" style="width: 250px;"/>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
