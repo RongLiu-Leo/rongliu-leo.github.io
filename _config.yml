@@ -61,10 +61,10 @@ content:
     content:
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
-        caption: 6
-        sub_title: 666
+        caption: Liangtian Wan, Rong Liu, Lu Sun, Hansong Nie, Xianpeng Wang
         description: |
-          [Paper]('https://www.sciencedirect.com/science/article/pii/S1566253521001834')
+          Information Fusion 2022
+          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834)
 
 
   - title: Projects # Title for the section
