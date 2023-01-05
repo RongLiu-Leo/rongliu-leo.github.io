@@ -61,6 +61,8 @@ content:
     content:
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
+        caption: 6
+        sub_title: 666
         description: |
 
 
