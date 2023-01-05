@@ -68,6 +68,11 @@ content:
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
+          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación
+Favorita, using time series data. We will process six datasets, including train, test, store, transactions,
+holiday oil events, and daily oil prices. The data covers 54 stores with 33 product families, spanning
+from 2013-01-01 to 2017-08-15 in the train set. Our aim is to make a forecast for the sales of some
+stores in the 15 days following the last day recorded in the train set.
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting)|
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
 
