@@ -72,7 +72,13 @@ content:
           Corporación Favorita, using time series data. The data covers 54 stores with 33 product families, 
           spanning from 2013-01-01 to 2017-08-15 in the train set. 
           Our aim is to make a forecast for the sales of some stores in the 15 days following the last day recorded in the train set.
-
+          To achieve this goal, we will employ Darts, a time series forecasting framework, to process the data
+          and perform exploratory data analysis. After setting the Exponential Smoothing baseline model and
+          boosting it using ensemble methods, the LightGBM algorithm showed the best performance with a
+          0.38434 RMSLE (Root Mean Squared Logarithmic Error). Additionally, we used model stacking,
+          quadratic fitting, and a genetic algorithm to further optimize the result, resulting in a final RMSLE of
+          0.37894.
+          
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting)|
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
 
