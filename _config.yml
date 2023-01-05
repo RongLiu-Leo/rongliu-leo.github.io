@@ -62,7 +62,7 @@ content:
           [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834)
 
 
-  - title: Projects # Title for the section
+  - title: Project # Title for the section
     layout: image # Type of content section (list/text)
     content:
       - title: Store Sales - Time Series Forecasting
