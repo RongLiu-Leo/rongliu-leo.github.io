@@ -76,6 +76,14 @@ content:
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
 
+      - title: Video Style Transfer
+        image: images/output.gif
+        description: | 
+          Video Style Transfer is a CSCI 590 Directed Research project supervised by Prof. [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott). 
+          This project aims to build a pipeline with new cost-effective and professional-looking cinematic imagery that transfers styles of the given image into a video.
+          
+          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+
   - title: Experience
     layout: list
     content:
