@@ -66,7 +66,7 @@ content:
     layout: image # Type of content section (list/text)
     content:
       - title: Store Sales - Time Series Forecasting
-        image: GA.png
+        image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting)|
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
