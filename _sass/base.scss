@@ -175,6 +175,11 @@ body {
 
   @media print {
     margin-top: 0px;
+  }
+}
+
+.header-left p{
+  @media print {
     text-align: center;
   }
 }
