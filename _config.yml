@@ -68,7 +68,7 @@ content:
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
-          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15 in the train set. 
+          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
           To achieve this goal, the project employs Darts to process the data and perform exploratory data analysis. 
           After setting the Exponential Smoothing baseline model and boosting it using ensemble methods, the LightGBM algorithm showed the best performance. 
           Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the result, resulting in a top 5 ranking on the leaderboard.
