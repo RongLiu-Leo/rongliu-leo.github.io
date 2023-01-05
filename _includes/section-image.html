@@ -1,7 +1,6 @@
 {% for item in include.content %}
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">       
 
-      {%- if item.image -%}
       <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;">
         <img src="{{item.image}}" style="width: 300px;"/>
       </div>
@@ -12,7 +11,6 @@
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
       </div>
-      {%- endif -%}
 
     
   </div>
