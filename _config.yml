@@ -64,7 +64,7 @@ content:
         caption: 6
         sub_title: 666
         description: |
-        [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834)
+        [Paper]('https://www.sciencedirect.com/science/article/pii/S1566253521001834')
 
 
   - title: Projects # Title for the section
