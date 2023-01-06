@@ -79,8 +79,8 @@ content:
       - title: Video Style Transfer
         image: 
           - images/video_style_transfer/video.gif
-            images/video_style_transfer/tar49.png
-            images/video_style_transfer/output2.gif
+          - images/video_style_transfer/tar49.png
+          - images/video_style_transfer/output2.gif
 
         description: | 
           Video Style Transfer is a CSCI 590 Directed Research project supervised by Prof. [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott). 
