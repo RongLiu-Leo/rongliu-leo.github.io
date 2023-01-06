@@ -59,7 +59,8 @@ content:
         description: |
           Information Fusion. 78 (2022): 90-101
 
-          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834)
+          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
+          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
 
 
   - title: Project # Title for the section
@@ -80,8 +81,8 @@ content:
         image: images/video_style_transfer/output2.gif
 
         description: | 
-          Video Style Transfer is a CSCI 590 Directed Research project supervised by Prof. [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott). 
-          This project aims to build a pipeline with new cost-effective and professional-looking cinematic imagery that transfers styles of the given image into a video.
+          This is a CSCI 590 Directed Research project supervised by Prof. [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott), 
+          which aims to build a pipeline with new cost-effective and professional-looking cinematic imagery that transfers styles of the given image into a video.
           
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
 
