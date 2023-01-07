@@ -89,8 +89,15 @@ content:
   - title: Experience
     layout: list
     content:
-      - title: 
+      - title: Teaching assistant
+        caption: at DUT
         description: |
+          Course: 
+          
+          Program Design Basics and C Programming
+
+          Object-Oriented Method and C++ Program Design
+
 
   
   
