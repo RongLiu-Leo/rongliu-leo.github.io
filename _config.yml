@@ -90,7 +90,7 @@ content:
     layout: list
     content:
       - title: Teaching assistant
-        caption: Dalian University of Technology
+        sub_title: Dalian University of Technology
         description: |
           **Course**: 
 
