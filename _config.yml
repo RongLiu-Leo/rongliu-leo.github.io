@@ -92,10 +92,12 @@ content:
       - title: Teaching assistant
         caption: Dalian University of Technology
         description: |
-          **Program Design Basics and C Programming**
+          **Course**: 
 
-          **Object-Oriented Method and C++ Program Design**
+          - Program Design Basics and C Programming
+          - Object-Oriented Method and C++ Program Design
 
+          **Duty**:
           - Hold Office Hour to answer questions.
           - Grade coding assignments, quizzes, and exams
 
