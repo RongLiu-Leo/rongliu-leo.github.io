@@ -84,6 +84,11 @@ content:
           This CSCI 590 Directed Research project, which is supervised by Professor [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott), aims to develop a pipeline that produces cost-effective, professional-looking cinematic imagery by transferring the style of a given image into a video.
           
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+          
+      - title: 
+        image:
+        description: |
+          [patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
 
   - title: Experience
     layout: list
