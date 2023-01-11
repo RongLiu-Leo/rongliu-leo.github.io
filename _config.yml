@@ -126,7 +126,9 @@ content:
   - title: When I take a break from AI
     layout: text
     content: | # this will include new lines to allow paragraphs
-      Play LOL, TFT, and cat.
+      - Video games:
+        - League of Legends (LOL) - highest rank: Platinum
+        - Teamfight Tactics (TFT) - highest rank: Diamond
 
 
 
