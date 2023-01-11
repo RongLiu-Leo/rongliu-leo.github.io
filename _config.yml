@@ -85,9 +85,24 @@ content:
           
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
           
-      - title: 'Undergraduate Thesis: Radar Signal Simultaneous Distributed Sort and Location Based on UAV Swarm'
+      - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
         image: images/SDSL.jpg
         description: |
+          At first, we deploy the Unmanned Aerial Vehicle (UAV) swarm to monitor reconnaissance
+          areas and collect data from radar receivers of the UAV swarm. Secondly, we propose an image
+          representation method that converts PDW features into images. This method reduces the storage
+          space, visualizes PDW features, and leads to the availability of convolutional neural networks.
+          During the model training process, we use the transfer learning method to avoid training the
+          model from scratch to accelerate the model convergence speed and improve the model accuracy.
+          After model training, we compare and verify the feasibility of different classification and
+          regression algorithms, including traditional machine learning methods and objective detection
+          methods, as the component of the framework. The PP-YOLOE model achieves a higher F-score
+          compared to other machine learning methods in performance comparison. For adapting to
+          the limited storage space of single UAVs, we compress the PP-YOLOE into more lightweight
+          structural models. Moreover, taking advantage of the UAV swarm’s preponderance, we extend
+          the algorithm to a distributed framework to reduce the computational requirement of single
+          UAVs
+          
           [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
 
