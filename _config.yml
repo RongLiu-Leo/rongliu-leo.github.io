@@ -97,7 +97,7 @@ content:
       - title: Teaching Assistant
         sub_title: Dalian University of Technology
         caption: September 2021 - June 2022
-        layout: left
+        layout: top
         description: |
           During my undergraduate studies at Dalian University of Technology, I had the opportunity to serve as a teaching assistant for two courses: 
           **Program Design Basics and C Programming** and **Object-Oriented Method and C++ Program Design**. 
@@ -106,6 +106,7 @@ content:
       - title: Self Learner
         sub_title: Coursera
         caption: August 2021 - Present
+        layout: top
         description: |
           [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
           
