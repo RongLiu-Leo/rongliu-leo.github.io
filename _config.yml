@@ -85,8 +85,7 @@ content:
           
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
           
-      - title: Radar Signal Simultaneous Distributed Sort and Location Based on UAV Swarm
-        sub_titile: Undergraduate Thesis
+      - title: 'Undergraduate Thesis: Radar Signal Simultaneous Distributed Sort and Location Based on UAV Swarm'
         image: images/SDSL.jpg
         description: |
           [Poster]()| 
@@ -95,7 +94,7 @@ content:
   - title: Experience
     layout: list
     content:
-      - title: Teaching assistant
+      - title: Teaching Assistant
         sub_title: Dalian University of Technology
         caption: September 2021 - June 2022
         description: |
