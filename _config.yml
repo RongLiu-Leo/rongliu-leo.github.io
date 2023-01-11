@@ -115,8 +115,14 @@ content:
           
           - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
 
+  - title: Awards
+    layout: text
+    content: |
+      - Outstanding Undergraduate Thesis
+      - Meritorious Winner in Mathematical Contest in Modeling
+      - First Prize in the National Artificial Intelligence Knowledge Competition for College Students
   
-  
+
   - title: When I take a break from AI
     layout: text
     content: | # this will include new lines to allow paragraphs
