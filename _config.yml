@@ -97,7 +97,7 @@ content:
       - title: Teaching Assistant
         sub_title: Dalian University of Technology
         caption: September 2021 - June 2022
-        layout: top
+        layout: left
         description: |
           During my undergraduate studies at Dalian University of Technology, I had the opportunity to serve as a teaching assistant for two courses: 
           **Program Design Basics and C Programming** and **Object-Oriented Method and C++ Program Design**. 
