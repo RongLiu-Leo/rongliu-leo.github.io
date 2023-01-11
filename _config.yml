@@ -88,7 +88,7 @@ content:
       - title: 'Undergraduate Thesis: Radar Signal Simultaneous Distributed Sort and Location Based on UAV Swarm'
         image: images/SDSL.jpg
         description: |
-          [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing)| 
+          [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
 
   - title: Experience
@@ -106,8 +106,10 @@ content:
       - title: Cousera
         sub_title: Certification
         description: |
-          - [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f)
+          [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
           
+          Deep Learning Specialization provided by DeepLearning.AI:
+
           - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
           
           - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
