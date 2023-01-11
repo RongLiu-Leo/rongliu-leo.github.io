@@ -34,6 +34,9 @@ ul.icons a {
   font-size: 1rem;
   margin-bottom:20px;
   text-align: left;
+  @media print {
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 991px) {
