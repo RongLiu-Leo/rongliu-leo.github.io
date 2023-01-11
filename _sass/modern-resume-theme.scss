@@ -75,6 +75,9 @@
       font-size: 1.65rem;
       text-align: inherit;
       font-weight: 300;
+      @media print {
+        text-align: left;
+      }
 
       b {
         font-weight: 500;
