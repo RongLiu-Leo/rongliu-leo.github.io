@@ -4,10 +4,12 @@
 @import "icons";
 .header-right p {
   margin-bottom: 3px;
+  @media print {
+    font-size: 1.5rem;
+  }
 }
 
 .header-right a{
-  color:inherit;
   font-weight:500;
 }
 
