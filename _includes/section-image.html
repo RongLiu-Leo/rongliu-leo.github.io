@@ -1,7 +1,7 @@
 {% for item in include.content %}
   <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">       
 
-      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;margin-bottom: 5px;">
+      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;margin-bottom: 5px;display: flex;">
         {% for img in item.image %}
           <img src="{{img}}" style="width: 300px;"/>
         {% endfor %}
