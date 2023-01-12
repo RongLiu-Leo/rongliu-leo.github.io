@@ -38,8 +38,7 @@ a:focus,
 a:hover {
   color: #355e98;
   @media print {
-    color: #477dca!important;
-    transition: color 150ms ease!important;
+    color: #355e98!important;
   }
 }
 
