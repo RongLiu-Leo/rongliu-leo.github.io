@@ -4,8 +4,6 @@ body {
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1rem;
   line-height: 1.5;
-  print-color-adjust: exact;
-
 
   @media print {
     font-size: 0.9rem;
