@@ -26,12 +26,12 @@ p {
   margin: 0 0 0.75rem; }
 
 a {
-  color: #477dca!important;
+  color: #477dca;
   transition: color 150ms ease;
-  // @media print {
-  //   color: #477dca;
-  //   transition: color 150ms ease;
-  // }
+  @media print {
+    color: #477dca!important;
+    transition: color 150ms ease;
+  }
 }
 a:active,
 a:focus,
