@@ -26,13 +26,13 @@ p {
   margin: 0 0 0.75rem; }
 
 a {
-  color: #477dca;
-  transition: color 150ms ease;
+  color: #477dca !important;
+  transition: color 150ms ease !important;
 }
 a:active,
 a:focus,
 a:hover {
-color: #355e98;
+color: #355e98 !important;
 }
 
 h1 {
