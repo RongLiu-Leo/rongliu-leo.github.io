@@ -76,10 +76,16 @@ h4 {
 p, ul {
   font-size: 1.7rem;
   text-align: justify;
+  @media print {
+    font-size: 1.5rem;
+  }
 }
 
 a i {
   font-size:1.7rem;
+  @media print {
+    font-size: 1.5rem;
+  }
 }
 
 mark {
