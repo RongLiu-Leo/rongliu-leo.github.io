@@ -67,7 +67,6 @@ content:
     layout: image # Type of content section (list/text)
     content:
       - title: Store Sales - Time Series Forecasting
-        border: weak
         image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
           The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
@@ -79,7 +78,6 @@ content:
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
 
       - title: Video Style Transfer
-        border: weak
         image: images/video_style_transfer/output2.gif
 
         description: | 
@@ -113,7 +111,6 @@ content:
     layout: list
     content:
       - title: Teaching Assistant
-        border: weak
         sub_title: Dalian University of Technology
         caption: September 2021 - June 2022
         layout: top
