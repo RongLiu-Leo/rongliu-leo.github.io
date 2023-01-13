@@ -1,5 +1,5 @@
 {% for item in include.content %}
-  <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">
+  <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'weak'}}">
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
       <h4 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h4>
       {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}

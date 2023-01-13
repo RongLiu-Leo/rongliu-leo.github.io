@@ -1,5 +1,5 @@
 {% for item in include.content %}
-  <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'no'}}">       
+  <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-{{item.border | default: 'weak'}}">       
 
       <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;">
         {% for img in item.image %}
