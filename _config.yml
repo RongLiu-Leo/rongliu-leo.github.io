@@ -65,6 +65,7 @@ content:
 
   - title: Project # Title for the section
     layout: image # Type of content section (list/text)
+    border: weak
     content:
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
