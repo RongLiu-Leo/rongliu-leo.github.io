@@ -144,11 +144,12 @@ content:
   - title: When I take a break from AI
     layout: text
     content: | # this will include new lines to allow paragraphs
-      - Video games: I am a big fan of Riot Game
+      - Video games: I am a big fan of strategy games
         - League of Legends (LOL) - highest rank: Platinum
         - Teamfight Tactics (TFT) - highest rank: Diamond
-      - Basketball: I was a member of DUT SE Department basketball team
-      - Travel: I love to experience different cultures, landscapes, and **delicious food**.
+        - Red Alert 2
+      - Basketball: I was a member of basketball team and P.E. Department of DUT Software Engineering Department
+      - Travel: I love to experience different cultures, landscapes, and **delicious food**
 
 
 
