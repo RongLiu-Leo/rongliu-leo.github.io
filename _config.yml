@@ -88,18 +88,8 @@ content:
       - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
         image: images/SDSL.jpg
         description: |
-          Traditional statistical machine learning methods use Pulse Descriptor Word (PDW) as
-          learning features to sort and locate radar signals. However, traditional methods cannot achieve
-          simultaneous sort and location. The accuracy of sorting and locating is challenging to reach
-          a breakthrough because of the fixed and limited representation of structured PDW data. We
-          propose a radar signal simultaneous distributed sort and location (SDSL) framework to address
-          these problems.
-          We use PP-YOLOE model as the component of the framework, which achieves a higher F-score
-          compared to other machine learning methods in performance comparison. For adapting to
-          the limited storage space of single UAVs, we compress the PP-YOLOE into more lightweight
-          structural models. Moreover, taking advantage of the UAV swarm’s preponderance, we extend
-          the algorithm to a distributed framework to reduce the computational requirement of single
-          UAVs.
+          Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
+          As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
           
           [Paper](https://drive.google.com/file/d/1IYW9wRDdkEo4-1dHkRbMPGiNYkRpQtZp/view?usp=sharing) | 
           [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
