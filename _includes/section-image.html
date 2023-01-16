@@ -1,4 +1,5 @@
 {% for item in include.content %}
+{% if forloop.last %}
 <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-no">
 
 {% else %}
