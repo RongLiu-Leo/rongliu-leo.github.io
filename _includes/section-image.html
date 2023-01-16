@@ -6,9 +6,12 @@
 <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-weak">
 
 {% endif %}
-      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;vertical-align: middle;">
+      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;">
         {% for img in item.image %}
-          <img src="{{img}}" style="width: 300px;vertical-align: middle;"/>
+          <img src="{{img}}" style="width: 300px;"/>
         {% endfor %}
       </div>
 
