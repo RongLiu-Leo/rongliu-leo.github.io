@@ -202,3 +202,10 @@ p.quote {
     margin-top: 1rem;
   }
 }
+
+right-print {display: none;
+  @media print {
+    display: inline-block;
+    
+  }
+}
