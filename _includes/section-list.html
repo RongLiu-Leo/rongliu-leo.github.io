@@ -8,7 +8,7 @@
 {% endif %}
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
       <div>
-        <h4 id="{{ item.title | slugify }}" style="float: left;"><b>{{ item.title }}</b></h4>
+        <h4 id="{{ item.title | slugify }}" style="float: none;"><b>{{ item.title }}</b></h4>
         {%- if item.caption -%}<p class="hidden-xs hidden-sm hidden-md hidden-lg" style="float: right;">{{ item.caption }}</p>{%- endif -%}
       </div>
       {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
