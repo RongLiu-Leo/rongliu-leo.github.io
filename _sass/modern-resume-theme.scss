@@ -9,23 +9,6 @@
   }
 }
 
-.head-right.details i {
-  margin-bottom: 3px;
-  font-size: 1.65rem;
-  text-align: inherit;
-  font-weight: 300;
-  float: right;
-  display: inline;
-  @media print {
-    display: inline;
-    // margin-bottom: 3px;
-    // font-size: 1.65rem;
-    // text-align: inherit;
-    // font-weight: 300;
-    // float: right;
-    // display: inline;
-  }
-}
 
 .header-right a{
   font-weight:500;
@@ -88,23 +71,6 @@
     text-align: center;
     justify-content: center;
     vertical-align: middle;
-
-    i {
-      margin-bottom: 3px;
-      font-size: 1.65rem;
-      text-align: inherit;
-      font-weight: 300;
-      float: right;
-      display: none;
-      @media print {
-        display: inline;
-        // margin-bottom: 3px;
-        // font-size: 1.65rem;
-        // text-align: inherit;
-        // font-weight: 300;
-        // float: right;
-        // display: inline;
-      }
     
     p {
       margin-bottom: 3px;
