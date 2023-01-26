@@ -9,7 +9,7 @@
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
       <div>
         <h4 id="{{ item.title | slugify }}" style="float: none;"><b>{{ item.title }}</b></h4>
-        {%- if item.caption -%}<rp>{{ item.caption }}</rp>{%- endif -%}
+        {%- if item.caption -%}<span>{{ item.caption }}</span>{%- endif -%}
       </div>
       {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
       {%- if item.caption -%}<p class="no-print">{{ item.caption }}</p>{%- endif -%}
