@@ -129,20 +129,24 @@ content:
   - title: Awards
     layout: text
     content: |
-      - Outstanding Undergraduate Thesis
-      - Meritorious Winner in Mathematical Contest in Modeling
-      - First Prize in the National Artificial Intelligence Knowledge Competition for College Students
+      Outstanding Undergraduate Thesis
+      
+      Meritorious Winner in Mathematical Contest in Modeling
+      
+      First Prize in the National Artificial Intelligence Knowledge Competition for College Students
   
 
   - title: When I take a break from AI
     layout: text
     content: | # this will include new lines to allow paragraphs
-      - Video games: I am a big fan of strategy games
+      Video games: I am a big fan of strategy games
         - League of Legends (LOL) - highest rank: Platinum
         - Teamfight Tactics (TFT) - highest rank: Diamond
         - Red Alert 2
-      - Basketball: I was a member of basketball team of DUT Software Engineering Department 
-      - Travel: I love to experience different cultures, landscapes, and **delicious food**
+
+      Basketball: I was a member of basketball team of DUT Software Engineering Department 
+
+      Travel: I love to experience different cultures, landscapes, and **delicious food**
 
 
 
