@@ -7,7 +7,7 @@
 
 {% endif %}
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
-      <div style="display: flex;">
+      <div style="display: inline;">
         <h4 id="{{ item.title | slugify }}" style="display:inline-block;"><b>{{ item.title }}</b></h4>
         {%- if item.caption -%}<p><i>{{ item.caption }}</i></p>{%- endif -%}
       </div>
