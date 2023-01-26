@@ -203,7 +203,8 @@ p.quote {
   }
 }
 
-right-print {display: none;
+right-print p{
+  display: none;
   @media print {
     display: inline-block;
     
