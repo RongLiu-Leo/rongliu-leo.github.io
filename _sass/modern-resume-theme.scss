@@ -9,6 +9,24 @@
   }
 }
 
+.head-right i {
+  margin-bottom: 3px;
+  font-size: 1.65rem;
+  text-align: inherit;
+  font-weight: 300;
+  float: right;
+  display: inline;
+  @media print {
+    display: inline;
+    // margin-bottom: 3px;
+    // font-size: 1.65rem;
+    // text-align: inherit;
+    // font-weight: 300;
+    // float: right;
+    // display: inline;
+  }
+}
+
 .header-right a{
   font-weight:500;
 }
