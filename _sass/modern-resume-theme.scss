@@ -79,7 +79,12 @@
       float: right;
       display: inline;
       @media print {
+        margin-bottom: 3px;
+        font-size: 1.65rem;
+        text-align: inherit;
+        font-weight: 300;
         float: right;
+        display: inline;
       }
     }
     p {
