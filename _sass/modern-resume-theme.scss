@@ -77,19 +77,23 @@
   flex-direction: row;
 
   .details {
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     vertical-align: middle;
 
+    @media print{
+      text-align: left;
+    }
+
     h4 {
-      text-align: center;
       margin-bottom: 0.1rem;
       font-weight: 500;
 
       @media print {
         margin-bottom: 0.2rem;
-        text-align: left !important;
+        text-align: left;
       }
 
       a {
@@ -110,7 +114,6 @@
       
     
     p {
-      text-align: center;
       margin-bottom: 3px;
       font-size: 1.65rem;
       text-align: inherit;
