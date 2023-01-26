@@ -70,7 +70,17 @@
     text-align: center;
     justify-content: center;
     vertical-align: middle;
-
+    rp {
+      margin-bottom: 3px;
+      font-size: 1.65rem;
+      text-align: inherit;
+      font-weight: 300;
+      display: none;
+      @media print {
+        float: right;
+        display: inline-block;
+      }
+    }
     p {
       margin-bottom: 3px;
       font-size: 1.65rem;
