@@ -72,7 +72,20 @@
     text-align: center;
     justify-content: center;
     vertical-align: middle;
+    
+    h4 {
+      margin-bottom: 0.1rem;
+      font-weight: 500;
 
+      @media print {
+        margin-bottom: 0.2rem;
+        text-align: left !important;
+      }
+
+      a {
+        font-weight: 500;
+      }
+    }
     i {
       margin-bottom: 3px;
       font-size: 1.65rem;
@@ -82,12 +95,6 @@
       display: none;
       @media print {
         display: inline;
-        // margin-bottom: 3px;
-        // font-size: 1.65rem;
-        // text-align: inherit;
-        // font-weight: 300;
-        // float: right;
-        // display: inline;
       }
     }
       
@@ -130,19 +137,6 @@
       font-size: 1.5rem;
     }
 
-    h4 {
-      margin-bottom: 0.1rem;
-      font-weight: 500;
-
-      @media print {
-        margin-bottom: 0.2rem;
-        text-align: left !important;
-      }
-
-      a {
-        font-weight: 500;
-      }
-    }
   }
 }
 
