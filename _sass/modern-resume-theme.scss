@@ -71,22 +71,7 @@
     justify-content: center;
     vertical-align: middle;
 
-    rp {
-      margin-bottom: 3px;
-      font-size: 1.65rem;
-      text-align: inherit;
-      font-weight: 300;
-      float: right;
-      display: inline;
-      @media print {
-        margin-bottom: 3px;
-        font-size: 1.65rem;
-        text-align: inherit;
-        font-weight: 300;
-        float: right;
-        display: inline;
-      }
-    }
+    
     p {
       margin-bottom: 3px;
       font-size: 1.65rem;
@@ -98,6 +83,22 @@
 
       b {
         font-weight: 500;
+      }
+      i {
+        margin-bottom: 3px;
+        font-size: 1.65rem;
+        text-align: inherit;
+        font-weight: 300;
+        float: right;
+        display: inline;
+        @media print {
+          // margin-bottom: 3px;
+          // font-size: 1.65rem;
+          // text-align: inherit;
+          // font-weight: 300;
+          float: right;
+          // display: inline;
+        }
       }
     }
 
