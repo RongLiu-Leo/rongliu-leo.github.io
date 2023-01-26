@@ -9,7 +9,17 @@
   }
 }
 
-
+.header-right.details i {
+  margin-bottom: 3px;
+  font-size: 1.65rem;
+  text-align: inherit;
+  font-weight: 300;
+  float: right;
+  display: none;
+  @media print {
+    display: inline;
+  }
+}
 
 .header-right a{
   font-weight:500;
