@@ -9,13 +9,13 @@
   }
 }
 
-.header-right.details i {
+.header-right i {
   margin-bottom: 3px;
   font-size: 1.65rem;
   text-align: inherit;
   font-weight: 300;
   float: right;
-  display: none;
+  display: inline;
   @media print {
     display: inline;
   }
