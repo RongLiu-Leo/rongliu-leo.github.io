@@ -1,11 +1,4 @@
-{% if item.title=="When I take a break from AI"%}
-
-<div class="row clearfix no-print">
-
-  {% else %}
-  <div class="row clearfix">
-{% endif %}
-
+<div class="row clearfix">
   <div class="col-md-12">
     {{ include.content | strip | markdownify }}
   </div>
