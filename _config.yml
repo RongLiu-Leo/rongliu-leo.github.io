@@ -80,6 +80,7 @@ content:
 
         description: | 
           This CSCI 590 Directed Research project, which is supervised by Professor [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott), aims to develop a pipeline that produces cost-effective, professional-looking cinematic imagery by transferring the style of a given image into a video.
+          The project employs the HR-Net architecture to preserve semantic information and employs a similar approach to Neural Style Transfer to extract image styles. The style transfer is achieved by minimizing the Mean Squared Error between the content and style activation maps. However, unlike traditional Neural Style Transfer methods, which are model-free and require a computationally intensive process to transfer style for each new task, training the HR-Net model allows for the learning of both semantic and style patterns. As a result, the inference time is significantly reduced, as fine-tuning the content-style trade-off only needs to be performed once for a specific pair of content and style images. The HR-Net model can then be applied to all subsequent frames with similar semantic information, greatly reducing computational time compared to model-free methods.
           
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
           
