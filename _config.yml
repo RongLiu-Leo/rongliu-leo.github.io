@@ -41,7 +41,7 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I am a first-year Master student in AI specialization at USC with a strong interest in the field of Computer Vision, Deep Learning, and Generative AI.
+  &ensp;I am a first-year Master student in AI specialization at USC with a strong interest in the field of Computer Vision, Deep Learning, and Generative AI.
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
@@ -121,9 +121,9 @@ content:
         caption: August 2021 - Present
         layout: top
         description: |
-          [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
+          1. [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
           
-          Deep Learning Specialization provided by DeepLearning.AI:
+          1. Deep Learning Specialization provided by DeepLearning.AI:
 
           - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
           
@@ -132,11 +132,11 @@ content:
   - title: Awards
     layout: text
     content: |
-      Outstanding Undergraduate Thesis
+      - Outstanding Undergraduate Thesis
       
-      Meritorious Winner in Mathematical Contest in Modeling
+      - Meritorious Winner in Mathematical Contest in Modeling
       
-      First Prize in the National Artificial Intelligence Knowledge Competition for College Students
+      - First Prize in the National Artificial Intelligence Knowledge Competition for College Students
   
 
   # - title: When I take a break from AI
