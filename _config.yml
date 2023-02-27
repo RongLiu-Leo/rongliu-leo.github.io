@@ -41,7 +41,7 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  &ensp;I am a first-year Master student in AI specialization at USC with a strong interest in the field of Computer Vision, Deep Learning, and Generative AI.
+  &emsp;I am a first-year Master student in AI specialization at USC with a strong interest in the field of Computer Vision, Deep Learning, and Generative AI.
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
@@ -67,7 +67,7 @@ content:
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
-          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
+          &emsp;The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
           To achieve this goal, the project employs Darts to process the data and perform exploratory data analysis. 
           After setting the Exponential Smoothing baseline model and boosting it using ensemble methods, the LightGBM algorithm showed the best performance. 
           Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the forecast, resulting in a top 5 ranking on the leaderboard.
@@ -79,7 +79,7 @@ content:
         image: images/video_style_transfer/output2.gif
 
         description: | 
-          This CSCI 590 Directed Research project, which is supervised by Professor [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott), aims to develop a pipeline that produces cost-effective, professional-looking cinematic imagery by transferring the style of a given image into a video.
+          &emsp;This CSCI 590 Directed Research project, which is supervised by Professor [Scott Easley](https://viterbi.usc.edu/directory/faculty/Easley/Scott), aims to develop a pipeline that produces cost-effective, professional-looking cinematic imagery by transferring the style of a given image into a video.
           The project employs the HR-Net architecture to preserve semantic information and employs a similar approach to Neural Style Transfer to extract image styles. 
           However, unlike traditional Neural Style Transfer methods, which are model-free and require a computationally intensive process to transfer style for each new task, training the HR-Net model allows for the learning of both semantic and style patterns. 
           As a result, fine-tuning the content-style trade-off only needs to be performed once, and the HR-Net model can be applied to all subsequent frames with similar semantic information.
@@ -89,7 +89,7 @@ content:
       - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
         image: images/SDSL.jpg
         description: |
-          Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
+          &emsp;Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
           As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
           
           [Paper](https://drive.google.com/file/d/1IYW9wRDdkEo4-1dHkRbMPGiNYkRpQtZp/view?usp=sharing) | 
@@ -104,7 +104,7 @@ content:
         caption: September 2021 - June 2022
         layout: top
         description: |
-          During my undergraduate studies at Dalian University of Technology, I had the opportunity to serve as a teaching assistant for two courses: 
+          &emsp;During my undergraduate studies at Dalian University of Technology, I had the opportunity to serve as a teaching assistant for two courses: 
           **Program Design Basics and C Programming** and **Object-Oriented Method and C++ Program Design**. 
           In this role, I was responsible for holding office hours to assist students with their questions, as well as grading assignments and exams. 
           I value the experiences that have allowed me to contribute to the academic success of my peers.
@@ -114,20 +114,20 @@ content:
         caption: July 2020 - July 2022
         layout: top
         description: |
-          I am fortunate enough to have had the opportunity to join the Alpha Lab at DUT and be supervised by Professor [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm). In this lab, I am primarily responsible for utilizing objective detection methods to address problems related to radar signal sorting.
+          &emsp;I am fortunate enough to have had the opportunity to join the Alpha Lab at DUT and be supervised by Professor [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm). In this lab, I am primarily responsible for utilizing objective detection methods to address problems related to radar signal sorting.
           In the past two years, I have had the pleasure of collaborating closely with my supervisor and have achieved many accomplishments as a result. We have published one paper, obtained two patents, and received an award for an outstanding undergraduate thesis.        
       - title: Self Learner
         sub_title: Coursera
         caption: August 2021 - Present
         layout: top
         description: |
-          1. [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
+          - [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
           
-          1. Deep Learning Specialization provided by DeepLearning.AI:
+          - Deep Learning Specialization provided by DeepLearning.AI:
 
-          - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
-          
-          - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
+            - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
+            
+            - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
 
   - title: Awards
     layout: text
