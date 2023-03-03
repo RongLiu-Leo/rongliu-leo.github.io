@@ -62,7 +62,7 @@
 .button.button--sacnite.button--homepage {
   display: none;
   @media print {
-    display: inline-block;
+    display: inline-block !important;
   }
 }
 
