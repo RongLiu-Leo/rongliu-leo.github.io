@@ -256,3 +256,9 @@ body {
     display: none !important;
   }
 }
+
+@media screen {
+  .only-print {
+      display: none;
+  }
+}
