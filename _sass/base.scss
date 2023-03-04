@@ -256,9 +256,3 @@ body {
     display: none !important;
   }
 }
-.only-print {
-  display: none;
-  @media print {
-    display: inline-block;
-  }
-}
