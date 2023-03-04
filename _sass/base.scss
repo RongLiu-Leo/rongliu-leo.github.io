@@ -259,6 +259,6 @@ body {
 
 @media screen {
   .only-print {
-      display: none;
+      display: none !important;
   }
 }
