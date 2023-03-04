@@ -7,9 +7,9 @@ ul.icons li {
 }
 
 li.only-print {
-  display: none;
+  display: none !important;
   @media print {
-    display: inline-block;
+    display: inline-block !important;
   }
 }
 
