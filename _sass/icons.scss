@@ -6,10 +6,10 @@ ul.icons li {
   display: inline-block;
 }
 
-li.only-print {
-  display: none !important;
+ul.icons li.only-print {
+  display: none;
   @media print {
-    display: inline-block !important;
+    display: inline-block;
   }
 }
 
