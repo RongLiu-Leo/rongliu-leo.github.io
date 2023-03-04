@@ -28,19 +28,19 @@
           </li>
         {%- endif -%}
         
-        {%- if site.linkedin_username -%}
+        <!-- {%- if site.linkedin_username -%}
           <li>
             <a target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}" class="button button--sacnite button--round-l">
               <i class="fab fa-linkedin-in" title="Linkedin link"></i>
             </a>
           </li>
-        {%- endif -%}
+        {%- endif -%} -->
         
         
        
         {%- if site.googlescholar_username -%}
           <li>
-            <a target="_blank" href="https://scholar.google.com/citations?user={{ site.googlescholar_username| escape }}" class="button button--sacnite button--round-l">
+            <a target="_blank" href="https://scholar.google.com/citations?user={{ site.googlescholar_username| escape }}" class="button button--sacnite button--round-l no-print">
               <i class="ai ai-google-scholar" title="Google scholar link"></i>
             </a>
           </li>
@@ -49,6 +49,7 @@
         <li>
           <a target="_blank" href="mailto:rliu8691@usc.edu" class="button button--sacnite button--round-l">
             <i class="far fa-envelope" title="Email link"></i>
+            <p>rliu8691@usc.edu</p>
           </a>
         </li>
       </ul>
