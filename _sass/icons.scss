@@ -4,10 +4,12 @@ ul.icons a:hover {
 
 ul.icons li {
   display: inline-block;
-  @media screen {
-    .only-print, .only-print * {
-        display: none !important;
-    }
+}
+
+.only-print li {
+  display: none;
+  @media print {
+    display: inline-block;
   }
 }
 
