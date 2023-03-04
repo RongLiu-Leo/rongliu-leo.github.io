@@ -2,15 +2,15 @@ ul.icons a:hover {
   background: rgba(0, 0, 0, 0.025);
 }
 
-ul.icons li {
-  display: inline-block;
-  .only-print {
-    display: none;
-    @media print {
-      display: inline-block;
-    }
-  }
-}
+// ul.icons li {
+//   display: inline-block;
+//   .only-print {
+//     display: none;
+//     @media print {
+//       display: inline-block;
+//     }
+//   }
+// }
 
 
 ul.icons a {
