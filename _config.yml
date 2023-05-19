@@ -100,6 +100,14 @@ content:
     layout: list
     content: 
       - title: Research Assistant
+        sub_title: USC Institute for Creative Technologies
+        caption: May 2023 - Present
+        layout: top
+        description: |
+          Experiencing...
+
+          
+      - title: Research Assistant
         sub_title: Dalian University of Technology
         caption: July 2020 - July 2022
         layout: top
@@ -117,12 +125,7 @@ content:
           In this role, I was responsible for holding office hours to assist students with their questions, as well as grading assignments and exams. 
           I value the experiences that have allowed me to contribute to the academic success of my peers.
       
-      - title: Research Assistant
-        sub_title: USC Institute for Creative Technologies
-        caption: May 2023 - Present
-        layout: top
-        description: |
-          Experiencing...
+      
 
       # - title: Self Learner
       #   sub_title: Coursera
