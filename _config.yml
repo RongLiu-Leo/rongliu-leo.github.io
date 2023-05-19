@@ -117,18 +117,25 @@ content:
           In this role, I was responsible for holding office hours to assist students with their questions, as well as grading assignments and exams. 
           I value the experiences that have allowed me to contribute to the academic success of my peers.
       
-      - title: Self Learner
-        sub_title: Coursera
-        caption: August 2021 - Present
+      - title: Research Assistant
+        sub_title: USC Institute for Creative Technologies
+        caption: May 2023 - Present
         layout: top
         description: |
-          - [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
-          
-          - Deep Learning Specialization provided by DeepLearning.AI:
+          Experiencing...
 
-            - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
+      # - title: Self Learner
+      #   sub_title: Coursera
+      #   caption: August 2021 - Present
+      #   layout: top
+      #   description: |
+      #     - [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
+          
+      #     - Deep Learning Specialization provided by DeepLearning.AI:
+
+      #       - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
             
-            - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
+      #       - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
 
   - title: Awards
     layout: text
