@@ -143,14 +143,11 @@ content:
   - title: Awards
     layout: text
     content: |
-      - [Computer Science Master's Student Honors Program](https://www.cs.usc.edu/academic-programs/masters/cs_ms_honors/)
+      - [USC Computer Science Master's Student Honors Program](https://www.cs.usc.edu/academic-programs/masters/cs_ms_honors/)
 
-      - Outstanding Undergraduate Thesis
+      - DUT Outstanding Undergraduate Thesis
       
-      - Meritorious Winner in Mathematical Contest in Modeling
       
-      - First Prize in the National Artificial Intelligence Knowledge Competition for College Students
-  
 
   # - title: When I take a break from AI
   #   layout: text
