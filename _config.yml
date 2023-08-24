@@ -41,9 +41,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I am an MSCS student at USC with a strong interest in Computer Vision and Machine Learning. My goal is to use Machine Learning to capture and create beauties.
+  I'm pursuing a Master of Science in Computer Science at USC, and my passion lies in the intersection of Computer Vision and Machine Learning. My objective is to harness the power of Computer Vision and Machine Learning to capture and create reality in various forms.
 
-  I am currently working on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
+  I currently focus on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
