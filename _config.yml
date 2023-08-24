@@ -41,7 +41,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I am a first-year Master student in AI specialization at USC with a strong interest in capturing and creating reality.
+  I am an MSCS student at USC with a strong interest in Computer Vision and Machine Learning. My goal is to use Machine Learning to capture and create beauties.
+
+  I am currently working on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
@@ -69,6 +71,7 @@ content:
 
         description: | 
           Instant Photorealistic Style Transfer (IPST) pipeline is designed to achieve instant photorealistic style transfer on 4K-resolution inputs without the need for pre-training using pair-wise datasets. Our method utilizes a lightweight photorealistic StyleNet to enable style transfer from a style image to a content image while preserving non-color information. To further enhance the style transfer process, we introduce an instance-adaptive optimization method to fine-tune the loss function to prioritize the photorealism of outputs and also accelerate the convergence of the style network, leading to rapid training completion within seconds. By retaining spatial and multi-view consistency of the inputs, IPST is well-suited for video and NeRF style transfer tasks, which can be achieved by training the style transfer on the first image and then applying the trained StyleNet to the remaining images. Experimental results demonstrate that IPST generates photorealistic and consistent outputs, making it a promising solution for various photorealistic transfer applications.      
+          [Project Page](https://rongliu-leo.github.io/Video-Style-Transfer/) | 
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
 
       - title: Store Sales - Time Series Forecasting
