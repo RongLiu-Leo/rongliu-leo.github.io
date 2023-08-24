@@ -66,7 +66,7 @@ content:
   - title: Project # Title for the section
     layout: image # Type of content section (list/text)
     content:
-      - title: Video Style Transfer
+      - title: Instant Photorealistic Style Transfer
         image: images/IPST.gif
 
         description: | 
