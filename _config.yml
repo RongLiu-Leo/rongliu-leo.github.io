@@ -41,9 +41,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I'm pursuing a Master of Science in Computer Science at USC, and my passion lies in the intersection of Computer Vision and Machine Learning. My objective is to harness the power of Computer Vision and Machine Learning to capture and create reality in various forms.
+  I'm pursuing a Master of Science in Computer Science at USC, and my passion lies in the intersection of Computer Vision and Machine Learning. 
 
-  I currently focus on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
+  Currently, I am interested in AI for creation, and I am working on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
@@ -55,9 +55,9 @@ content:
     content:
       - title: 'Instant Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
-        caption: Rong Liu, Enyu Zhao, Zhiyuan Liu, Andrew Wei-Wen Feng, Scott John Easley
+        caption: Rong Liu, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley
         description: |
-          arXiv 2023
+          Pre-Print arXiv:2309.10011
 
           [Project Page](https://rongliu-leo.github.io/Video-Style-Transfer/) | 
           [Paper](https://arxiv.org/abs/2309.10011) | 
@@ -101,14 +101,19 @@ content:
   - title: Experience
     layout: list
     content: 
+      - title: Research Assistant
+        sub_title: USC Institute for Creative Technologies
+        caption: Aug 2023 - Present
+        layout: top
+
       - title: Research Intern
         sub_title: USC Institute for Creative Technologies
-        caption: May 2023 - Present
+        caption: May 2023 - Aug 2023
         layout: top
         description: |
-          Experiencing...
-
-
+          While interning at USC ICT, I had the privilege of working under the guidance of Dr. Andrew Feng, where my primary focus was on improving the scalability of NeRF when applied to extensive terrain datasets.
+          Traditional NeRF models have demonstrated their effectiveness when dealing with relatively small datasets. However, their performance tends to degrade significantly when confronted with complex real-world terrain landscapes, resulting in decreased resolution.
+          To address this issue, I integrated an attention mechanism into NerfStudio. This strategy a ray-level, end-to-end implementation, allowing to filter rays based on their intersection with the attention box. By incorporating the attention box, the grid field became more attuned to specific areas of interest, ultimately leading to an improvement in resolution.
       - title: Research Assistant
         sub_title: Dalian University of Technology
         caption: July 2020 - July 2022
