@@ -57,8 +57,13 @@ content:
         video: videos/IPST.mp4
         caption: Rong Liu, Enyu Zhao, Zhiyuan Liu, Andrew Wei-Wen Feng, Scott John Easley
         description: |
-          arXiv
-          
+          arXiv 2023
+
+          [Project Page](https://rongliu-leo.github.io/Video-Style-Transfer/) | 
+          [Paper](https://arxiv.org/abs/2309.10011) | 
+          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+
+
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
         caption: Liangtian Wan, Rong Liu, Lu Sun, Hansong Nie, Xianpeng Wang
