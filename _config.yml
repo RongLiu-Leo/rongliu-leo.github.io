@@ -53,6 +53,12 @@ content:
   - title: Publication
     layout: image
     content:
+      - title: 'Instant Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
+        video: videos/IPST.mp4
+        caption: Rong Liu, Enyu Zhao, Zhiyuan Liu, Andrew Wei-Wen Feng, Scott John Easley
+        description: |
+          arXiv
+          
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
         caption: Liangtian Wan, Rong Liu, Lu Sun, Hansong Nie, Xianpeng Wang
