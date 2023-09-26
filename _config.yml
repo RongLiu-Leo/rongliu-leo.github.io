@@ -113,7 +113,7 @@ content:
         description: |
           While interning at USC ICT, I had the privilege of working under the guidance of Dr. Andrew Feng, where my primary focus was on improving the scalability of NeRF when applied to extensive terrain datasets.
           Traditional NeRF models have demonstrated their effectiveness when dealing with relatively small datasets. However, their performance tends to degrade significantly when confronted with complex real-world terrain landscapes, resulting in decreased resolution.
-          To address this issue, I integrated an attention mechanism into NerfStudio. This strategy a ray-level, end-to-end implementation, allowing to filter rays based on their intersection with the attention box. By incorporating the attention box, the grid field became more attuned to specific areas of interest, ultimately leading to an improvement in resolution.
+          To address this issue, I integrated an attention mechanism into NerfStudio. This strategy is a ray-level, end-to-end implementation, allowing to filter rays based on their intersection with the attention box. By incorporating the attention box, the grid field became more attuned to specific areas of interest, ultimately leading to an improvement in resolution.
       - title: Research Assistant
         sub_title: Dalian University of Technology
         caption: July 2020 - July 2022
