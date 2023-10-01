@@ -74,29 +74,29 @@ content:
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
 
 
-  - title: Project # Title for the section
-    layout: image # Type of content section (list/text)
-    content:
-      - title: Store Sales - Time Series Forecasting
-        image: images/comparison.png
-        description: | # this will include new lines to allow paragraphs
-          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
-          To achieve this goal, the project employs Darts to process the data and perform exploratory data analysis. 
-          After setting the Exponential Smoothing baseline model and boosting it using ensemble methods, the LightGBM algorithm showed the best performance. 
-          Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the forecast, resulting in a top 5 ranking on the leaderboard.
+  # - title: Project # Title for the section
+  #   layout: image # Type of content section (list/text)
+  #   content:
+  #     - title: Store Sales - Time Series Forecasting
+  #       image: images/comparison.png
+  #       description: | # this will include new lines to allow paragraphs
+  #         The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
+  #         To achieve this goal, the project employs Darts to process the data and perform exploratory data analysis. 
+  #         After setting the Exponential Smoothing baseline model and boosting it using ensemble methods, the LightGBM algorithm showed the best performance. 
+  #         Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the forecast, resulting in a top 5 ranking on the leaderboard.
           
-          [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
-          [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
+  #         [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
+  #         [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
           
-      - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
-        image: images/SDSL.jpg
-        description: |
-          Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
-          As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
+  #     - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
+  #       image: images/SDSL.jpg
+  #       description: |
+  #         Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
+  #         As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
           
-          [Paper](https://drive.google.com/file/d/1IYW9wRDdkEo4-1dHkRbMPGiNYkRpQtZp/view?usp=sharing) | 
-          [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
-          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
+  #         [Paper](https://drive.google.com/file/d/1IYW9wRDdkEo4-1dHkRbMPGiNYkRpQtZp/view?usp=sharing) | 
+  #         [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
+  #         [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
 
   - title: Experience
     layout: list
