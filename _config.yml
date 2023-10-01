@@ -41,9 +41,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I'm pursuing a Master of Science in Computer Science at USC, and my passion lies in the intersection of Computer Vision and Machine Learning. 
+  I'm pursuing a Master of Science in Computer Science at USC and a student researcher at USC Institute for Creative Technologies. My research passion lies in the intersection of Computer Vision and Machine Learning. 
 
-  Currently, I am interested in AI for creation, and I am working on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
+  Currently, I am interested in AI for creation, and I am foucusing on Photorealistic Style Transfer and Neural Radiance Fields (NeRF).
 
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
@@ -66,7 +66,7 @@ content:
 
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
-        caption: Liangtian Wan, Rong Liu, Lu Sun, Hansong Nie, Xianpeng Wang
+        caption: Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang
         description: |
           Information Fusion. 78 (2022): 90-101
 
