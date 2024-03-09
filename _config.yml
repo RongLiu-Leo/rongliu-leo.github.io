@@ -78,7 +78,7 @@ content:
   - title: Project
     layout: image
     content:
-      - title: GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint
+      - title: 'GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint'
         image: images/GaussianNeRF.png
         description: | # this will include new lines to allow paragraphs
           Recently, 3D reconstruction has gained considerable attention, particularly in the wake of Neural Radiance Fields (NeRF). 
