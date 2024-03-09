@@ -41,10 +41,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I'm a student researcher at USC Institute for Creative Technologies. My research passion lies in the intersection of 3D Computer Vision and Machine Learning. 
+  I'm a student researcher affiliated with the USC Institute for Creative Technologies, and my research passion lies in the intersection of Computer Vision and Machine Learning. 
 
-  Currently, I am foucusing on Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.
-
+  Currently, my primary focus is on projects related to 3D vision, with a special emphasis on Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.
 # Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
 
