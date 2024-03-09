@@ -83,10 +83,9 @@ content:
         description: | # this will include new lines to allow paragraphs
           Recently, 3D reconstruction has gained considerable attention, particularly in the wake of Neural Radiance Fields (NeRF). 
           Despite NeRF's ability to produce high-quality image renderings, its output in the form of volume rendering poses challenges for direct industrial applications. 
-          There are previous works that convert volume rendering, the output of NeRF, into mesh, which is the most widely used format for 3D modeling. 
           However, state-of-the-art NeRF-related techniques suffer from the dilemma of low-quality mesh output due to the lack of surface definition while SDF-based methods are hindered by long computation time brought by surface definition. 
           To improve the mesh modeling produced by NeRF while keeping high-speed computation, we discovered that the shape of the weight function contributes to the mesh surface quality, therefore introducing Gaussian loss into the original NeRF representative to improve the mesh quality. 
-          Experiments demonstrate that our proposed method produces a superior mesh than Nerfacto, the latest NeRF-related model maintained by Nerfstudio. In texture and runtime, it outperforms Neus-facto, the latest SDF-based model updated by SDFstudio.          
+          Experiments demonstrate that our proposed method produces a superior mesh than Nerfacto while it outperforms Neus-facto in texture and runtime.       
           
           [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
 
