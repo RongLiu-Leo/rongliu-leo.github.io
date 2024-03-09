@@ -78,10 +78,10 @@ content:
     layout: image
     content:
       - title: 'Gaussian Splatting Studio'
-        image: videos/GSS.mp4
+        video: videos/GSS.mp4
         description: | # this will include new lines to allow paragraphs
           Building
-          
+
       - title: 'GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint'
         image: images/GaussianNeRF.png
         description: | # this will include new lines to allow paragraphs
