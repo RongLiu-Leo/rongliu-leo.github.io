@@ -87,7 +87,17 @@ content:
           To improve the mesh modeling produced by NeRF while keeping high-speed computation, we discovered that the shape of the weight function contributes to the mesh surface quality, therefore introducing Gaussian loss into the original NeRF representative to improve the mesh quality. 
           Experiments demonstrate that our proposed method produces a superior mesh than Nerfacto while it outperforms Neus-facto in texture and runtime.       
           
-          [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
+          [Report](https://drive.google.com/file/d/1PWURMQx6diQ9lS00MhN-TQsn4VW_PNXA/view?usp=sharing)
+      
+      - title: 'GPT-ID: GPT Interaction Detector'
+        image: images/gptid.png
+        description: | # this will include new lines to allow paragraphs
+          we propose the creation of GPT-ID (GPT Interaction Detector), a tool de- signed to distinguish between AI-generated and human-written texts. 
+          To do so, we built upon the previous work of DetectGPT to provide a better way of detection. 
+          We have achieved better accuracy through improved perturbation. We have also explored a novel idea of comparing the edit distribution of the texts. 
+          This tool will allow us to determine if texts are generated via language models, mitigating the adverse effects of text-generation technologies while encouraging responsible and ethical utilization.    
+          
+          [Report](https://drive.google.com/file/d/1N7tjKrtsLJxgBfK7YYpLDIlgeTKgx27g/view?usp=sharing)
 
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
@@ -98,7 +108,7 @@ content:
           Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the forecast, resulting in a top 5 ranking on the leaderboard.
           
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
-          [Report](https://drive.google.com/file/d/1qFx3XvNh6RqaNpol3grpwS9sHMt-dqp4/view?usp=share_link)
+          [Report](https://drive.google.com/file/d/1faS018QUO05i1PqxFxtH7eI1ePVMCT2z/view?usp=sharing)
           
       - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
         image: images/SDSL.jpg
@@ -106,8 +116,8 @@ content:
           Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
           As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
           
-          [Paper](https://drive.google.com/file/d/1IYW9wRDdkEo4-1dHkRbMPGiNYkRpQtZp/view?usp=sharing) | 
-          [Poster](https://drive.google.com/file/d/1ytKVfacSBbT3S-fbs4zV-3l5Tw0k-SX3/view?usp=sharing) | 
+          [Paper](https://drive.google.com/file/d/1imDXxVgogoaUwJ4pMvP29f2l-yropwr_/view?usp=sharing) | 
+          [Poster](https://drive.google.com/file/d/1D4MpOLaXKGL6iMc2XZJQzcUx04Gmt-DE/view?usp=sharing) | 
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
 
   - title: Experience
