@@ -82,6 +82,9 @@ content:
         description: | # this will include new lines to allow paragraphs
           Building
 
+          [Project Page](https://rongliu-leo.github.io/Gaussian-Splatting-Studio/) | 
+          [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Studio)
+
       - title: 'GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint'
         image: images/GaussianNeRF.png
         description: | # this will include new lines to allow paragraphs
