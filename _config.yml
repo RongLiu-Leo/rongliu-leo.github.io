@@ -52,6 +52,17 @@ content:
   - title: Publication
     layout: image
     content:
+      - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
+        video: images/atomgs.png
+        description: |
+          ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
+
+          Pre-Print arXiv:2405.12369
+
+          [Project Page](https://rongliu-leo.github.io/AtomGS/) | 
+          [Paper](https://arxiv.org/abs/2405.12369) | 
+          [Code](https://github.com/RongLiu-Leo/AtomGS)
+
       - title: 'Instant Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
         description: |
@@ -77,52 +88,41 @@ content:
   - title: Project
     layout: image
     content:
-      - title: 'Gaussian Splatting Studio'
+      - title: 'Gaussian Splatting Monitor'
         video: videos/GSS.mp4
         description: | # this will include new lines to allow paragraphs
-          Building
+          We aim to extend 3D Gaussian Splatting, currently limited to RGB rendering and loss, by incorporating differentiable outputs inspired by the versatile Neural Radiance Fields (NeRF), thus enabling advanced research and novel loss functions for improved volumetric analysis.
 
-          [Project Page](https://rongliu-leo.github.io/Gaussian-Splatting-Studio/) | 
-          [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Studio)
+          [Project Page](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
+          [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
 
       - title: 'GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint'
         image: images/GaussianNeRF.png
         description: | # this will include new lines to allow paragraphs
-          Recently, 3D reconstruction has gained considerable attention, particularly in the wake of Neural Radiance Fields (NeRF). 
-          Despite NeRF's ability to produce high-quality image renderings, its output in the form of volume rendering poses challenges for direct industrial applications. 
-          However, state-of-the-art NeRF-related techniques suffer from the dilemma of low-quality mesh output due to the lack of surface definition while SDF-based methods are hindered by long computation time brought by surface definition. 
-          To improve the mesh modeling produced by NeRF while keeping high-speed computation, we discovered that the shape of the weight function contributes to the mesh surface quality, therefore introducing Gaussian loss into the original NeRF representative to improve the mesh quality. 
-          Experiments demonstrate that our proposed method produces a superior mesh than Nerfacto while it outperforms Neus-facto in texture and runtime.       
-          
+          We enhanced NeRF's mesh modeling quality and speed by incorporating a Gaussian loss function, resulting in better mesh quality and outperforming Nerfacto in texture and runtime.
+
           [Report](https://drive.google.com/file/d/1PWURMQx6diQ9lS00MhN-TQsn4VW_PNXA/view?usp=sharing)
       
       - title: 'GPT-ID: GPT Interaction Detector'
         image: images/gptid.png
         description: | # this will include new lines to allow paragraphs
-          we propose the creation of GPT-ID (GPT Interaction Detector), a tool de- signed to distinguish between AI-generated and human-written texts. 
-          To do so, we built upon the previous work of DetectGPT to provide a better way of detection. 
-          We have achieved better accuracy through improved perturbation. We have also explored a novel idea of comparing the edit distribution of the texts. 
-          This tool will allow us to determine if texts are generated via language models, mitigating the adverse effects of text-generation technologies while encouraging responsible and ethical utilization.    
-          
+          We propose GPT-ID, a tool built upon DetectGPT, designed to distinguish AI-generated from human-written texts with improved accuracy and novel edit distribution comparison, aiming to ensure responsible use of text-generation technologies.
+
           [Report](https://drive.google.com/file/d/1N7tjKrtsLJxgBfK7YYpLDIlgeTKgx27g/view?usp=sharing)
 
       - title: Store Sales - Time Series Forecasting
         image: images/comparison.png
         description: | # this will include new lines to allow paragraphs
-          The fundamental goal of this project is to forecast sales for a company in Ecuador, Corporación Favorita, using time series data, which covers 54 stores with 33 product families, spanning from 2013-01-01 to 2017-08-15. 
-          To achieve this goal, the project employs Darts to process the data and perform exploratory data analysis. 
-          After setting the Exponential Smoothing baseline model and boosting it using ensemble methods, the LightGBM algorithm showed the best performance. 
-          Additionally, the project used model stacking, quadratic fitting, and genetic mutation algorithm to further optimize the forecast, resulting in a top 5 ranking on the leaderboard.
-          
+          The project aims to forecast sales for Ecuador's Corporación Favorita using time series data, achieving top 5 leaderboard ranking through data analysis, Exponential Smoothing, LightGBM, and Genetic Mutation algorithms.
+
           [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
           [Report](https://drive.google.com/file/d/1faS018QUO05i1PqxFxtH7eI1ePVMCT2z/view?usp=sharing)
           
       - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
         image: images/SDSL.jpg
         description: |
-          Traditional statistical machine learning methods rely on Pulse Descriptor Word (PDW) as a feature for sorting and locating radar signals. However, these traditional methods fall short in achieving simultaneous sort and location. The accuracy in sorting and locating is difficult to improve due to the fixed and limited representation of structured PDW data. To address these issues, we propose a framework called radar signal simultaneous distributed sort and location (SDSL).
-          As part of the SDSL framework, we are using a machine learning model called PP-YOLOE, which performed better than other methods in testing. We are also working on making this model more efficient for use on individual UAVs and using the capabilities of the UAV swarm to make the overall process more efficient.
-          
+          Traditional methods using Pulse Descriptor Word (PDW) for radar signal sorting and locating are limited in accuracy, but our new SDSL framework, utilizing the PP-YOLOE model, improves performance and efficiency, especially for UAV swarms.
+
           [Paper](https://drive.google.com/file/d/1imDXxVgogoaUwJ4pMvP29f2l-yropwr_/view?usp=sharing) | 
           [Poster](https://drive.google.com/file/d/1D4MpOLaXKGL6iMc2XZJQzcUx04Gmt-DE/view?usp=sharing) | 
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
