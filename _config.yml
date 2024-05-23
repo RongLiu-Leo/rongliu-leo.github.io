@@ -53,7 +53,7 @@ content:
     layout: image
     content:
       - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
-        image: images/atomgs.png
+        video: videos/atomgs.mp4
         description: |
           ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
 
