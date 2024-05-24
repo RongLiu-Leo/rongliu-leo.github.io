@@ -7,8 +7,8 @@ version: 2
 
 # Personal info
 name: Rong Liu
-title: Master Student in Computer Science
-affiliation: University of Southern California
+title: Research Engineer
+affiliation: USC Institute for Creative Technologies
 email: rliu8691@usc.edu
 # email_title: Email (Email title override)
 phone: (213)519-8268
@@ -130,9 +130,14 @@ content:
   - title: Experience
     layout: list
     content: 
+      - title: Research Engineer
+        sub_title: USC Institute for Creative Technologies
+        caption: Aug 2023 - May 2024
+        layout: top
+
       - title: Research Assistant
         sub_title: USC Institute for Creative Technologies
-        caption: Aug 2023 - Present
+        caption: Aug 2023 - May 2024
         layout: top
 
       - title: Research Intern
