@@ -51,6 +51,9 @@ h1 {
   font-size: 4rem;
   margin-bottom: 0.1rem;
   font-weight: 500;
+  @media screen and (min-width: 992px) {
+    margin-left: 1rem;
+  }
   @media print {
     text-align: left;
   }
@@ -59,6 +62,9 @@ h1 {
 h2 {
   font-weight: 300;
   font-size: 2rem;
+  @media screen and (min-width: 992px) {
+    margin-left: 1rem;
+  }
   @media print {
     text-align: left;
     margin-bottom: 0.1rem !important;
