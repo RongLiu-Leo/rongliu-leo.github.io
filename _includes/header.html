@@ -3,15 +3,24 @@
     <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 header-left">
       <img class="profile-img no-print" src="{{site.about_profile_image}}"/>
 
-      <h1 style="font-family:Georgia, 'Times New Roman', Times, serif; font-variant: small-caps;">{{ site.name | escape }}</h1>
-      <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;" class="no-print">{{ site.title | escape }}</h2>
-      <h2 style="font-family:Georgia, 'Times New Roman', Times, serif;" class="no-print">{{ site.affiliation | escape }}</h2>
+      <!-- <h1>{{ site.name | escape }}</h1>
+      <h2>{{ site.title | escape }}</h2>
       <a target="_blank" href="mailto:rliu8691@usc.edu" class="print-only">
         Email: rliu8691@usc.edu
       </a>
       <a target="_blank" href="https://rongliu-leo.github.io/" class="print-only">
         Web: https://rongliu-leo.github.io/
-      </a>
+      </a> -->
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <h1>{{ site.name | escape }}</h1>
+          <h2>{{ site.title | escape }}</h2>
+        </div>
+        <div style="text-align: right;">
+          <a target="_blank" href="mailto:rliu8691@usc.edu" class="print-only">Email: rliu8691@usc.edu</a><br>
+          <a target="_blank" href="https://rongliu-leo.github.io/" class="print-only">Web: https://rongliu-leo.github.io/</a>
+        </div>
+      </div>
       <ul class="icons">
 
         <li>
