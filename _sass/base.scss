@@ -256,3 +256,12 @@ body {
     display: none !important;
   }
 }
+.print-only {
+  @media print {
+    display: block; /* or any other print-specific styles */
+  }
+
+  @media screen {
+    display: none;
+  }
+}
