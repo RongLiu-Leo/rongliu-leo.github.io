@@ -11,28 +11,16 @@
         </div>
         <div style="text-align: right; position: absolute; right: 0; bottom: 0;" class="print-only">
 
-        {%- if site.github_username -%}
-          <p>
-            Github: <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">https://github.com/{{ site.github_username| cgi_escape | escape }}</a>
-          </p>
-        {%- endif -%}
-        
-        {%- if site.linkedin_username -%}
-          <p>
-            Linkedin: <a href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}" target="_blank">https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}</a>
-          </p>
+        {%- if site.email -%}
+          <a href="mailto:{{ site.email }}" target="_blank">Email: {{ site.email | escape }}</a>
         {%- endif -%}
 
-        {%- if site.email -%}
-          <p>
-            Email: <a href="mailto:{{ site.email }}" target="_blank">{{ site.email | escape }}</a>
-          </p>
+        {%- if site.github_username -%}
+          <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">Github: https://github.com/{{ site.github_username| cgi_escape | escape }}</a>
         {%- endif -%}
 
         {%- if site.website -%}
-          <p>
-            Website: <a href="{{ site.website }}" target="_blank">{{ site.website }}</a>
-          </p>
+          <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
         {%- endif -%}
 
         </div>
