@@ -14,11 +14,11 @@
         {%- if site.email -%}
           <a href="mailto:{{ site.email }}" target="_blank">Email: {{ site.email | escape }}</a>
         {%- endif -%}
-
+        <br>
         {%- if site.github_username -%}
           <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">Github: https://github.com/{{ site.github_username| cgi_escape | escape }}</a>
         {%- endif -%}
-
+        <br>
         {%- if site.website -%}
           <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
         {%- endif -%}
