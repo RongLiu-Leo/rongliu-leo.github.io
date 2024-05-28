@@ -10,8 +10,31 @@
           <h2 style="font-size: 2rem;">{{ site.affiliation | escape }}</h2>
         </div>
         <div style="text-align: right; position: absolute; right: 0; bottom: 0;" class="print-only">
-          <a target="_blank" href="mailto:rliu8691@usc.edu">Email: rliu8691@usc.edu</a><br>
-          <a target="_blank" href="https://rongliu-leo.github.io/">Website: https://rongliu-leo.github.io/</a>
+
+        {%- if site.github_username -%}
+          <p>
+            Github: <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">https://github.com/{{ site.github_username| cgi_escape | escape }}</a>
+          </p>
+        {%- endif -%}
+        
+        {%- if site.linkedin_username -%}
+          <p>
+            Linkedin: <a href="https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}" target="_blank">https://www.linkedin.com/in/{{ site.linkedin_username| cgi_escape | escape }}</a>
+          </p>
+        {%- endif -%}
+
+        {%- if site.email -%}
+          <p>
+            Email: <a href="mailto:{{ site.email }}" target="_blank">{{ site.email | escape }}</a>
+          </p>
+        {%- endif -%}
+
+        {%- if site.website -%}
+          <p>
+            Website: <a href="{{ site.website }}" target="_blank">{{ site.website }}</a>
+          </p>
+        {%- endif -%}
+
         </div>
       </div>
       <ul class="icons">
@@ -48,20 +71,14 @@
           </li>
         {%- endif -%}
 
-        <li>
-          <a target="_blank" href="mailto:rliu8691@usc.edu" class="button button--sacnite button--round-l no-print">
-            <i class="far fa-envelope" title="Email link"></i>
-          </a>
-        </li>
+        {%- if site.email -%}
+          <li>
+            <a target="_blank" href="mailto:{{ site.email }}" class="button button--sacnite button--round-l no-print">
+              <i class="far fa-envelope" title="Email link"></i>
+            </a>
+          </li>
+        {%- endif -%}
       </ul>
-
-      <!-- <p>
-        {{ site.email_title | default: "Email" }}: <a href="mailto:{{ site.email }}" target="_blank">{{ site.email | escape }}</a>
-      </p> -->
-
-      <!-- <p>
-        {{ site.phone_title | default: "Phone" }}: {{ site.phone | escape }}
-      </p> -->
 
     </div>
 
