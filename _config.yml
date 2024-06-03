@@ -146,7 +146,7 @@ content:
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
         caption: May 2023 - Aug 2023
-        layout: right
+        layout: top
         description: |
           While interning at USC ICT, I had the privilege of working under the guidance of Dr. Andrew Feng, where my primary focus was on improving the scalability of NeRF when applied to extensive terrain datasets.
           Traditional NeRF models have demonstrated their effectiveness when dealing with relatively small datasets. However, their performance tends to degrade significantly when confronted with complex real-world terrain landscapes, resulting in decreased resolution.
