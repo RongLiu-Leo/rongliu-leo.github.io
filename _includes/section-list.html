@@ -9,6 +9,7 @@
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
       <div>
         <h4 id="{{ item.title | slugify }}" style="display:inline;"><b>{{ item.title }}</b></h4>
+        {%- if item.supervisor -%}<i>{{ item.supervisor }}</i>{%- endif -%}
         {%- if item.caption -%}<i>{{ item.caption }}</i>{%- endif -%}
       </div>
       {%- if item.sub_title -%}<p>{{ item.sub_title }}</p>{%- endif -%}
