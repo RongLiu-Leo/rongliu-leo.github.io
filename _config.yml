@@ -161,25 +161,10 @@ content:
         caption: September 2021 - June 2022
         layout: top
         description: |
-          During my undergraduate studies at Dalian University of Technology, I had the opportunity to serve as a teaching assistant for two courses: 
-          **Program Design Basics and C Programming** and **Object-Oriented Method and C++ Program Design**. 
-          In this role, I was responsible for holding office hours to assist students with their questions, as well as grading assignments and exams. 
+          - Program Design Basics and C Programming
+          - Object-Oriented Method and C++ Program Design
+               
       
-      
-
-      # - title: Self Learner
-      #   sub_title: Coursera
-      #   caption: August 2021 - Present
-      #   layout: top
-      #   description: |
-      #     - [Machine Learning](https://coursera.org/share/8197719d9771604ff45a12ea0ab80f4f) provided by Stanford Online
-          
-      #     - Deep Learning Specialization provided by DeepLearning.AI:
-
-      #       - [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://coursera.org/share/c9631e34c978f9ccf608c1588220827a)
-            
-      #       - [Neural Networks and Deep Learning](https://coursera.org/share/745ad08dcb8450f85de6637dd72d970b)
-
   - title: Awards
     layout: text
     content: |
