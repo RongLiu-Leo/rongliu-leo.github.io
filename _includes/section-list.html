@@ -11,7 +11,7 @@
         <h4 id="{{ item.title | slugify }}" style="display:inline;"><b>{{ item.title }}</b></h4>
         {%- if item.caption -%}<i>{{ item.caption }}</i>{%- endif -%}
       </div>
-      {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
+      {%- if item.sub_title -%}<p>{{ item.sub_title }}</p>{%- endif -%}
       {%- if item.caption -%}<p class="no-print">{{ item.caption }}</p>{%- endif -%}
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
