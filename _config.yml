@@ -134,13 +134,13 @@ content:
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
         caption: Aug 2023 - Present
-        layout: top
+        layout: left
 
       - title: Research Assistant
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
         caption: Aug 2023 - May 2024
-        layout: top
+        layout: left
         description: |
           - 3D Gaussian Splatting
           - Atomizing Gaussian Splatting for High-Fidelity Radiance Field
@@ -149,7 +149,7 @@ content:
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
         caption: May 2023 - Aug 2023
-        layout: top
+        layout: left
         description: |
           - Neural Radiance Fields (NeRF)
           - Scalable NeRF on large terrain datasets
@@ -158,7 +158,7 @@ content:
         sub_title: Dalian University of Technology
         supervisor: "Supervisor: Prof. Liangtian Wan"
         caption: July 2020 - July 2022
-        layout: top
+        layout: left
         description: |
           - Objective Detection (RCNN and YOLO)
           - Transfer Learning
@@ -166,7 +166,7 @@ content:
       - title: Teaching Assistant
         sub_title: Dalian University of Technology
         caption: September 2021 - June 2022
-        layout: top
+        layout: left
         description: |
           - Program Design Basics and C Programming
           - Object-Oriented Method and C++ Program Design
