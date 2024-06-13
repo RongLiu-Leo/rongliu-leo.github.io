@@ -6,7 +6,7 @@
 <div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-weak">
 
 {% endif %}
-      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;
+      <div class="col-xs-12 col-sm-12 col-md-4 no-print" style="text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;">
@@ -20,7 +20,7 @@
         {% endfor %}
       </div>
 
-      <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-print-12 content">
         <h4 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h4>
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
