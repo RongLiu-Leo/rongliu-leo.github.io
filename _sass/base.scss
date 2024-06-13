@@ -262,6 +262,6 @@ body {
   }
 
   @media screen {
-    display: none;
+    display: none !important;
   }
 }
