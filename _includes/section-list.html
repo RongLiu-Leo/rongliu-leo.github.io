@@ -1,9 +1,9 @@
 {% for item in include.content %}
 {% if forloop.last %}
-<div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-no">
+<div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-no no-print">
 
 {% else %}
-<div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-weak">
+<div class="row clearfix layout layout-{{item.layout | default: 'left'}} border-weak no-print">
 
 {% endif %}
     <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
