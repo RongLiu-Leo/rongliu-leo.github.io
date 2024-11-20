@@ -63,7 +63,7 @@ content:
           [Paper](https://arxiv.org/abs/2405.12369) | 
           [Code](https://github.com/RongLiu-Leo/AtomGS)
 
-      - title: 'Instant Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
+      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
         description: |
           ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
