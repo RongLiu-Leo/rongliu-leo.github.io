@@ -57,11 +57,12 @@ content:
         description: |
           ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
 
-          Pre-Print arXiv:2405.12369
+          35th British Machine Vision Conference 2024
 
           [Project Page](https://rongliu-leo.github.io/AtomGS/) | 
           [Paper](https://arxiv.org/abs/2405.12369) | 
-          [Code](https://github.com/RongLiu-Leo/AtomGS)
+          [Code](https://github.com/RongLiu-Leo/AtomGS) | 
+          [Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
 
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
