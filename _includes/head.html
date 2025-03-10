@@ -5,28 +5,9 @@
   <meta name="google-site-verification" content="JDrWZ0H7gFqMfaglHwJ8cMAcyjHHNbvl56QdKOTaQAQ" />
   <title>{{ site.name }}</title>
 
+  {%- seo title=false -%}
+
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "{{ site.author.name | jsonify }}",
-    "url": "{{ site.website | jsonify }}",
-    "image": "{{ site.website | jsonify }}/profile.jpg",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "{{ site.author.affiliation | jsonify }}"
-    },
-    "jobTitle": "{{ site.author.title | jsonify }}",
-    "sameAs": [
-      "https://scholar.google.com/citations?user={{ site.author.google_scholar | jsonify }}",
-      "https://github.com/{{ site.author.github | jsonify }}",
-      "https://www.linkedin.com/in/{{ site.author.linkedin | jsonify }}"
-    ]
-  }
-  </script>
-
 </head>
