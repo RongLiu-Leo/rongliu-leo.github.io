@@ -9,4 +9,24 @@
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.website }}",
+    "image": "{{ site.website }}/profile.jpg",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "{{ site.author.affiliation }}"
+    },
+    "jobTitle": "{{ site.author.title }}",
+    "sameAs": [
+      "https://scholar.google.com/citations?user={{ site.author.google_scholar }}",
+      "https://github.com/{{ site.author.github }}",
+      "https://www.linkedin.com/in/{{ site.author.linkedin }}"
+    ]
+  }
+  </script>
+
 </head>
