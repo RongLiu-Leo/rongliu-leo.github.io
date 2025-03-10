@@ -4,6 +4,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="JDrWZ0H7gFqMfaglHwJ8cMAcyjHHNbvl56QdKOTaQAQ" />
   <title>{{ site.name }}  | {{ site.title }}  | {{ site.affiliation }}</title>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "{{ site.name | escape }}",
+      "url": "{{ site.website | escape }}",
+      "image": "{{ site.website | append: '/profile.jpg' | escape }}",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "{{ site.affiliation | escape }}"
+      },
+      "jobTitle": "{{ site.title | escape }}",
+      "email": "mailto:{{ site.email | escape }}",
+      "telephone": "{{ site.phone | escape }}",
+      "sameAs": [
+        "https://github.com/{{ site.github_username | escape }}",
+        "https://www.linkedin.com/in/{{ site.linkedin_username | escape }}",
+        "https://scholar.google.com/citations?user={{ site.googlescholar_username | escape }}"
+      ]
+    }
+    </script>
+    
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
