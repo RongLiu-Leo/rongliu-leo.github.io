@@ -17,11 +17,14 @@
   <meta property="og:url" content="{{ site.website }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.website }}/{{ site.about_profile_image }}">
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="{{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
   <meta name="twitter:description" content="Personal website of {{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta name="twitter:image" content="{{ site.website }}/{{ site.about_profile_image }}">
+
   
   <!-- Structured Data with Schema.org JSON-LD -->
   <script type="application/ld+json">
@@ -30,7 +33,7 @@
     "@type": "Person",
     "name": "{{ site.name | escape }}",
     "url": "{{ site.website | escape }}",
-    "image": "{{ site.website | append: '/profile.jpg' | escape }}",
+    "image": "{{ site.website | escape }}/{{ site.about_profile_image | escape }}",
     "affiliation": {
       "@type": "Organization",
       "name": "{{ site.affiliation | escape }}"
@@ -50,6 +53,7 @@
   <title>{{ site.name }} | {{ site.title }} | {{ site.affiliation }}</title>
   <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
   <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
+  <link rel="canonical" href="https://rongliu-leo.github.io/">
   
   <!-- Academicons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
