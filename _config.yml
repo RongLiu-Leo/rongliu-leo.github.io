@@ -6,15 +6,17 @@ favicon: images/USC.png
 version: 2
 
 # Personal info
-name: Rong Liu
-title: Research Engineer
-affiliation: USC Institute for Creative Technologies
-email: rliu8691@usc.edu
-# email_title: Email (Email title override)
-phone: (213)519-8268
-# phone_title: Phone (Phone title override)
-website: https://rongliu-leo.github.io/
-# website_title: Web (Website title override)
+author:
+  name: Rong Liu
+  job_title: Research Engineer
+  affiliation: USC Institute for Creative Technologies
+  email: rliu8691@usc.edu
+  url: https://rongliu-leo.github.io/
+  image: images/profile.jpg
+  same_as:
+    - https://scholar.google.com/citations?user=MrWUyWkAAAAJ
+    - https://github.com/RongLiu-Leo
+    - https://www.linkedin.com/in/rong-liu-34a3b4251/
 
 # Dark Mode (true/false/never)
 darkmode: never
