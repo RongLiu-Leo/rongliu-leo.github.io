@@ -40,7 +40,6 @@ about_content: | # this will include new lines to allow paragraphs
   I'm a Research Engineer affiliated with the USC Institute for Creative Technologies, and my research passion lies in the intersection of Computer Vision and Machine Learning. 
 
   Currently, my primary focus is on projects related to 3D vision, with a special emphasis on Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.
-# Prior to studying at USC, I was working with [Liangtian Wan](http://faculty.dlut.edu.cn/wanliangtian/en/index.htm) at DUT Alpha Lab.
 
 
 content:
@@ -48,28 +47,26 @@ content:
   - title: Publication
     layout: image
     content:
+      - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
+        video: videos/splatmap.mp4
+        description: |
+          *Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng*
+
+          2025 ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (I3D 2025)
+
+          [Paper](https://arxiv.org/abs/2501.07015)
+
       - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
         video: videos/atomgs.mp4
         description: |
           ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
 
-          35th British Machine Vision Conference 2024
+          35th British Machine Vision Conference 2024 (BMVC 2024)
 
           [Project Page](https://rongliu-leo.github.io/AtomGS/) | 
           [Paper](https://arxiv.org/abs/2405.12369) | 
           [Code](https://github.com/RongLiu-Leo/AtomGS) | 
           [Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
-
-      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
-        video: videos/IPST.mp4
-        description: |
-          ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
-
-          Pre-Print arXiv:2309.10011
-
-          [Project Page](https://rongliu-leo.github.io/IPST/) | 
-          [Paper](https://arxiv.org/abs/2309.10011) | 
-          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
 
 
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
@@ -92,37 +89,17 @@ content:
 
           [Project Page](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
           [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
-
-      - title: 'GaussianNeRF: High-Fidelity Surface Reconstruction based on Gaussian Constraint'
-        image: images/GaussianNeRF.png
-        description: | # this will include new lines to allow paragraphs
-          We enhanced NeRF's mesh modeling quality and speed by incorporating a Gaussian loss function, resulting in better mesh quality and outperforming Nerfacto in texture and runtime.
-
-          [Report](https://drive.google.com/file/d/1PWURMQx6diQ9lS00MhN-TQsn4VW_PNXA/view?usp=sharing)
       
-      - title: 'GPT-ID: GPT Interaction Detector'
-        image: images/gptid.png
-        description: | # this will include new lines to allow paragraphs
-          We propose GPT-ID, a tool built upon DetectGPT, designed to distinguish AI-generated from human-written texts with improved accuracy and novel edit distribution comparison, aiming to ensure responsible use of text-generation technologies.
-
-          [Report](https://drive.google.com/file/d/1N7tjKrtsLJxgBfK7YYpLDIlgeTKgx27g/view?usp=sharing)
-
-      - title: Store Sales - Time Series Forecasting
-        image: images/comparison.png
-        description: | # this will include new lines to allow paragraphs
-          The project aims to forecast sales for Ecuador's Corporación Favorita using time series data, achieving top 5 leaderboard ranking through data analysis, Exponential Smoothing, LightGBM, and Genetic Mutation algorithms.
-
-          [Kaggle Competition](https://www.kaggle.com/competitions/store-sales-time-series-forecasting) |
-          [Report](https://drive.google.com/file/d/1faS018QUO05i1PqxFxtH7eI1ePVMCT2z/view?usp=sharing)
-          
-      - title: 'Undergraduate Thesis: A Radar Signal Sorting and Locating Approach Based on UAV Swarm via Distributed Algorithm'
-        image: images/SDSL.jpg
+      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
+        video: videos/IPST.mp4
         description: |
-          Traditional methods using Pulse Descriptor Word (PDW) for radar signal sorting and locating are limited in accuracy, but our new SDSL framework, utilizing the PP-YOLOE model, improves performance and efficiency, especially for UAV swarms.
+          ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
 
-          [Paper](https://drive.google.com/file/d/1imDXxVgogoaUwJ4pMvP29f2l-yropwr_/view?usp=sharing) | 
-          [Poster](https://drive.google.com/file/d/1D4MpOLaXKGL6iMc2XZJQzcUx04Gmt-DE/view?usp=sharing) | 
-          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docId=CN382200924&_cid=P11-LCPZZ4-10268-1)
+          Pre-Print arXiv:2309.10011
+
+          [Project Page](https://rongliu-leo.github.io/IPST/) | 
+          [Paper](https://arxiv.org/abs/2309.10011) | 
+          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
 
   - title: Experience
     layout: list
@@ -173,29 +150,14 @@ content:
     layout: text
     content: |
 
-      - [Computer Science Master's Student Honors Merit](./images/Honor.pdf)
+      - **[Computer Science Master's Student Honors Merit](./images/Honor.pdf)** - University of Southern California (USC), 2024
 
-      - DUT Outstanding Undergraduate Thesis
+      - **DUT Outstanding Undergraduate Thesis** - Dalian University of Technology (DUT), 2022
+
+      - **First Prize in the National Artificial Intelligence Knowledge Competition for College Students** - JiangSu Association of Artificial Intelligence (JSAI), 2020
+
+      - **Meritorious Winner in Mathematical Contest in Modeling** - Consortium for Mathematics and Its Applications (COMAP), 2019 
       
-      - Meritorious Winner in Mathematical Contest in Modeling
-      
-      - First Prize in the National Artificial Intelligence Knowledge Competition for College Students
-  
-
-  # - title: When I take a break from AI
-  #   layout: text
-  #   content: | # this will include new lines to allow paragraphs
-  #     Video games: I am a big fan of strategy games
-  #       - League of Legends (LOL) - highest rank: Platinum
-  #       - Teamfight Tactics (TFT) - highest rank: Diamond
-  #       - Red Alert 2
-
-  #     Basketball: I was a member of basketball team of DUT Software Engineering Department 
-
-  #     Travel: I love to experience different cultures, landscapes, and **delicious food**
-
-
-
 
 
 sass:
