@@ -21,38 +21,6 @@
     <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
       {{ item.description | strip | markdownify }}
     </div>
-    <span class="link-block">
-      {%- if item.website -%}
-      <i>
-        <a href="{{ item.website }}" class="external-link button is-rounded">
-          <span class="icon">
-            <i class="fab fa-github"></i>
-          </span>
-          <span>Website</span>
-        </a>
-      </i>
-      {%- endif -%}
-      {%- if item.paper -%}
-      <i>
-        <a href="{{ item.paper }}" class="external-link button is-rounded">
-          <span class="icon">
-            <i class="fab fa-github"></i>
-          </span>
-          <span>Paper</span>
-        </a>
-      </i>
-      {%- endif -%}
-      {%- if item.code -%}
-      <i>
-        <a href="{{ item.codel }}" class="external-link button is-rounded">
-          <span class="icon">
-            <i class="fab fa-github"></i>
-          </span>
-          <span>Code</span>
-        </a>
-      </i>
-      {%- endif -%}
-    </span>
   </div>
 {% endfor %}
 
