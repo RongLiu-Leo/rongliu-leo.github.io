@@ -1,5 +1,5 @@
 body {
-  color: #333;
+  color: #2B333F;
   font-family: Roboto, sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1rem;
@@ -31,19 +31,19 @@ p {
   margin-bottom: 3px;}
 
 a {
-  color: #477dca;
+  color: #0077aa;
   transition: color 150ms ease;
   @media print {
-    color: #477dca!important;
+    color: #0077aa!important;
     transition: color 150ms ease!important;
   }
 }
 a:active,
 a:focus,
 a:hover {
-  color: #355e98;
+  color: #0e132b;
   @media print {
-    color: #355e98!important;
+    color: #0e132b!important;
   }
 }
 
