@@ -21,22 +21,29 @@
     <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
       {{ item.description | strip | markdownify }}
     </div>
-    <span class="icon">
-      {% assign lower_link_name = link.name | downcase %}
-      {% if lower_link_name contains "code" %}
-        <i class="fab fa-github"></i>
-      {% elsif lower_link_name contains "arxiv" %}
-        <i class="ai ai-arxiv"></i>
-      {% elsif lower_link_name contains "paper" %}
-        <i class="fas fa-file-pdf"></i>
-      {% elsif lower_link_name contains "data" %}
-        <i class="far fa-images"></i>
-      {% elsif lower_link_name contains "video" %}
-        <i class="fab fa-youtube"></i>
-      {% else %}
-        <i class="fas fa-link"></i>
-      {% endif %}
-    </span>
+    {% for link in item.links %}
+      <span class="link-block">
+        <a href="{{ link.url }}" class="external-link button is-rounded">
+          <span class="icon">
+            {% assign lower_link_name = link.name | downcase %}
+            {% if lower_link_name contains "code" %}
+              <i class="fab fa-github"></i>
+            {% elsif lower_link_name contains "arxiv" %}
+              <i class="ai ai-arxiv"></i>
+            {% elsif lower_link_name contains "paper" %}
+              <i class="fas fa-file-pdf"></i>
+            {% elsif lower_link_name contains "data" %}
+              <i class="far fa-images"></i>
+            {% elsif lower_link_name contains "video" %}
+              <i class="fab fa-youtube"></i>
+            {% else %}
+              <i class="fas fa-link"></i>
+            {% endif %}
+          </span>
+          <span>{{ link.name }}</span>
+        </a>
+      </span>
+    {% endfor %}
   </div>
 {% endfor %}
 
