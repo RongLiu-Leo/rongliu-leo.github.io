@@ -25,38 +25,25 @@
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
+        {% for link in item.links %}
         <span class="link-block">
-          {%- if item.website -%}
-          <i>
-            <a href="{{ item.website }}" class="external-link button is-rounded">
-              <span class="icon">
+          <a href="{{ link.url }}" class="external-link button is-rounded">
+            <span class="icon">
+              {% assign lower_link_name = link.name | downcase %}
+              {% if lower_link_name contains "code" %}
                 <i class="fab fa-github"></i>
-              </span>
-              <span>Website</span>
-            </a>
-          </i>
-          {%- endif -%}
-          {%- if item.paper -%}
-          <i>
-            <a href="{{ item.paper }}" class="external-link button is-rounded">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Paper</span>
-            </a>
-          </i>
-          {%- endif -%}
-          {%- if item.code -%}
-          <i>
-            <a href="{{ item.codel }}" class="external-link button is-rounded">
-              <span class="icon">
-                <i class="fab fa-github"></i>
-              </span>
-              <span>Code</span>
-            </a>
-          </i>
-          {%- endif -%}
+              {% elsif lower_link_name contains "arxiv" %}
+                <i class="ai ai-arxiv"></i>
+              {% elsif lower_link_name contains "paper" %}
+                <i class="fas fa-file-pdf"></i>
+              {% else %}
+                <i class="fas fa-link"></i>
+              {% endif %}
+            </span>
+            <span>{{ link.name }}</span>
+          </a>
         </span>
+      {% endfor %}
       </div>
 
   </div>

@@ -58,10 +58,15 @@ content:
 
       - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
         video: videos/atomgs.mp4
-        webste: https://rongliu-leo.github.io/AtomGS/
-        paper: https://arxiv.org/abs/2405.12369
-        poster: https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf
-        code: https://github.com/RongLiu-Leo/AtomGS
+        links:
+          - name: "Website"
+            url: "https://rongliu-leo.github.io/AtomGS/"
+          - name: "Paper"
+            url: "https://arxiv.org/abs/2405.12369"
+          - name: "Code"
+            url: "https://github.com/RongLiu-Leo/AtomGS"
+          - name: "Poster"
+            url: "https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf"
         description: |
           ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
 
