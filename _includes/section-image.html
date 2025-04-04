@@ -25,27 +25,6 @@
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
-        
-        <span class="link-block">
-          {% for link in item.links %}
-          <a href="{{ link.url }}" class="button">
-            <span class="icon">
-              {% assign lower_link_name = link.name | downcase %}
-              {% if lower_link_name contains "code" %}
-                <i class="fab fa-github"></i>
-              {% elsif lower_link_name contains "website" %}
-                <i class="fab fa-chrome"></i>
-              {% elsif lower_link_name contains "paper" %}
-                <i class="fas fa-file-pdf"></i>
-              {% else %}
-                <i class="fas fa-link"></i>
-              {% endif %}
-            </span>
-            <span>{{ link.name }}</span>
-          </a>
-          {% endfor %}
-        </span>
-      
       </div>
 
   </div>
