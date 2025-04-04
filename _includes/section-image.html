@@ -26,9 +26,9 @@
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
         
-        <span class="link-block">
+        <span class="link-block button">
           {% for link in item.links %}
-          <a href="{{ link.url }}" class="external-link button is-rounded">
+          <a href="{{ link.url }}">
             <span class="icon">
               {% assign lower_link_name = link.name | downcase %}
               {% if lower_link_name contains "code" %}
