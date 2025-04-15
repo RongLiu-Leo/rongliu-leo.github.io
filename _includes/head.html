@@ -1,0 +1,60 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="JDrWZ0H7gFqMfaglHwJ8cMAcyjHHNbvl56QdKOTaQAQ" />
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Personal website of {{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta name="keywords" content="{{ site.name }}, {{ site.title }}, {{ site.affiliation }}">
+  <meta name="author" content="{{ site.name }}">
+  
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:title" content="{{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta property="og:description" content="Personal website of {{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta property="og:url" content="{{ site.website }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.website }}/{{ site.about_profile_image }}">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta name="twitter:description" content="Personal website of {{ site.name }} | {{ site.title }} | {{ site.affiliation }}">
+  <meta name="twitter:image" content="{{ site.website }}/{{ site.about_profile_image }}">
+
+  
+  <!-- Structured Data with Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ site.name | escape }}",
+    "url": "{{ site.website | escape }}",
+    "image": "{{ site.website | escape }}/{{ site.about_profile_image | escape }}",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "{{ site.affiliation | escape }}"
+    },
+    "jobTitle": "{{ site.title | escape }}",
+    "email": "{{ site.email | escape }}",
+    "sameAs": [
+      "https://github.com/{{ site.github_username | escape }}",
+      "https://www.linkedin.com/in/{{ site.linkedin_username | escape }}",
+      "https://scholar.google.com/citations?user={{ site.googlescholar_username | escape }}"
+    ],
+    "description": "Personal website of {{ site.name }} | {{ site.title }} | {{ site.affiliation }}"
+  }
+  </script>
+  
+  <!-- Title and Favicon -->
+  <title>{{ site.name }} | {{ site.title }} | {{ site.affiliation }}</title>
+  <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | default: '/assets/favicon.ico' | relative_url }}">
+  <link rel="canonical" href="https://rongliu-leo.github.io/">
+  
+  <!-- Academicons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>

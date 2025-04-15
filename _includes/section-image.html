@@ -1,0 +1,33 @@
+{% for item in include.content %}
+{% if forloop.last %}
+<div class="clearfix layout layout-{{item.layout | default: 'left'}} border-no">
+
+{% else %}
+<div class="clearfix layout layout-{{item.layout | default: 'left'}} border-weak">
+
+{% endif %}
+      <div class="col-xs-12 col-sm-12 col-md-3 no-print" style="text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px 30px 0px 0px;">
+        {% for img in item.image %}
+          <img src="{{img}}" style="width: 300px;"/>
+        {% endfor %}
+        {% for video in item.video %}
+        <video style="width: 300px; max-width: 100%;" autoplay loop muted playsinline>
+          <source src="{{video}}" type="video/mp4" />
+        </video>
+        {% endfor %}
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content" style="padding: 0px;">
+        <h4 id="{{ item.title | slugify }}"><b>{{ item.title }}</b></h4>
+        {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
+        {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
+        {{ item.description | strip | markdownify }}
+        <div class="no-print">{{ item.links | strip | markdownify }}</div>
+      </div>
+
+  </div>
+{% endfor %}

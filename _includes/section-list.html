@@ -1,0 +1,26 @@
+{% assign variants = "no-print,print-only" | split: "," %}
+{% for variant in variants %}
+  {% for item in include.content %}
+    {% if forloop.last %}
+      <div class="clearfix layout {% if variant == 'print-only' %}layout-top{% else %}layout-{{ item.layout | default: 'left' }}{% endif %} border-no {{ variant }}">
+    {% else %}
+      <div class="clearfix layout {% if variant == 'print-only' %}layout-top{% else %}layout-{{ item.layout | default: 'left' }}{% endif %} border-weak {{ variant }}">
+    {% endif %}
+        <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details" style="padding: 0px 30px 0px 0px;">
+          <div>
+            <h4 id="{{ item.title | slugify }}" style="display:inline;"><b>{{ item.title }}</b></h4>
+            {% if item.caption %}<i>{{ item.caption }}</i>{% endif %}
+            {% if item.supervisor %}<p class="no-print">{{ item.supervisor }}</p>{% endif %}
+          </div>
+          <div>
+            {% if item.sub_title %}<p style="display:inline;">{{ item.sub_title }}</p>{% endif %}
+            {% if item.supervisor %}<i>{{ item.supervisor }}</i>{% endif %}
+            {% if item.caption %}<p class="no-print">{{ item.caption }}</p>{% endif %}
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content" style="padding: 0px;">
+          {{ item.description | strip | markdownify }}
+        </div>
+      </div>
+  {% endfor %}
+{% endfor %}

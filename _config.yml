@@ -1,0 +1,180 @@
+# Site
+repository: RongLiu-Leo/rongliu-leo.github.io
+favicon: images/USC.png
+
+# Content configuration version
+version: 2
+
+# Personal info
+name: Rong Liu
+title: Research Engineer
+affiliation: USC Institute for Creative Technologies
+email: rliu8691@usc.edu
+website: https://rongliu-leo.github.io
+
+# Dark Mode (true/false/never)
+darkmode: never
+
+# Social links
+# twitter_username: jekyllrb
+github_username:  RongLiu-Leo
+# stackoverflow_username: "00000001"
+# dribbble_username: jekyll
+# facebook_username: jekyll
+# flickr_username: jekyll
+# instagram_username: jekyll
+linkedin_username: rong-liu-34a3b4251
+# xing_username: jekyll
+# pinterest_username: jekyll
+# youtube_username: jekyll
+googlescholar_username: MrWUyWkAAAAJ
+
+
+
+
+
+# About Section
+# about_title: About Me (Use this to override about section title)
+about_profile_image: images/profile.jpg
+about_content: | # this will include new lines to allow paragraphs
+  I'm a Research Engineer affiliated with the USC Institute for Creative Technologies, and my research passion lies in the intersection of Computer Vision and Machine Learning. 
+
+  Currently, my primary focus is on projects related to 3D vision, with a special emphasis on Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.
+
+
+content:
+
+  - title: Publication
+    layout: image
+    content:
+      - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
+        video: videos/splatmap.mp4
+        links: |
+          [📄 Paper](https://arxiv.org/abs/2501.07015) 
+        description: |
+          *Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng*
+
+          2025 ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (I3D 2025)
+
+      - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
+        video: videos/atomgs.mp4
+        links: |
+          [🌐 Website](https://rongliu-leo.github.io/AtomGS/) | 
+          [📄 Paper](https://arxiv.org/abs/2405.12369) | 
+          [💻 Code](https://github.com/RongLiu-Leo/AtomGS) | 
+          [🖼️ Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
+        description: |
+          ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
+
+          35th British Machine Vision Conference 2024 (BMVC 2024)
+
+      - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
+        image: images/UAV.jpg
+        links: |
+          [📄 Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
+          [📜 Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
+        description: |
+          *Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang*
+
+          Information Fusion. 78 (2022): 90-101
+
+  - title: Project
+    layout: image
+    content:
+      - title: 'Gaussian Splatting Monitor'
+        video: videos/GSS.mp4
+        links: |
+          [🌐 Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
+          [💻 Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
+        description: | # this will include new lines to allow paragraphs
+          We aim to extend 3D Gaussian Splatting, currently limited to RGB rendering and loss, by incorporating differentiable outputs inspired by the versatile Neural Radiance Fields (NeRF), thus enabling advanced research and novel loss functions for improved volumetric analysis.
+      
+      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
+        video: videos/IPST.mp4
+        links: |
+          [🌐 Website](https://rongliu-leo.github.io/IPST/) | 
+          [📄 Paper](https://arxiv.org/abs/2309.10011) | 
+          [💻 Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+        description: |
+          ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
+
+          Pre-Print arXiv:2309.10011
+
+  - title: Experience
+    layout: list
+    content: 
+      - title: Research Engineer
+        sub_title: USC Institute for Creative Technologies
+        supervisor: "Supervisor: Dr. Andrew Feng"
+        caption: Aug 2023 - Present
+        layout: left
+
+      - title: Research Assistant
+        sub_title: USC Institute for Creative Technologies
+        supervisor: "Supervisor: Dr. Andrew Feng"
+        caption: Aug 2023 - May 2024
+        layout: left
+        description: |
+          - 3D Gaussian Splatting
+          - Atomizing Gaussian Splatting for High-Fidelity Radiance Field
+
+      - title: Research Intern
+        sub_title: USC Institute for Creative Technologies
+        supervisor: "Supervisor: Dr. Andrew Feng"
+        caption: May 2023 - Aug 2023
+        layout: left
+        description: |
+          - Neural Radiance Fields (NeRF)
+          - Scalable NeRF on large terrain datasets
+          
+      - title: Research Assistant
+        sub_title: Dalian University of Technology
+        supervisor: "Supervisor: Prof. Liangtian Wan"
+        caption: July 2020 - July 2022
+        layout: left
+        description: |
+          - Objective Detection (RCNN and YOLO)
+          - Transfer Learning
+     
+      - title: Teaching Assistant
+        sub_title: Dalian University of Technology
+        caption: September 2021 - June 2022
+        layout: left
+        description: |
+          - Program Design Basics and C Programming
+          - Object-Oriented Method and C++ Program Design
+               
+      
+  - title: Awards
+    layout: text
+    content: |
+
+      - **[Computer Science Master's Student Honors Merit](./images/Honor.pdf)** - University of Southern California (USC), 2024
+
+      - **DUT Outstanding Undergraduate Thesis** - Dalian University of Technology (DUT), 2022
+
+      - **First Prize in the National Artificial Intelligence Knowledge Competition for College Students** - JiangSu Association of Artificial Intelligence (JSAI), 2020
+
+      - **Meritorious Winner in Mathematical Contest in Modeling** - Consortium for Mathematics and Its Applications (COMAP), 2019 
+      
+
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+ - jekyll-seo-tag
+
+exclude : [
+  "Gemfile",
+  "Gemfile.lock",
+  "node_modules",
+  "vendor/bundle/",
+  "vendor/cache/",
+  "vendor/gems/",
+  "vendor/ruby/",
+  "lib/",
+  "scripts/",
+  "docker-compose.yml",
+  ]
