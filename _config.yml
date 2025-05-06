@@ -47,6 +47,17 @@ content:
   - title: Publication
     layout: image
     content:
+      - title: 'Deformable Beta Splatting'
+        video: videos/dbs.mp4
+        links: |
+          [🌐 Website](https://rongliu-leo.github.io/beta-splatting/) | 
+          [📄 Paper](https://arxiv.org/abs/2501.18630) | 
+          [💻 Code](https://github.com/RongLiu-Leo/beta-splatting/) | 
+        description: |
+          ***Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†*
+
+          ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
+
       - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
         video: videos/splatmap.mp4
         links: |
