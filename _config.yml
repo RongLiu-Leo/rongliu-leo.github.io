@@ -56,7 +56,7 @@ content:
         description: |
           ***Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†*
 
-          ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
+          2025 ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
 
       - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
         video: videos/splatmap.mp4
