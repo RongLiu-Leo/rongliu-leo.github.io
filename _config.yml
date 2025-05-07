@@ -37,9 +37,7 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I'm a Research Engineer affiliated with the USC Institute for Creative Technologies, and my research passion lies in the intersection of Computer Vision and Machine Learning. 
-
-  Currently, my primary focus is on projects related to 3D vision, with a special emphasis on Neural Radiance Fields (NeRF) and 3D Gaussian Splatting.
+  I'm a Research Engineer affiliated with the USC Institute for Creative Technologies, and my research passion lies in the intersection of Computer Vision, Computer Graphics, and Machine Learning. 
 
 
 content:
