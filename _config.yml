@@ -112,11 +112,20 @@ content:
   - title: Experience
     layout: list
     content: 
+      - title: Research Intern
+        sub_title: United Imaging Intelligence
+        supervisor: "Supervisor: Dr. Zhongpai Gao"
+        caption: June 2025 - Present
+        layout: left
+
       - title: Research Engineer
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
         caption: Aug 2023 - Present
         layout: left
+        description: |
+          - Deformable Beta Splatting
+          - SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting
 
       - title: Research Assistant
         sub_title: USC Institute for Creative Technologies
