@@ -52,7 +52,7 @@ content:
           [Paper](https://arxiv.org/abs/2501.18630) | 
           [Code](https://github.com/RongLiu-Leo/beta-splatting/)
         description: |
-          ***Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†*
+          **Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†
 
           2025 ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
 
@@ -96,7 +96,7 @@ content:
           [Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
           [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
-          A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.
+          *A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.*
       
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
@@ -105,11 +105,11 @@ content:
           [Paper](https://arxiv.org/abs/2309.10011) | 
           [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
         description: |
-          ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
+          **Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley
 
           Pre-Print arXiv:2309.10011
 
-          A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.
+          *A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.*
 
   - title: Experience
     layout: list
