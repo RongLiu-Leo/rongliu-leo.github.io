@@ -109,7 +109,7 @@ content:
 
           Pre-Print arXiv:2309.10011
 
-          A super-lightweight style-transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.
+          A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.
 
   - title: Experience
     layout: list
