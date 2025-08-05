@@ -61,7 +61,7 @@ content:
         links: |
           [Paper](https://arxiv.org/abs/2501.07015) 
         description: |
-          *Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng*
+          Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng
 
           2025 ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (I3D 2025)
 
@@ -73,7 +73,7 @@ content:
           [Code](https://github.com/RongLiu-Leo/AtomGS) | 
           [Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
         description: |
-          ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
+          **Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng
 
           35th British Machine Vision Conference 2024 (BMVC 2024)
 
@@ -83,7 +83,7 @@ content:
           [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
           [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
         description: |
-          *Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang*
+          Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang
 
           Information Fusion. 78 (2022): 90-101
 
@@ -96,6 +96,8 @@ content:
           [Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
           [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
+          **Rong Liu**, Shuyang Zhang, Ning Nie
+          
           *A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.*
       
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
