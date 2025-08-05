@@ -26,7 +26,7 @@
         {%- if item.sub_title -%}<p><b>{{ item.sub_title }}</b></p>{%- endif -%}
         {%- if item.caption -%}<p>{{ item.caption }}</p>{%- endif -%}
         {{ item.description | strip | markdownify }}
-        <div class="no-print">{{ item.links | strip | markdownify }}</div>
+        <div>{{ item.links | strip | markdownify }}</div>
       </div>
 
   </div>
