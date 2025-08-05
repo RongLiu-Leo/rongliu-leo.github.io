@@ -79,6 +79,8 @@ content:
 
           35th British Machine Vision Conference 2024 (BMVC 2024)
 
+          *AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.*
+
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
         links: |
