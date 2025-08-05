@@ -48,9 +48,9 @@ content:
       - title: 'Deformable Beta Splatting'
         video: videos/dbs.mp4
         links: |
-          [🌐 Website](https://rongliu-leo.github.io/beta-splatting/) | 
-          [📄 Paper](https://arxiv.org/abs/2501.18630) | 
-          [💻 Code](https://github.com/RongLiu-Leo/beta-splatting/)
+          [Website](https://rongliu-leo.github.io/beta-splatting/) | 
+          [Paper](https://arxiv.org/abs/2501.18630) | 
+          [Code](https://github.com/RongLiu-Leo/beta-splatting/)
         description: |
           ***Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†*
 
@@ -59,7 +59,7 @@ content:
       - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
         video: videos/splatmap.mp4
         links: |
-          [📄 Paper](https://arxiv.org/abs/2501.07015) 
+          [Paper](https://arxiv.org/abs/2501.07015) 
         description: |
           *Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng*
 
@@ -68,10 +68,10 @@ content:
       - title: 'AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field'
         video: videos/atomgs.mp4
         links: |
-          [🌐 Website](https://rongliu-leo.github.io/AtomGS/) | 
-          [📄 Paper](https://arxiv.org/abs/2405.12369) | 
-          [💻 Code](https://github.com/RongLiu-Leo/AtomGS) | 
-          [🖼️ Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
+          [Website](https://rongliu-leo.github.io/AtomGS/) | 
+          [Paper](https://arxiv.org/abs/2405.12369) | 
+          [Code](https://github.com/RongLiu-Leo/AtomGS) | 
+          [Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
         description: |
           ***Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng*
 
@@ -80,8 +80,8 @@ content:
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
         links: |
-          [📄 Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
-          [📜 Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
+          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
+          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
         description: |
           *Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang*
 
@@ -93,17 +93,17 @@ content:
       - title: 'Gaussian Splatting Monitor'
         video: videos/GSS.mp4
         links: |
-          [🌐 Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
-          [💻 Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
+          [Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
+          [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
           A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.
       
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
         links: |
-          [🌐 Website](https://rongliu-leo.github.io/IPST/) | 
-          [📄 Paper](https://arxiv.org/abs/2309.10011) | 
-          [💻 Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+          [Website](https://rongliu-leo.github.io/IPST/) | 
+          [Paper](https://arxiv.org/abs/2309.10011) | 
+          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
         description: |
           ***Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley*
 
