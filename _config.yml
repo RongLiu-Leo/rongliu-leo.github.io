@@ -56,6 +56,8 @@ content:
 
           2025 ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
 
+          *Deformable Beta Splatting introduces deformable Beta Kernels with adaptive frequency control for both geometry and color encoding, capturing complex geometries and lighting while only using 45% parameters and rendering 1.5x faster than 3DGS-MCMC.*
+
       - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
         video: videos/splatmap.mp4
         links: |
@@ -97,7 +99,7 @@ content:
           [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
           **Rong Liu**, Shuyang Zhang, Ning Nie
-          
+
           *A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.*
       
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
