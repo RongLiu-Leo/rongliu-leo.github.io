@@ -96,7 +96,7 @@ content:
           [🌐 Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
           [💻 Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
-          **TL;DR:** A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.
+          A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.
       
       - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
         video: videos/IPST.mp4
@@ -109,7 +109,7 @@ content:
 
           Pre-Print arXiv:2309.10011
 
-          **TL;DR:** A super-lightweight style-transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.
+          A super-lightweight style-transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.
 
   - title: Experience
     layout: list
