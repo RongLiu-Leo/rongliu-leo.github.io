@@ -45,7 +45,7 @@ content:
   - title: Publication
     layout: image
     content:
-      - title: 'universal Beta Splatting'
+      - title: 'Universal Beta Splatting'
         image: images/ubs.png
         links: |
           [Website](https://rongliu-leo.github.io/universal-beta-splatting/) | 
