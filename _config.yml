@@ -45,6 +45,17 @@ content:
   - title: Publication
     layout: image
     content:
+      - title: 'Splat Feature Solver'
+        video: images/splat_feature_solver.png
+        links: |
+          [Website](https://splat-distiller.pages.dev/) | 
+          [Paper](https://arxiv.org/abs/2508.12216) | 
+          [Code](https://github.com/saliteta/splat-distiller/)
+        description: |
+          Butian Xiong, **Rong Liu**, Kenneth Xu, Meida Chen, Andrew Feng
+
+          Pre-Print arXiv:2508.12216
+
       - title: 'Deformable Beta Splatting'
         video: videos/dbs.mp4
         links: |
