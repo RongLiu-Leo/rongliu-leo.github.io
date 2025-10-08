@@ -172,6 +172,7 @@ content:
         description: |
           - 3D Gaussian Splatting
           - Atomizing Gaussian Splatting for High-Fidelity Radiance Field
+          - Mesh extraction from Radiance Field
 
       - title: Research Intern
         sub_title: USC Institute for Creative Technologies
