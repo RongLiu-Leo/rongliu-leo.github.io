@@ -172,21 +172,14 @@ content:
       - title: Research Assistant
         sub_title: USC Institute for Creative Technologies
         supervisor: "Supervisor: Dr. Andrew Feng"
-        caption: August 2023 - May 2024
-        layout: left
-        description: |
-          - 3D Gaussian Splatting
-          - Atomizing Gaussian Splatting for High-Fidelity Radiance Field
-          - Mesh extraction from Radiance Field
-
-      - title: Research Intern
-        sub_title: USC Institute for Creative Technologies
-        supervisor: "Supervisor: Dr. Andrew Feng"
-        caption: May 2023 - August 2023
+        caption: May 2023 - May 2024
         layout: left
         description: |
           - Neural Radiance Fields (NeRF)
           - Scalable NeRF on large terrain datasets
+          - 3D Gaussian Splatting
+          - Atomizing Gaussian Splatting for High-Fidelity Radiance Field
+          - Mesh extraction from Radiance Field
           
       - title: Research Assistant
         sub_title: Dalian University of Technology
