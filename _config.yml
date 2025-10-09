@@ -56,6 +56,8 @@ content:
 
           Pre-Print arXiv:2510.03312
 
+          *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels for explicit radiance field rendering, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
+
       - title: 'Splat Feature Solver'
         video: videos/splat_feature_solver.mp4
         links: |
