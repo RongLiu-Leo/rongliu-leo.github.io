@@ -56,7 +56,7 @@ content:
 
           Pre-Print arXiv:2510.03312
 
-          *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels for explicit radiance field rendering, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
+          *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
 
       - title: 'Splat Feature Solver'
         video: videos/splat_feature_solver.mp4
@@ -68,6 +68,8 @@ content:
           Butian Xiong, **Rong Liu**, Kenneth Xu, Meida Chen, Andrew Feng
 
           Pre-Print arXiv:2508.12216
+
+          *A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.*
 
       - title: 'Deformable Beta Splatting'
         video: videos/dbs.mp4
