@@ -37,8 +37,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I’m Rong Liu, a Research Engineer at USC ICT, working at the intersection of computer vision, graphics, and machine learning. 
-  My research explores how we perceive, reconstruct, and generate our interactive and dynamic world.
+  I’m Rong Liu, a Research Engineer at the USC Institute for Creative Technologies, working at the intersection of Computer Vision, Graphics, and Machine Learning.
+  
+  My research explores how we **perceive**, **reconstruct**, and **generate** our everyday **interactive** and **dynamic** world.
 
 
 content:
