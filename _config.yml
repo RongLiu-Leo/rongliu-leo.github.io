@@ -37,9 +37,9 @@ googlescholar_username: MrWUyWkAAAAJ
 # about_title: About Me (Use this to override about section title)
 about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
-  I’m Rong Liu, a Research Engineer at the USC Institute for Creative Technologies, working at the intersection of Computer Vision, Graphics, and Machine Learning.
+  I’m Rong Liu, a Research Engineer at the USC Institute for Creative Technologies.
   
-  My research explores how we **perceive**, **reconstruct**, and **generate** our everyday **interactive** and **dynamic** world.
+  My research focuses on how we perceive, reconstruct, and generate our everyday interactive and dynamic world through computer vision, graphics, and machine learning.
 
 
 content:
@@ -218,7 +218,7 @@ content:
 
       - **Program Committee:** [Advanced Perception for Autonomous Healthcare](https://apahws.github.io/) @ ICCV 2025
 
-      - **Workshop Reviewer:** [Advanced Perception for Autonomous Healthcare](https://apahws.github.io/) @ ICCV 2025
+      - **Workshop Reviewer:** [APAH](https://apahws.github.io/) @ ICCV 2025
 
       - **Journal Reviewer:** [TCSVT](https://dl.acm.org/journal/ieeetcsvt), [TOMM](https://dl.acm.org/journal/tomm)
 
