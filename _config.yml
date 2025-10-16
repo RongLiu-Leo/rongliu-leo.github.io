@@ -82,7 +82,7 @@ content:
         description: |
           **Rong Liu\***, Dylan Sun\*, Meida Chen, Yue Wang†, Andrew Feng†
 
-          2025 ACM Special Interest Group on Computer Graphics and Interactive Techniques (SIGGRAPH 2025)
+          2025 ACM Special Interest Group on Computer Graphics and Interactive Techniques (**SIGGRAPH 2025**)
 
           *Deformable Beta Splatting introduces deformable Beta Kernels with adaptive frequency control for both geometry and color encoding, capturing complex geometries and lighting while only using 45% parameters and rendering 1.5x faster than 3DGS-MCMC.*
 
@@ -93,7 +93,7 @@ content:
         description: |
           Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng
 
-          2025 ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (I3D 2025)
+          2025 ACM SIGGRAPH Symposium on Interactive 3D Graphics and Games (**I3D 2025**)
 
           *A real-time monocular SLAM system that fuses 3D Gaussian Splatting with SLAM’s dynamic depth and pose updates via SLAM-Informed Adaptive Densification and Geometry-Guided Optimization.*
 
@@ -107,7 +107,7 @@ content:
         description: |
           **Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng
 
-          35th British Machine Vision Conference 2024 (BMVC 2024)
+          35th British Machine Vision Conference 2024 (**BMVC 2024**)
 
           *AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.*
 
@@ -119,7 +119,7 @@ content:
         description: |
           Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang
 
-          Information Fusion. 78 (2022): 90-101
+          **Information Fusion**. 78 (2022): 90-101
 
           *A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.*
 
