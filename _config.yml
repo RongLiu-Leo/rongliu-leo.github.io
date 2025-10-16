@@ -154,7 +154,7 @@ content:
     content: 
       - title: Research Engineer
         sub_title: USC Institute for Creative Technologies
-        supervisor: "Supervisor: Dr. Andrew Feng"
+        supervisor: "Supervisor: Prof. Andrew Feng"
         caption: May 2024 - Present
         layout: left
         description: |
@@ -173,7 +173,7 @@ content:
 
       - title: Research Assistant
         sub_title: USC Institute for Creative Technologies
-        supervisor: "Supervisor: Dr. Andrew Feng"
+        supervisor: "Supervisor: Prof. Andrew Feng"
         caption: May 2023 - May 2024
         layout: left
         description: |
