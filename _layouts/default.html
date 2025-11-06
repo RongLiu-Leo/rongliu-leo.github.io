@@ -12,15 +12,7 @@
 
       {% for section in site.content %}
         <div class="container">
-          <h3 id="{{ section.title | slugify }}">{{ section.title }}
-            {% if section.title == "Selected Publications" %}
-            View Full Publications on Google Scholar 
-            <a class="print-only" href="https://scholar.google.com/citations?user=MrWUyWkAAAAJ">
-              https://scholar.google.com/citations?user=MrWUyWkAAAAJ
-            </a>
-            {% endif %}
-          </h3>
-          
+          <h3 id="{{ section.title | slugify }}">{{ section.title }}</h3>
           {% include {{ section.layout | prepend: "section-" | append: ".html" }} content=section.content %}
         </div>
       {% endfor %}
