@@ -44,7 +44,7 @@ about_content: | # this will include new lines to allow paragraphs
 
 content:
 
-  - title: Selected Publications
+  - title: Publications
     layout: image
     content:
       - title: 'Universal Beta Splatting'
@@ -111,21 +111,6 @@ content:
 
           *AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.*
 
-      - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
-        image: images/UAV.jpg
-        links: |
-          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
-          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
-        description: |
-          Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang
-
-          **Information Fusion**. 78 (2022): 90-101
-
-          *A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.*
-
-  - title: Projects
-    layout: image
-    content:
       - title: 'Gaussian Splatting Monitor'
         video: videos/GSS.mp4
         links: |
@@ -133,6 +118,8 @@ content:
           [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
         description: | # this will include new lines to allow paragraphs
           **Rong Liu**, Shuyang Zhang, Ning Nie
+
+          Open Source Github Repository, 2024
 
           *A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.*
       
@@ -148,6 +135,18 @@ content:
           Pre-Print arXiv:2309.10011
 
           *A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.*
+      
+      - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
+        image: images/UAV.jpg
+        links: |
+          [Paper](https://www.sciencedirect.com/science/article/pii/S1566253521001834) | 
+          [Patent](https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958)
+        description: |
+          Liangtian Wan, **Rong Liu**, Lu Sun, Hansong Nie, Xianpeng Wang
+
+          **Information Fusion**. 78 (2022): 90-101
+
+          *A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.*
 
   - title: Experiences
     layout: list
