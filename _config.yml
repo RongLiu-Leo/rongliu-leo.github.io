@@ -44,7 +44,7 @@ about_content: | # this will include new lines to allow paragraphs
 
 content:
 
-  - title: Publications
+  - title: Selected Publications
     layout: image
     content:
       - title: 'Universal Beta Splatting'
