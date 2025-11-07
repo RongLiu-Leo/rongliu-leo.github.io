@@ -39,8 +39,9 @@ about_profile_image: images/profile.jpg
 about_content: | # this will include new lines to allow paragraphs
   I’m Rong Liu, a Research Engineer at the USC Institute for Creative Technologies.
   
-  My research focuses on how we **understand**, **reconstruct**, and **generate** our everyday **interactive** and **dynamic world** through computer vision, graphics, and machine learning.
+  My long-term research goal is to answer how we enable machines to **understand**, **reconstruct**, and **generate** our everyday **interactive** and **dynamic world** through computer vision, graphics, and machine learning.
 
+  My current research focuses on **Neural Representations**, **Splatting methods**, **Real-time Rendering**, and **3D/4D Reconstruction and Generation**.
 
 content:
 
