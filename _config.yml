@@ -48,32 +48,6 @@ content:
   - title: Publications
     layout: image
     content:
-      - title: 'Universal Beta Splatting'
-        image: images/ubs.png
-        links: |
-          [Website](https://rongliu-leo.github.io/universal-beta-splatting/) | 
-          [Paper](https://arxiv.org/abs/2510.03312) | 
-          [Code](https://github.com/RongLiu-Leo/universal-beta-splatting)
-        description: |
-          **Rong Liu**, Zhongpai Gao, Benjamin Planche, Meida Chen, Van Nguyen Nguyen, Meng Zheng, Anwesa Choudhuri, Terrence Chen, Yue Wang, Andrew Feng, Ziyan Wu
-
-          Pre-Print arXiv:2510.03312
-
-          *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
-
-      - title: 'Splat Feature Solver'
-        video: videos/splat_feature_solver.mp4
-        links: |
-          [Website](https://splat-distiller.pages.dev/) | 
-          [Paper](https://arxiv.org/abs/2508.12216) | 
-          [Code](https://github.com/saliteta/splat-distiller/)
-        description: |
-          Butian Xiong, **Rong Liu**, Kenneth Xu, Meida Chen, Andrew Feng
-
-          Pre-Print arXiv:2508.12216
-
-          *A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.*
-
       - title: 'Deformable Beta Splatting'
         video: videos/dbs.mp4
         links: |
@@ -104,6 +78,7 @@ content:
           [Website](https://rongliu-leo.github.io/AtomGS/) | 
           [Paper](https://arxiv.org/abs/2405.12369) | 
           [Code](https://github.com/RongLiu-Leo/AtomGS) | 
+          [GS Monitor](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor) | 
           [Poster](https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf)
         description: |
           **Rong Liu**, Rui Xu, Yue Hu, Meida Chen, Andrew Feng
@@ -111,32 +86,7 @@ content:
           **BMVC 2024**
 
           *AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.*
-
-      - title: 'Gaussian Splatting Monitor'
-        video: videos/GSS.mp4
-        links: |
-          [Website](https://rongliu-leo.github.io/Gaussian-Splatting-Monitor/) | 
-          [Code](https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor)
-        description: | # this will include new lines to allow paragraphs
-          **Rong Liu**, Shuyang Zhang, Ning Nie
-
-          Open Source Github Repository, 2024
-
-          *A real-time tool that provides additional differentiable outputs for visualizing and diagnosing 3D Gaussian Splatting pipelines.*
-      
-      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
-        video: videos/IPST.mp4
-        links: |
-          [Website](https://rongliu-leo.github.io/IPST/) | 
-          [Paper](https://arxiv.org/abs/2309.10011) | 
-          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
-        description: |
-          **Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley
-
-          Pre-Print arXiv:2309.10011
-
-          *A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.*
-      
+         
       - title: 'UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework'
         image: images/UAV.jpg
         links: |
@@ -148,6 +98,48 @@ content:
           **Information Fusion**. 78 (2022): 90-101
 
           *A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.*
+
+  - title: Preprints
+    layout: image
+    content:
+      - title: 'Universal Beta Splatting'
+        image: images/ubs.png
+        links: |
+          [Website](https://rongliu-leo.github.io/universal-beta-splatting/) | 
+          [Paper](https://arxiv.org/abs/2510.03312) | 
+          [Code](https://github.com/RongLiu-Leo/universal-beta-splatting)
+        description: |
+          **Rong Liu**, Zhongpai Gao, Benjamin Planche, Meida Chen, Van Nguyen Nguyen, Meng Zheng, Anwesa Choudhuri, Terrence Chen, Yue Wang, Andrew Feng, Ziyan Wu
+
+          arXiv:2510.03312
+
+          *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
+
+      - title: 'Splat Feature Solver'
+        video: videos/splat_feature_solver.mp4
+        links: |
+          [Website](https://splat-distiller.pages.dev/) | 
+          [Paper](https://arxiv.org/abs/2508.12216) | 
+          [Code](https://github.com/saliteta/splat-distiller/)
+        description: |
+          Butian Xiong, **Rong Liu**, Kenneth Xu, Meida Chen, Andrew Feng
+
+          arXiv:2508.12216
+
+          *A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.*
+      
+      - title: 'Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach'
+        video: videos/IPST.mp4
+        links: |
+          [Website](https://rongliu-leo.github.io/IPST/) | 
+          [Paper](https://arxiv.org/abs/2309.10011) | 
+          [Code](https://github.com/RongLiu-Leo/Video-Style-Transfer)
+        description: |
+          **Rong Liu**, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley
+
+          arXiv:2309.10011
+
+          *A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.*
 
   - title: Experiences
     layout: list
