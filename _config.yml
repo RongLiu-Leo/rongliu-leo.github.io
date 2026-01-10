@@ -35,7 +35,7 @@ googlescholar_username: MrWUyWkAAAAJ
 
 # About Section
 # about_title: About Me (Use this to override about section title)
-about_profile_image: images/profile.jpg
+about_profile_image: images/profile.png
 about_content: | # this will include new lines to allow paragraphs
   I’m Rong Liu, a Research Engineer at the USC Institute for Creative Technologies.
   
