@@ -14,14 +14,21 @@ affiliations:
   - name: USC Institute for Creative Technologies
     alternate:
       - USC ICT
-      - University of Southern California Institute for Creative Technologies
       - USC
+      - ICT
+      - University of Southern California Institute for Creative Technologies
+      - Institute for Creative Technologies
       - University of Southern California
+      - 南加州大学
+      - 南加州大学创意技术研究所
+      - 创意技术研究所
+
     current: true
 
   - name: United Imaging Intelligence
     alternate:
       - UII
+      - 联影智能
     current: false
   
   - name: Dalian University of Technology
