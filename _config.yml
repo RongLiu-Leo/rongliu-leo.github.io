@@ -9,7 +9,29 @@ version: 2
 name: Rong Liu
 alt_name: 柳荣
 title: Research Engineer
-affiliation: USC Institute for Creative Technologies
+
+affiliations:
+  - name: USC Institute for Creative Technologies
+    alternate:
+      - USC ICT
+      - University of Southern California Institute for Creative Technologies
+      - USC
+      - University of Southern California
+    current: true
+
+  - name: United Imaging Intelligence
+    alternate:
+      - UII
+    current: false
+  
+  - name: Dalian University of Technology
+    alternate:
+      - DLUT
+      - DUT
+      - Dalian Tech
+      - 大连理工大学
+    current: false
+
 email: roliu@ict.usc.edu
 website: https://rongliu-leo.github.io
 
