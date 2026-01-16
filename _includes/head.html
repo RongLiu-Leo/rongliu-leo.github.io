@@ -12,8 +12,6 @@
   <!-- SEO Meta Tags -->
   <meta name="description" content="Personal website of {{ site.name }} ({{ site.alt_name }}) | {{ site.title }} | {{ current_affiliation }}">
   <meta name="author" content="{{ site.name }} ({{ site.alt_name }})">
-
-  <!-- Optional: richer keyword coverage (especially for Bing) -->
   <meta name="keywords" content="{{ site.name }}, {{ site.alt_name }}, {{ site.title }}{% for org in site.affiliations %}, {{ org.name }}{% for n in org.alternate %}, {{ n }}{% endfor %}{% endfor %}">
 
   <!-- OpenGraph Meta Tags -->
