@@ -7,7 +7,8 @@
         <div>
           <h1>{{ site.name }} <span class="no-print">({{ site.alt_name }})</span></h1>
           <h2>{{ site.title | escape }}</h2>
-          <h2 style="font-size: 2rem;">{{ site.affiliation | escape }}</h2>
+          {% assign current_org = site.affiliations | where: "current", true | first %}
+          <h2 style="font-size: 2rem;">{{ current_org.name | escape }}</h2>
         </div>
         <div style="text-align: right; position: absolute; right: 0; bottom: 0;" class="print-only">
 
