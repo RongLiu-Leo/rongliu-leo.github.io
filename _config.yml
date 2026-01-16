@@ -6,7 +6,8 @@ favicon: images/USC.png
 version: 2
 
 # Personal info
-name: Rong Liu (柳荣)
+name: Rong Liu
+alt_name: 柳荣
 title: Research Engineer
 affiliation: USC Institute for Creative Technologies
 email: roliu@ict.usc.edu
