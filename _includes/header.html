@@ -11,18 +11,22 @@
           <h2 style="font-size: 2rem;">{{ current_org.name | escape }}</h2>
         </div>
         <div style="text-align: right; position: absolute; right: 0; bottom: 0;" class="print-only">
-
-        {%- if site.email -%}
-          <a href="mailto:{{ site.email }}" target="_blank">Email: {{ site.email | escape }}</a>
-        {%- endif -%}
-        <br>
-        {%- if site.github_username -%}
-          <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">Github: https://github.com/{{ site.github_username| cgi_escape | escape }}</a>
-        {%- endif -%}
-        <br>
-        {%- if site.website -%}
-          <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
-        {%- endif -%}
+          
+          {%- if site.github_username -%}
+            <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank">Github: {{ site.github_username| cgi_escape | escape }}</a>
+          {%- endif -%}
+          <br>
+          {%- if site.email -%}
+            <a href="mailto:{{ site.email }}" target="_blank">Email: {{ site.email | escape }}</a>
+          {%- endif -%}
+          <br>
+          {%- if site.website -%}
+            <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
+          {%- endif -%}
+          <br>
+          {%- if site.googlescholar_username -%}
+            <a href="https://scholar.google.com/citations?user={{ site.googlescholar_username| escape }}" target="_blank">Google Scholar: {{ site.googlescholar_username| escape }}</a>
+          {%- endif -%}
 
         </div>
       </div>
