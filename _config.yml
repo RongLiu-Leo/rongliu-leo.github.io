@@ -87,7 +87,7 @@ content:
         description: |
           **Rong Liu**, Zhongpai Gao, Benjamin Planche, Meida Chen, Van Nguyen Nguyen, Meng Zheng, Anwesa Choudhuri, Terrence Chen, Yue Wang, Andrew Feng, Ziyan Wu
 
-          ICLR 2026
+          **ICLR 2026**
 
           *Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.*
 
@@ -100,7 +100,7 @@ content:
         description: |
           Butian Xiong, **Rong Liu**, Kenneth Xu, Meida Chen, Andrew Feng
 
-          ICLR 2026
+          **ICLR 2026**
 
           *A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.*
       
