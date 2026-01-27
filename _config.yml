@@ -120,6 +120,7 @@ content:
       - title: 'SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting'
         video: videos/splatmap.mp4
         links: |
+          [Website](https://ergowho.github.io/SplatMap/) | 
           [Paper](https://arxiv.org/abs/2501.07015) 
         description: |
           Yue Hu, **Rong Liu**, Meida Chen, Peter Beerel, Andrew Feng
