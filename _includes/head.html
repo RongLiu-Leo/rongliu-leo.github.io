@@ -30,10 +30,10 @@
     "name": "{{ site.name | escape }}",
     "alternateName": ["{{ site.alt_name | escape }}"],
     "url": "{{ site.website | escape }}",
-    "image": "{{ site.website | escape }}/{{ site.about_profile_image | escape }}",
+    "image": "{{ site.website | escape }}{{ site.about_profile_image | escape }}",
 
     "jobTitle": "{{ site.title | escape }}",
-    "email": "{{ site.email | escape }}",
+    "email": "mailto:{{ site.email | escape }}",
 
     "worksFor": {
       "@type": "Organization",
