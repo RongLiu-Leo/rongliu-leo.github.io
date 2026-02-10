@@ -20,12 +20,12 @@
             <a href="mailto:{{ site.email }}" target="_blank">Email: {{ site.email | escape }}</a>
           {%- endif -%}
           <br>
-          {%- if site.website -%}
-            <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
-          {%- endif -%}
-          <br>
           {%- if site.googlescholar_username -%}
             <a href="https://scholar.google.com/citations?user={{ site.googlescholar_username| escape }}" target="_blank">Google Scholar: {{ site.googlescholar_username| escape }}</a>
+          {%- endif -%}
+          <br>
+          {%- if site.website -%}
+            <a href="{{ site.website }}" target="_blank">Website: {{ site.website }}</a>
           {%- endif -%}
 
         </div>
