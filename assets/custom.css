@@ -1,0 +1,68 @@
+/* Reusable layout and component styles – keeps HTML DRY */
+
+/* Publication / preprint media column */
+.pub-media {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px 0 0;
+}
+.pub-media img,
+.pub-media video {
+  width: 300px;
+  max-width: 100%;
+}
+
+/* Publication content column */
+.pub-content {
+  padding: 0;
+}
+
+/* Education logos */
+.edu-logo {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  display: block;
+  border-radius: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Header title row and print contact */
+.header-title-row {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.print-contact {
+  text-align: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.org-name {
+  font-size: 2rem;
+}
+
+/* Section spacing */
+.section-block {
+  margin-bottom: 10px;
+}
+
+/* Experience: single block for screen + print; layout switches in print */
+.exp-details {
+  padding: 0 30px 0 0;
+}
+@media print {
+  .experience-item.layout-left {
+    flex-direction: column;
+  }
+}
+
+.footer-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
