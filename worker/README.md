@@ -73,22 +73,13 @@ the page-scoped ones, returning the same shape either way, which is what lets
 the visitors page show one report for any scope. Only pages already present in
 `pages` are addressable, so arbitrary input cannot mint cache entries.
 
-Every aggregate is served from the rollups. This matters more than it looks:
+Reads are served entirely from the rollups. This matters more than it looks:
 grouping over the raw log would scan every row ever recorded on each request,
 and since D1 bills reads by rows *scanned*, that cost grows with traffic and
 history at once. Measured at 206 bytes per row, storage is a non-issue for
 years, but a site doing a few hundred views a day would exhaust the free tier's
 5 million daily row reads within months. Reading from the rollups keeps the cost
 proportional to the number of distinct places and pages instead.
-
-The one exception is the recent-views feed, which is the raw log by definition.
-It stays cheap by selecting rows by `rowid` rather than `created_at`: rows are
-appended in time order, so walking the table backwards reaches the newest rows
-first and stops at the limit, where sorting by `created_at` would scan the whole
-history first. The `views_page` index gives one page the same short walk instead
-of a scan back past everything other pages recorded in the meantime. An outer
-`ORDER BY created_at` then sorts just those few rows, so the feed is honest even
-if a row ever lands out of order.
 
 Counting every view rather than one per visitor per day makes the raw log grow
 with traffic instead of with audience, so it is worth knowing the shape of it:
@@ -130,11 +121,6 @@ to begin with.
 
 Paths are stored without query strings or fragments, and page titles are capped
 in length. Both are supplied by the page rather than inferred.
-
-The visitors page publishes the newest rows of the log individually rather than
-only in aggregate. A row says that someone in a city opened a page at a time,
-and nothing more: two rows from the same city cannot be told apart from one
-person returning, because nothing links them.
 
 Referrers are reduced to a bare hostname, so no paths or query strings are
 kept. The value comes from `document.referrer` in the page rather than the

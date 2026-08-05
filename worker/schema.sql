@@ -1,6 +1,7 @@
 -- Raw log: one row per pageview, the source of truth for every rollup below.
 -- No identifier of any kind is recorded — no IP, no hash, no cookie — so rows
--- cannot be grouped back into people or sessions even in principle.
+-- cannot be grouped back into people or sessions even in principle. The log is
+-- only ever read in bulk, by rebuild-rollups.sql, so it carries no index.
 CREATE TABLE IF NOT EXISTS views (
   day        TEXT    NOT NULL,
   page       TEXT    NOT NULL DEFAULT '/',
@@ -12,12 +13,6 @@ CREATE TABLE IF NOT EXISTS views (
   referrer   TEXT,
   created_at INTEGER NOT NULL
 );
-
--- The recent-views feed reads the newest rows for one page. Rows arrive in
--- time order, so the site-wide feed just walks the table backwards by rowid
--- and stops; this index gives a single page the same cheap walk instead of a
--- scan back through everything other pages recorded in between.
-CREATE INDEX IF NOT EXISTS views_page ON views(page);
 
 -- Rollups. Serving reads from these keeps query cost tied to the number of
 -- distinct places and pages rather than to the whole history, which otherwise

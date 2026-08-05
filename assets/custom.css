@@ -375,17 +375,12 @@
   padding: 6px 0;
 }
 .visitors-more {
-  display: block;
   padding: 0;
   font-size: 1.05rem;
   color: #0077aa;
   background: none;
   border: 0;
   cursor: pointer;
-}
-/* Captions are pulled up under charts, which would ride over the button. */
-.visitors-more + .visitors-caption {
-  margin-top: 16px;
 }
 .visitors-more:hover,
 .visitors-more:focus {
@@ -395,56 +390,14 @@
   display: none;
 }
 
-/* Raw event feed */
-.visitors-feed {
-  display: grid;
-  grid-template-columns: max-content minmax(0, 1fr) minmax(0, 1fr) max-content;
-  gap: 0 20px;
-  margin: 0 0 10px;
-  padding: 0;
-  list-style: none;
-}
-.visitors-feed.is-scoped {
-  grid-template-columns: max-content minmax(0, 1fr) max-content;
-}
-.visitors-feed li {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: subgrid;
-  align-items: baseline;
-  padding: 7px 0 8px;
-  border-bottom: dashed 1px var(--rule-soft);
-}
-.visitors-feed li[hidden] {
-  display: none;
-}
-.visitors-feed li > span {
-  overflow: hidden;
-  font-size: 1.15rem;
-  line-height: 1.35;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.visitors-feed-when {
-  color: var(--muted);
-  cursor: help;
-}
-.visitors-feed-source {
-  text-align: right;
-  color: var(--muted);
-}
-
 /* Fallback for browsers without subgrid: keep rows aligned with a flex row. */
 @supports not (grid-template-columns: subgrid) {
-  .visitors-bars,
-  .visitors-feed {
+  .visitors-bars {
     display: block;
   }
-  .visitors-bars li,
-  .visitors-feed li {
+  .visitors-bars li {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 16px;
     justify-content: space-between;
   }
   .visitors-bar-track {
@@ -471,34 +424,5 @@
   }
   .visitors-page .container + .container {
     margin-top: 30px;
-  }
-  /* Four aligned columns do not fit a phone. Each event becomes a small block
-     instead: when and source share the top line, page and place follow. */
-  .visitors-feed {
-    display: block;
-  }
-  .visitors-feed li {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 9px 0 10px;
-  }
-  .visitors-feed li[hidden] {
-    display: none;
-  }
-  .visitors-feed-when {
-    order: 1;
-  }
-  .visitors-feed-source {
-    order: 2;
-    max-width: 60%;
-    margin-left: auto;
-  }
-  .visitors-feed-page {
-    order: 3;
-    flex: 0 0 100%;
-  }
-  .visitors-feed-where {
-    order: 4;
-    flex: 0 0 100%;
   }
 }
