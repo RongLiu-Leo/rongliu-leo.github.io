@@ -15,7 +15,7 @@
   var GRID = "#eceef1";
   var MUTED = "#8a8f96";
   var TREND = "rgba(43, 51, 63, 0.5)";
-  var FONT = '11px Roboto, "Helvetica Neue", Arial, sans-serif';
+  var FONT = '13px Roboto, "Helvetica Neue", Arial, sans-serif';
 
   var DAY_MS = 86400000;
   var CHART_DAYS = 90;
@@ -469,8 +469,8 @@
           return { value: n, tip: formatDay(row.day) + " \u00b7 " + count(n) };
         }),
         {
-          height: 64,
-          top: 14,
+          height: 72,
+          top: 18,
           bottom: 6,
           peak: function (value) {
             return "peak " + value;
@@ -528,10 +528,6 @@
     stat("week", sumWindow(0, 7).toLocaleString(), trend(sumWindow(0, 7), sumWindow(7, 7), "7 days"));
     stat("month", sumWindow(0, 30).toLocaleString(), trend(sumWindow(0, 30), sumWindow(30, 30), "30 days"));
     stat("peak", busiest.n.toLocaleString(), busiest.day && busiest.n ? "on " + formatDay(busiest.day) : "");
-
-    // The closing note describes how the whole site is counted, so it keeps
-    // the site-wide start date whatever is on screen.
-    setText(".stat-since", data.siteSince ? formatDay(data.siteSince, "long") : "\u2014");
   }
 
   function breakdowns(data) {

@@ -117,6 +117,10 @@
   --rule: #cccccc;
   --rule-soft: #eceef1;
 }
+/* Replaces the top margin the page header used to contribute. */
+.visitors-page .page-content {
+  padding-top: 30px;
+}
 .visitors-page .container + .container {
   margin-top: 45px;
 }
@@ -125,18 +129,12 @@
 }
 .visitors-status,
 .visitors-caption,
-.visitors-note,
 .visitors-bar-empty {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 1.05rem;
 }
 .visitors-caption {
   margin: -12px 0 24px;
-}
-.visitors-note {
-  margin: 0;
-  padding-top: 15px;
-  border-top: dashed 1px var(--rule);
 }
 
 /* Summary cards */
@@ -155,14 +153,14 @@
   border-top: solid 1px var(--rule-soft);
 }
 .visitors-stat-value {
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   font-weight: 300;
   line-height: 1.1;
   color: var(--accent);
 }
 .visitors-stat-label {
   margin-top: 2px;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #2b333f;
@@ -170,38 +168,50 @@
 .visitors-stat-note {
   min-height: 1.2em;
   margin-top: 4px;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 
-/* Scope selector */
+/* Scope selector: underlined like the section headings rather than boxed, so
+   it reads as part of the page instead of as a form control. */
 .visitors-scope-bar {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 6px 12px;
+  gap: 4px 14px;
 }
 .visitors-scope-label {
   margin: 0;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   font-weight: 400;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted);
 }
 .visitors-scope {
   max-width: 100%;
-  padding: 6px 10px;
+  margin: 0;
+  padding: 2px 26px 4px 0;
   font-family: inherit;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.3;
   color: #2b333f;
-  background: #fff;
-  border: solid 1px var(--rule);
-  border-radius: 2px;
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%23990000' d='M0 0h10L5 6z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  background-size: 11px 7px;
+  border: 0;
+  border-bottom: solid 2px var(--rule);
+  border-radius: 0;
   cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
 }
+.visitors-scope:hover,
 .visitors-scope:focus {
-  border-color: var(--accent);
+  border-bottom-color: var(--accent);
   outline: none;
 }
 .visitors-scope:disabled {
@@ -232,7 +242,7 @@
 .visitors-page-title {
   padding: 0;
   font-family: inherit;
-  font-size: 1.05rem;
+  font-size: 1.35rem;
   font-weight: 400;
   line-height: 1.35;
   text-align: left;
@@ -248,19 +258,19 @@
   background: none;
 }
 .visitors-page-path {
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 .visitors-page-count {
   margin-top: 8px;
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 300;
   line-height: 1.1;
   color: var(--accent);
 }
 .visitors-page-share {
   display: block;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 .visitors-page-card .visitors-chart {
@@ -287,6 +297,11 @@
 .visitors-chart canvas {
   display: block;
   width: 100%;
+}
+.visitors-map-tooltip,
+.visitors-chart-tooltip {
+  padding: 4px 9px;
+  font-size: 0.92rem;
 }
 .visitors-chart-tooltip {
   transform: translate(-50%, -125%);
@@ -320,7 +335,7 @@
 }
 .visitors-bar-label,
 .visitors-bar-value {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   line-height: 1.35;
 }
 .visitors-bar-label {
@@ -334,7 +349,7 @@
 }
 .visitors-bar-share {
   margin-left: 8px;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
 .visitors-bar-track {
@@ -361,7 +376,7 @@
 }
 .visitors-more {
   padding: 0;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   color: #0077aa;
   background: none;
   border: 0;
