@@ -11,6 +11,10 @@ window.WorldMap = (function () {
   var YOU_COLOR = "#e6a700";
   var TAU = Math.PI * 2;
 
+  // Dot sizes are tuned at this canvas width and scale with whatever the
+  // caller asks for, so the same renderer suits the footer and the full page.
+  var REFERENCE_WIDTH = 460;
+
   var mask = window.WORLD_LAND_MASK;
   var latSpan = mask ? mask.latMax - mask.latMin : 1;
   var landCells = null;
@@ -61,7 +65,7 @@ window.WorldMap = (function () {
       ctx.fill();
     }
 
-    var scale = width / 460;
+    var scale = width / REFERENCE_WIDTH;
     var placed = [];
     ctx.fillStyle = DOT_COLOR;
     ctx.globalAlpha = 0.75;

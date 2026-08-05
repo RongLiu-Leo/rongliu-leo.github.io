@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var MAX_WIDTH = 460;
+  var MAX_WIDTH = 300;
 
   var root = document.getElementById("visitor-map");
   if (!root || !window.WorldMap || !window.WorldMap.available) return;

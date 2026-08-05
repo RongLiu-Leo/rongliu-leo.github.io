@@ -23,14 +23,21 @@ CREATE TABLE IF NOT EXISTS places (
   lat     REAL    NOT NULL,
   lon     REAL    NOT NULL,
   country TEXT    NOT NULL DEFAULT '',
+  region  TEXT    NOT NULL DEFAULT '',
   city    TEXT    NOT NULL DEFAULT '',
   n       INTEGER NOT NULL DEFAULT 0,
-  PRIMARY KEY (lat, lon, country, city)
+  PRIMARY KEY (lat, lon, country, region, city)
 );
 
 CREATE TABLE IF NOT EXISTS daily (
   day TEXT    NOT NULL PRIMARY KEY,
   n   INTEGER NOT NULL DEFAULT 0
+);
+
+-- Hour of day, 0-23 UTC, taken from the first visit each person makes in a day.
+CREATE TABLE IF NOT EXISTS hourly (
+  hour INTEGER NOT NULL PRIMARY KEY,
+  n    INTEGER NOT NULL DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS referrers (

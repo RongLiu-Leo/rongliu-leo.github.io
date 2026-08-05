@@ -72,7 +72,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  max-width: 460px;
+  max-width: 300px;
 }
 /* Needed because the display rule above outranks the browser's [hidden] rule. */
 #visitor-map[hidden] {
@@ -88,7 +88,8 @@
   color: #8a8f96;
 }
 .visitor-map-tooltip,
-.visitors-map-tooltip {
+.visitors-map-tooltip,
+.visitors-chart-tooltip {
   position: absolute;
   transform: translate(-50%, -145%);
   padding: 3px 7px;
@@ -109,81 +110,201 @@
   color: inherit;
 }
 
-/* Visitors page */
+/* Visitors page — follows the homepage type scale and rules */
 .visitors-page {
-  padding-bottom: 40px;
+  --accent: #990000;
+  --muted: #8a8f96;
+  --rule: #cccccc;
+  --rule-soft: #eceef1;
 }
-.visitors-back {
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+.visitors-page .container + .container {
+  margin-top: 45px;
+}
+.visitors-page h4 {
+  margin-bottom: 12px;
 }
 .visitors-status,
+.visitors-caption,
 .visitors-note,
-.visitors-empty {
-  color: #8a8f96;
-  font-size: 0.85rem;
+.visitors-bar-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.visitors-caption {
+  margin: -12px 0 24px;
 }
 .visitors-note {
-  margin-top: 24px;
+  margin: 0;
+  padding-top: 15px;
+  border-top: dashed 1px var(--rule);
 }
+
+/* Summary cards */
 .visitors-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 28px;
-  margin: 0 0 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0 30px;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 .visitors-stats li {
   display: flex;
   flex-direction: column;
+  padding: 14px 0 18px;
+  border-top: solid 1px var(--rule-soft);
 }
 .visitors-stat-value {
-  font-size: 1.7rem;
-  font-weight: 700;
+  font-size: 2.4rem;
+  font-weight: 300;
   line-height: 1.1;
-  color: #990000;
+  color: var(--accent);
 }
 .visitors-stat-label {
+  margin-top: 2px;
   font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #8a8f96;
+  letter-spacing: 0.06em;
+  color: #2b333f;
 }
+.visitors-stat-note {
+  min-height: 1.2em;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Map and charts */
 .visitors-map,
 .visitors-chart {
   position: relative;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+/* The dot radius scales with the canvas, so a very wide map turns blobby. */
+.visitors-map {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .visitors-map-canvas,
-.visitors-chart-canvas {
+.visitors-chart canvas {
   display: block;
   width: 100%;
 }
-.visitors-tables {
-  margin-top: 8px;
+.visitors-chart-tooltip {
+  transform: translate(-50%, -125%);
 }
-.visitors-table {
-  width: 100%;
-  margin-bottom: 20px;
-  font-size: 0.88rem;
-  border-collapse: collapse;
+.visitors-breakdowns {
+  margin-top: 10px;
 }
-.visitors-table th,
-.visitors-table td {
-  padding: 5px 8px;
-  border-bottom: 1px solid #eceef1;
-  text-align: left;
+.visitors-breakdowns[hidden],
+.visitors-breakdowns > [hidden] {
+  display: none;
 }
-.visitors-table th {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: #8a8f96;
-  border-bottom-color: #d5d9df;
+
+/* Ranked lists with a share bar under each row */
+.visitors-bars {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
 }
-.visitors-table .visitors-number {
+.visitors-bars li {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  padding: 6px 0 7px;
+  border-bottom: dashed 1px var(--rule-soft);
+}
+.visitors-bars li[hidden] {
+  display: none;
+}
+.visitors-bar-label,
+.visitors-bar-value {
+  font-size: 0.95rem;
+  line-height: 1.35;
+}
+.visitors-bar-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.visitors-bar-value {
   text-align: right;
   white-space: nowrap;
+}
+.visitors-bar-share {
+  margin-left: 8px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.visitors-bar-track {
+  grid-column: 1 / -1;
+  height: 3px;
+  margin-top: 5px;
+  background: var(--rule-soft);
+}
+.visitors-bar-fill {
+  display: block;
+  height: 100%;
+  min-width: 2px;
+  background: var(--accent);
+}
+.visitors-bars li.is-muted .visitors-bar-label {
+  color: var(--muted);
+}
+.visitors-bars li.is-muted .visitors-bar-fill {
+  background: #c9b0b0;
+}
+.visitors-bar-empty {
+  grid-column: 1 / -1;
+  padding: 6px 0;
+}
+.visitors-more {
+  padding: 0;
+  font-size: 0.85rem;
+  color: #0077aa;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.visitors-more:hover,
+.visitors-more:focus {
+  color: #0e132b;
+}
+.visitors-more[hidden] {
+  display: none;
+}
+
+/* Fallback for browsers without subgrid: keep rows aligned with a flex row. */
+@supports not (grid-template-columns: subgrid) {
+  .visitors-bars {
+    display: block;
+  }
+  .visitors-bars li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .visitors-bar-track {
+    width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  .visitors-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .visitors-stat-value {
+    font-size: 2rem;
+  }
+  .visitors-page .container + .container {
+    margin-top: 30px;
+  }
 }

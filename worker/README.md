@@ -32,7 +32,15 @@ request at the edge. There is no GeoIP database and no external lookup API.
 ## Tables
 
 `visits` is the raw log and the source of truth: one row per unique visitor per
-day. `places`, `daily`, and `referrers` are rollups maintained on write.
+day. `places`, `daily`, `hourly`, and `referrers` are rollups maintained on
+write, and every one of them can be recomputed from the raw log.
+
+| Rollup | Key | Feeds |
+| --- | --- | --- |
+| `places` | lat, lon, country, region, city | map dots, country/region/city lists |
+| `daily` | day | daily chart, totals, weekday pattern |
+| `hourly` | hour, 0-23 UTC | time-of-day chart |
+| `referrers` | host | referrer list |
 
 Reads are served entirely from the rollups. This matters more than it looks:
 grouping over the raw log would scan every row ever recorded on each request,
@@ -47,6 +55,25 @@ If the counters ever drift from the raw log, rebuild them:
 ```bash
 npx wrangler d1 execute visitor-map --remote -y --file=./rebuild-rollups.sql
 ```
+
+## Changing a rollup
+
+`CREATE TABLE IF NOT EXISTS` leaves an existing table alone, so a new column in
+`schema.sql` never reaches a database that already has that table. Drop the
+rollup and rebuild it instead; the raw log is the source of truth, so nothing
+is lost:
+
+```bash
+npm run init-db                     # creates any brand-new rollup tables
+npm run deploy                      # ship the Worker that writes them
+npx wrangler d1 execute visitor-map --remote -y --command="DROP TABLE places"
+npm run init-db                     # recreate places with the new shape
+npx wrangler d1 execute visitor-map --remote -y --file=./rebuild-rollups.sql
+```
+
+Rollup writes fail while the schema and the deployed Worker disagree, which is
+why the rebuild goes last: `visits` is written before and independently of the
+rollups, so recomputing from it at the end repairs anything missed in between.
 
 ## Privacy
 

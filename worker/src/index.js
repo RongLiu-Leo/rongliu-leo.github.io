@@ -107,11 +107,13 @@ async function recordHit(request, env, cors, allowed) {
   }
 
   const cf = request.cf || {};
+  const now = Date.now();
   const day = today();
   const visitor = await visitorHash(request, env, day);
   const lat = round(cf.latitude);
   const lon = round(cf.longitude);
   const country = cf.country || "";
+  const region = cf.region || "";
   const city = cf.city || "";
   const referrer = referrerHost(new URL(request.url).searchParams.get("ref"), allowed);
 
@@ -119,7 +121,7 @@ async function recordHit(request, env, cors, allowed) {
     `INSERT OR IGNORE INTO visits (day, visitor, country, region, city, lat, lon, referrer, created_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
-    .bind(day, visitor, country || null, cf.region || null, city || null, lat, lon, referrer, Date.now())
+    .bind(day, visitor, country || null, region || null, city || null, lat, lon, referrer, now)
     .run();
 
   // A repeat visit on the same day is ignored above, and must not bump the
@@ -131,13 +133,17 @@ async function recordHit(request, env, cors, allowed) {
         `INSERT INTO daily (day, n) VALUES (?, 1)
          ON CONFLICT(day) DO UPDATE SET n = n + 1`
       ).bind(day),
+      env.DB.prepare(
+        `INSERT INTO hourly (hour, n) VALUES (?, 1)
+         ON CONFLICT(hour) DO UPDATE SET n = n + 1`
+      ).bind(new Date(now).getUTCHours()),
     ];
     if (lat !== null && lon !== null) {
       writes.push(
         env.DB.prepare(
-          `INSERT INTO places (lat, lon, country, city, n) VALUES (?, ?, ?, ?, 1)
-           ON CONFLICT(lat, lon, country, city) DO UPDATE SET n = n + 1`
-        ).bind(lat, lon, country, city)
+          `INSERT INTO places (lat, lon, country, region, city, n) VALUES (?, ?, ?, ?, ?, 1)
+           ON CONFLICT(lat, lon, country, region, city) DO UPDATE SET n = n + 1`
+        ).bind(lat, lon, country, region, city)
       );
     }
     if (referrer) {
@@ -164,7 +170,7 @@ async function recordHit(request, env, cors, allowed) {
 
 async function readPlaces(env, limit) {
   const rows = await env.DB.prepare(
-    `SELECT lat, lon, country, city, n FROM places ORDER BY n DESC LIMIT ?`
+    `SELECT lat, lon, country, region, city, n FROM places ORDER BY n DESC LIMIT ?`
   )
     .bind(limit)
     .all();
@@ -172,9 +178,23 @@ async function readPlaces(env, limit) {
     lat: row.lat,
     lon: row.lon,
     country: row.country || null,
+    region: row.region || null,
     city: row.city || null,
     n: row.n,
   }));
+}
+
+/** Collapses places into a ranked list, since one city can span several dots. */
+function rank(places, key, build) {
+  const totals = new Map();
+  for (const place of places) {
+    const id = key(place);
+    if (!id) continue;
+    const entry = totals.get(id);
+    if (entry) entry.n += place.n;
+    else totals.set(id, { ...build(place), n: place.n });
+  }
+  return [...totals.values()].sort((a, b) => b.n - a.n);
 }
 
 async function readTotals(env) {
@@ -185,48 +205,50 @@ async function readTotals(env) {
 async function readPoints(env, cors) {
   const [places, totals] = await Promise.all([readPlaces(env, 3000), readTotals(env)]);
   const countries = new Set(places.filter((p) => p.country).map((p) => p.country));
+  // The footer widget only plots dots, so the extra columns are dropped here.
+  const points = places.map(({ lat, lon, country, city, n }) => ({ lat, lon, country, city, n }));
 
   return json(
-    { points: places, visits: totals.visits, countries: countries.size, since: totals.since },
+    { points, visits: totals.visits, countries: countries.size, since: totals.since },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },
     cors
   );
 }
 
 async function readStats(env, cors) {
-  const [places, totals, dailyRows, referrerRows] = await Promise.all([
+  const [places, totals, dailyRows, hourRows, referrerRows] = await Promise.all([
     readPlaces(env, 5000),
     readTotals(env),
     env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
+    env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
     env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
   ]);
 
-  const byCountry = new Map();
-  for (const place of places) {
-    const key = place.country || "";
-    byCountry.set(key, (byCountry.get(key) || 0) + place.n);
-  }
-
-  const cities = places
-    .filter((place) => place.city)
-    .map((place) => ({ city: place.city, country: place.country, n: place.n }))
-    .sort((a, b) => b.n - a.n)
-    .slice(0, 100);
-
-  const byCountryList = [...byCountry]
-    .filter(([code]) => code)
-    .map(([country, n]) => ({ country, n }))
-    .sort((a, b) => b.n - a.n);
+  const byCountry = rank(places, (p) => p.country, (p) => ({ country: p.country }));
+  const regions = rank(
+    places,
+    (p) => (p.region ? `${p.region}|${p.country || ""}` : null),
+    (p) => ({ region: p.region, country: p.country })
+  );
+  const cities = rank(
+    places,
+    (p) => (p.city ? `${p.city}|${p.country || ""}` : null),
+    (p) => ({ city: p.city, country: p.country, region: p.region })
+  );
 
   return json(
     {
       points: places,
       visits: totals.visits,
       since: totals.since,
-      countries: byCountryList.length,
+      countries: byCountry.length,
+      cityCount: cities.length,
+      regionCount: regions.length,
       daily: dailyRows.results.slice().reverse(),
-      byCountry: byCountryList,
-      cities,
+      hours: hourRows.results,
+      byCountry,
+      regions: regions.slice(0, 100),
+      cities: cities.slice(0, 100),
       referrers: referrerRows.results,
     },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },

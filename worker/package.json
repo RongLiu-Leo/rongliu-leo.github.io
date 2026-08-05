@@ -7,7 +7,7 @@
     "init-db": "wrangler d1 execute visitor-map --remote --file=./schema.sql",
     "deploy": "wrangler deploy",
     "tail": "wrangler tail",
-    "backup": "wrangler d1 export visitor-map --remote --skip-confirmation --output=../data/visitors.sql"
+    "backup": "node -e \"require('fs').mkdirSync('../data',{recursive:true})\" && wrangler d1 export visitor-map --remote --skip-confirmation --output=../data/visitors.sql"
   },
   "devDependencies": {
     "wrangler": "^4.118.0"
