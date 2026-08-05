@@ -34,13 +34,6 @@
     if (data.countries) {
       text += " from " + data.countries + (data.countries === 1 ? " country" : " countries");
     }
-    if (data.since) {
-      text += " since " + new Date(data.since + "T00:00:00Z").toLocaleDateString(undefined, {
-        year: "numeric",
-        month: "short",
-        timeZone: "UTC",
-      });
-    }
     return text;
   }
 

@@ -76,14 +76,19 @@
     return n.toLocaleString() + (n === 1 ? " view" : " views");
   }
 
+  /** Averages below ten keep a decimal, since rounding them loses the scale. */
+  function formatAverage(value) {
+    return value >= 10 ? Math.round(value).toLocaleString() : value.toFixed(1);
+  }
+
   function dayKey(time) {
     return new Date(time).toISOString().slice(0, 10);
   }
 
-  function formatDay(day, style) {
+  function formatDay(day) {
     return new Date(day + "T00:00:00Z").toLocaleDateString(undefined, {
       year: "numeric",
-      month: style === "long" ? "long" : "short",
+      month: "short",
       day: "numeric",
       timeZone: "UTC",
     });
@@ -501,7 +506,17 @@
     var pages = data.pages || [];
     var topCountry = (data.byCountry || [])[0];
 
-    stat("views", views.toLocaleString(), data.since ? "since " + formatDay(data.since) : "");
+    var perDay = series.length
+      ? series.reduce(function (sum, row) {
+          return sum + row.n;
+        }, 0) / series.length
+      : 0;
+
+    stat(
+      "views",
+      views.toLocaleString(),
+      perDay ? formatAverage(perDay) + " a day on average" : ""
+    );
 
     // The second card is the one thing that differs by scope: site-wide it
     // counts the pages, and on a page it sizes that page against the site.
@@ -606,18 +621,10 @@
       return row.n;
     });
 
-    // Averaged over the charted window rather than all time, since the total
-    // can reach back further than the chart does.
-    var average =
-      values.reduce(function (sum, value) {
-        return sum + value;
-      }, 0) / (series.length || 1);
     var caption =
-      "Views per day " +
-      (series.length >= CHART_DAYS ? "over the last " + CHART_DAYS + " days" : "since " + formatDay(series[0].day)) +
-      ", averaging " +
-      (average >= 10 ? Math.round(average).toLocaleString() : average.toFixed(1)) +
-      " a day.";
+      series.length === 1
+        ? "Views so far, on the only day on record."
+        : "Views per day over the last " + series.length + " days.";
     if (series.length > ROLLING) caption += " The line is a seven-day average.";
     setText(".visitors-daily-caption", caption);
 
