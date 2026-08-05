@@ -1,0 +1,21 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "visitor-map",
+	"main": "src/index.js",
+	"compatibility_date": "2026-08-01",
+	"workers_dev": true,
+	"preview_urls": false,
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"ALLOWED_ORIGINS": "https://rongliu-leo.github.io"
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "visitor-map",
+			"database_id": "f49cfeb0-48e2-4902-8dd5-fcc01de42d9c"
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "visitor-map",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "init-db": "wrangler d1 execute visitor-map --remote --file=./schema.sql",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "backup": "wrangler d1 export visitor-map --remote --skip-confirmation --output=../data/visitors.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.118.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "workerd@1.20260730.1": true
+  }
+}
