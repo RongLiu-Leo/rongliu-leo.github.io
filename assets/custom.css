@@ -102,14 +102,6 @@
   pointer-events: none;
   z-index: 2;
 }
-.visitor-map-link,
-.visitor-map-link:hover,
-.visitor-map-link:focus {
-  display: inline-block;
-  text-decoration: none;
-  color: inherit;
-}
-
 /* Visitors page — follows the homepage type scale and rules */
 .visitors-page {
   --accent: #990000;
