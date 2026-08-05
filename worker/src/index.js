@@ -30,6 +30,7 @@ const MAX_REFERRER_LENGTH = 100;
 const MAX_PAGE_LENGTH = 100;
 const MAX_TITLE_LENGTH = 120;
 const DAILY_WINDOW = 90;
+const RECENT_ROWS = 30;
 
 function corsHeaders(request, env) {
   const origin = request.headers.get("Origin");
@@ -266,29 +267,51 @@ async function readPoints(env, cors) {
 async function readStats(env, cors, scope) {
   const page = scope || null;
   const from = windowStart(DAILY_WINDOW);
-  const [places, totals, site, dailyRows, hourRows, pageRows, pageDailyRows, referrerRows] = await Promise.all([
-    readPlaces(env, 5000, page),
-    readTotals(env, page),
-    page ? readTotals(env, null) : null,
-    page
-      ? env.DB.prepare(`SELECT day, n FROM page_daily WHERE page = ? ORDER BY day DESC LIMIT ?`)
-          .bind(page, DAILY_WINDOW)
-          .all()
-      : env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
-    page
-      ? env.DB.prepare(`SELECT hour, n FROM page_hourly WHERE page = ? ORDER BY hour`).bind(page).all()
-      : env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
-    env.DB.prepare(`SELECT page, title, n FROM pages ORDER BY n DESC LIMIT 100`).all(),
-    // Only the site-wide view charts every page at once.
-    page
-      ? null
-      : env.DB.prepare(`SELECT day, page, n FROM page_daily WHERE day >= ? ORDER BY day`).bind(from).all(),
-    page
-      ? env.DB.prepare(`SELECT host, n FROM page_referrers WHERE page = ? ORDER BY n DESC LIMIT 50`)
-          .bind(page)
-          .all()
-      : env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
-  ]);
+  const [places, totals, site, dailyRows, hourRows, pageRows, pageDailyRows, referrerRows, recentRows] =
+    await Promise.all([
+      readPlaces(env, 5000, page),
+      readTotals(env, page),
+      page ? readTotals(env, null) : null,
+      page
+        ? env.DB.prepare(`SELECT day, n FROM page_daily WHERE page = ? ORDER BY day DESC LIMIT ?`)
+            .bind(page, DAILY_WINDOW)
+            .all()
+        : env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
+      page
+        ? env.DB.prepare(`SELECT hour, n FROM page_hourly WHERE page = ? ORDER BY hour`).bind(page).all()
+        : env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
+      env.DB.prepare(`SELECT page, title, n FROM pages ORDER BY n DESC LIMIT 100`).all(),
+      // Only the site-wide view charts every page at once.
+      page
+        ? null
+        : env.DB.prepare(`SELECT day, page, n FROM page_daily WHERE day >= ? ORDER BY day`).bind(from).all(),
+      page
+        ? env.DB.prepare(`SELECT host, n FROM page_referrers WHERE page = ? ORDER BY n DESC LIMIT 50`)
+            .bind(page)
+            .all()
+        : env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
+      // The only read that touches the raw log. Picking rows by rowid walks
+      // the table backwards from the newest and stops at the limit, instead of
+      // sorting the whole history to find the same rows; the outer sort then
+      // orders just those few by time.
+      page
+        ? env.DB.prepare(
+            `SELECT * FROM (
+               SELECT created_at, page, country, region, city, referrer FROM views
+                WHERE page = ? ORDER BY rowid DESC LIMIT ?
+             ) ORDER BY created_at DESC`
+          )
+            .bind(page, RECENT_ROWS)
+            .all()
+        : env.DB.prepare(
+            `SELECT * FROM (
+               SELECT created_at, page, country, region, city, referrer FROM views
+                ORDER BY rowid DESC LIMIT ?
+             ) ORDER BY created_at DESC`
+          )
+            .bind(RECENT_ROWS)
+            .all(),
+    ]);
 
   const byCountry = rank(places, (p) => p.country, (p) => ({ country: p.country }));
   const regions = rank(
@@ -323,6 +346,7 @@ async function readStats(env, cors, scope) {
       pages: pageRows.results,
       pageDaily: pageDailyRows ? pageDailyRows.results : null,
       referrers: referrerRows.results,
+      recent: recentRows.results,
     },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },
     cors

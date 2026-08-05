@@ -21,6 +21,7 @@
   var CHART_DAYS = 90;
   var ROLLING = 7;
   var TOP_ROWS = 8;
+  var FEED_ROWS = 10;
   var PAGE_CARDS = 6;
   var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
@@ -352,18 +353,113 @@
       list.appendChild(li);
     });
 
-    if (button && items.length > TOP_ROWS) {
-      button.hidden = false;
-      button.textContent = "Show all " + items.length;
-      button.onclick = function () {
-        var expanded = button.getAttribute("aria-expanded") === "true";
-        Array.prototype.forEach.call(list.children, function (li, index) {
-          li.hidden = expanded && index >= TOP_ROWS;
-        });
-        button.setAttribute("aria-expanded", expanded ? "false" : "true");
-        button.textContent = expanded ? "Show all " + items.length : "Show fewer";
-      };
+    attachMore(button, list, TOP_ROWS, items.length);
+  }
+
+  function attachMore(button, list, limit, total) {
+    if (!button || total <= limit) return;
+    button.hidden = false;
+    button.textContent = "Show all " + total;
+    button.setAttribute("aria-expanded", "false");
+    button.onclick = function () {
+      var expanded = button.getAttribute("aria-expanded") === "true";
+      Array.prototype.forEach.call(list.children, function (li, index) {
+        li.hidden = expanded && index >= limit;
+      });
+      button.setAttribute("aria-expanded", expanded ? "false" : "true");
+      button.textContent = expanded ? "Show all " + total : "Show fewer";
+    };
+  }
+
+  /* ---------------------------------------------------------------- feed */
+
+  function relativeTime(at) {
+    var seconds = Math.max(0, Math.round((Date.now() - at) / 1000));
+    if (seconds < 45) return "just now";
+    var minutes = Math.round(seconds / 60);
+    if (minutes < 60) return minutes + (minutes === 1 ? " minute ago" : " minutes ago");
+    var hours = Math.round(minutes / 60);
+    if (hours < 24) return hours + (hours === 1 ? " hour ago" : " hours ago");
+    var days = Math.round(hours / 24);
+    if (days < 7) return days + (days === 1 ? " day ago" : " days ago");
+    return formatDay(dayKey(at));
+  }
+
+  function exactTime(at) {
+    var date = new Date(at);
+    return formatDay(dayKey(at)) + ", " + pad(date.getUTCHours()) + ":" + pad(date.getUTCMinutes()) + " UTC";
+  }
+
+  function cell(className, text, title) {
+    var span = document.createElement("span");
+    span.className = className;
+    span.textContent = text;
+    if (title) span.title = title;
+    return span;
+  }
+
+  /**
+   * The raw log, newest first — the one part of the page that is not an
+   * aggregate. Which page a view landed on is only worth a column when the
+   * report covers the whole site.
+   */
+  function feed(data) {
+    var list = root.querySelector(".visitors-feed");
+    var button = root.querySelector(".visitors-feed-more");
+    var rows = data.recent || [];
+    if (!list) return;
+
+    var labels = {};
+    (data.pages || []).forEach(function (item) {
+      labels[item.page] = pageLabel(item);
+    });
+
+    list.className = "visitors-feed" + (data.scope ? " is-scoped" : "");
+    list.innerHTML = "";
+    if (button) button.hidden = true;
+
+    if (!rows.length) {
+      var empty = document.createElement("li");
+      empty.className = "visitors-bar-empty";
+      empty.textContent = "Nothing recorded yet.";
+      list.appendChild(empty);
+      setText(".visitors-feed-caption", "");
+      return;
     }
+
+    rows.forEach(function (row, index) {
+      var li = document.createElement("li");
+      if (index >= FEED_ROWS) li.hidden = true;
+
+      li.appendChild(cell("visitors-feed-when", relativeTime(row.created_at), exactTime(row.created_at)));
+      if (!data.scope) {
+        li.appendChild(cell("visitors-feed-page", labels[row.page] || row.page, row.page));
+      }
+
+      var place = [row.city, row.region, countryName(row.country)].filter(Boolean).join(", ");
+      var where = row.city || (row.country ? countryName(row.country) : "");
+      li.appendChild(cell("visitors-feed-where", where ? withFlag(row.country, where) : "Somewhere", place));
+
+      li.appendChild(
+        cell(
+          "visitors-feed-source",
+          row.referrer || "direct",
+          row.referrer
+            ? "Followed a link from " + row.referrer
+            : "Typed the address, used a bookmark, or came from a source that sends no referrer"
+        )
+      );
+      list.appendChild(li);
+    });
+
+    attachMore(button, list, FEED_ROWS, rows.length);
+    setText(
+      ".visitors-feed-caption",
+      "The last " +
+        rows.length +
+        (data.scope ? " views of this page" : " views across the site") +
+        ", newest first. Hover a time for the exact moment in UTC."
+    );
   }
 
   /* --------------------------------------------------------------- pages */
@@ -715,6 +811,7 @@
     summary(data);
     pagesSection(data);
     breakdowns(data);
+    feed(data);
 
     status.hidden = true;
     root.querySelector(".visitors-body").hidden = false;
