@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Where visitors to Rong Liu's website come from.">
+  <meta name="robots" content="noindex">
+
+  <title>Visitors | Rong Liu</title>
+  <link rel="stylesheet" href="assets/main.css">
+  <link rel="stylesheet" href="assets/custom.css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/USC.png">
+</head>
+
+<body>
+  <main>
+    <div class="container visitors-page">
+      <p class="visitors-back"><a href="./">&larr; Back to homepage</a></p>
+      <h3>Visitors</h3>
+
+      <div id="visitors" data-endpoint="https://visitor-map.rong-leo-827.workers.dev">
+        <p class="visitors-status">Loading visitor statistics&hellip;</p>
+
+        <div class="visitors-body" hidden>
+          <ul class="visitors-stats">
+            <li><span class="visitors-stat-value stat-visits">&mdash;</span><span class="visitors-stat-label">total visits</span></li>
+            <li><span class="visitors-stat-value stat-countries">&mdash;</span><span class="visitors-stat-label">countries</span></li>
+            <li><span class="visitors-stat-value stat-today">&mdash;</span><span class="visitors-stat-label">today</span></li>
+            <li><span class="visitors-stat-value stat-week">&mdash;</span><span class="visitors-stat-label">last 7 days</span></li>
+            <li><span class="visitors-stat-value stat-month">&mdash;</span><span class="visitors-stat-label">last 30 days</span></li>
+          </ul>
+
+          <div class="visitors-map">
+            <canvas class="visitors-map-canvas" aria-label="Map of visitor locations" role="img"></canvas>
+            <div class="visitors-map-tooltip" hidden></div>
+          </div>
+
+          <h4>Daily traffic</h4>
+          <div class="visitors-chart">
+            <canvas class="visitors-chart-canvas" aria-label="Daily visits over the last 90 days" role="img"></canvas>
+          </div>
+
+          <div class="row clearfix visitors-tables">
+            <div class="col-md-6">
+              <h4>Countries</h4>
+              <table class="visitors-table">
+                <thead><tr><th>Country</th><th class="visitors-number">Visits</th><th class="visitors-number">Share</th></tr></thead>
+                <tbody class="visitors-countries"></tbody>
+              </table>
+            </div>
+            <div class="col-md-6">
+              <h4>Cities</h4>
+              <table class="visitors-table">
+                <thead><tr><th>City</th><th class="visitors-number">Visits</th><th></th></tr></thead>
+                <tbody class="visitors-cities"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <h4>Referrers</h4>
+          <table class="visitors-table">
+            <thead><tr><th>Source</th><th class="visitors-number">Visits</th><th></th></tr></thead>
+            <tbody class="visitors-referrers"></tbody>
+          </table>
+
+          <p class="visitors-note">
+            Counting one visit per unique visitor per day since
+            <span class="stat-since">&mdash;</span>. Locations are city-level
+            estimates from the network edge; no IP addresses are stored.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="assets/js/world-mask.js"></script>
+  <script src="assets/js/world-map.js"></script>
+  <script src="assets/js/visitors.js"></script>
+</body>
+
+</html>

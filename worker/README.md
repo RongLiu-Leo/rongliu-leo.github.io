@@ -2,98 +2,51 @@
 
 Self-hosted replacement for the ClustrMaps widget that used to sit in the page
 footer. A Cloudflare Worker records the approximate location of each visitor in
-a D1 database, and `assets/js/visitor-map.js` draws those locations as a dotted
-world map.
+a D1 database; `assets/js/visitor-map.js` draws those locations as a dotted
+world map, and `visitors.html` shows the full breakdown.
 
 Nothing is loaded from a third party at runtime, and the data lives in a
-database you control. A nightly GitHub Action exports it back into this
-repository, so the history survives even if the Cloudflare account does not.
-
-## How it works
-
-| Piece | Location |
-| --- | --- |
-| Worker (`POST /hit`, `GET /points`) | `worker/src/index.js` |
-| Database schema | `worker/schema.sql` |
-| Map widget | `assets/js/visitor-map.js` |
-| World geometry (2.8 KB bitmask) | `assets/js/world-mask.js` |
-| Nightly backup | `.github/workflows/backup-visitors.yml` |
-| Backup output | `data/visitors.sql` |
-
-Visitor coordinates come from `request.cf`, which Cloudflare attaches to every
-request at the edge. There is no GeoIP database to maintain and no external
-lookup API.
+database you control.
 
 ## Current deployment
 
-Live at `https://visitor-map.rong-leo-827.workers.dev`, which `index.html`
-already points at. Redeploy after changing the Worker with `npm run deploy`.
+Live at `https://visitor-map.rong-leo-827.workers.dev`, which both `index.html`
+and `visitors.html` point at. Redeploy after changing the Worker with
+`npm run deploy` — pushing to GitHub only updates the pages.
 
-## Setup
+## Layout
 
-Only needed to rebuild this from scratch or move it to another account. You
-need a free Cloudflare account; no domain is required, since the Worker is
-served from a free `workers.dev` subdomain.
+| Piece | Location |
+| --- | --- |
+| Worker (`POST /hit`, `GET /points`, `GET /stats`) | `worker/src/index.js` |
+| Database schema | `worker/schema.sql` |
+| Rollup rebuild | `worker/rebuild-rollups.sql` |
+| Shared map renderer | `assets/js/world-map.js` |
+| Footer widget | `assets/js/visitor-map.js` |
+| Visitors page | `visitors.html`, `assets/js/visitors.js` |
+| World geometry (2.8 KB bitmask) | `assets/js/world-mask.js` |
 
-```bash
-cd worker
-npm install
-npx wrangler login
-```
+Visitor coordinates come from `request.cf`, which Cloudflare attaches to every
+request at the edge. There is no GeoIP database and no external lookup API.
 
-**1. Create the database.** Copy the `database_id` it prints into the
-`d1_databases` block of `wrangler.jsonc`, replacing `PASTE_DATABASE_ID_HERE`.
+## Tables
 
-```bash
-npx wrangler d1 create visitor-map
-```
+`visits` is the raw log and the source of truth: one row per unique visitor per
+day. `places`, `daily`, and `referrers` are rollups maintained on write.
 
-**2. Create the tables.**
+Reads are served entirely from the rollups. This matters more than it looks:
+grouping over the raw log would scan every row ever recorded on each request,
+and since D1 bills reads by rows *scanned*, that cost grows with traffic and
+history at once. Measured at 206 bytes per row, storage is a non-issue for
+centuries, but a site doing a few hundred visits a day would exhaust the free
+tier's 5 million daily row reads within months. Reading from the rollups keeps
+the cost proportional to the number of distinct cities instead.
 
-```bash
-npm run init-db
-```
-
-**3. Set the hashing salt.** Paste any long random string when prompted. It is
-used to hash visitor identifiers and never leaves Cloudflare.
-
-```bash
-npx wrangler secret put HASH_SALT
-```
-
-**4. Deploy.** This prints a URL such as
-`https://visitor-map.your-subdomain.workers.dev`.
+If the counters ever drift from the raw log, rebuild them:
 
 ```bash
-npm run deploy
+npx wrangler d1 execute visitor-map --remote -y --file=./rebuild-rollups.sql
 ```
-
-**5. Point the page at it.** In `index.html`, replace
-`PASTE_WORKER_URL_HERE` in the `data-endpoint` attribute with that URL, then
-commit and push. The widget stays hidden until the endpoint responds, so a
-misconfigured URL leaves no broken box on the page.
-
-## Enabling the nightly backup
-
-Add two repository secrets under **Settings → Secrets and variables →
-Actions**:
-
-- `CLOUDFLARE_ACCOUNT_ID` — shown on the Workers & Pages overview page.
-- `CLOUDFLARE_API_TOKEN` — create at **My Profile → API Tokens** using the
-  *Edit Cloudflare Workers* template, or a custom token with `D1: Edit`.
-
-The workflow then commits `data/visitors.sql` whenever the data changes. You
-can also trigger it by hand from the Actions tab, and run it locally with
-`npm run backup`.
-
-To restore a backup into a fresh database:
-
-```bash
-npx wrangler d1 execute visitor-map --remote --file=../data/visitors.sql
-```
-
-Note that GitHub disables scheduled workflows after 60 days without repository
-activity; pushing anything re-enables them.
 
 ## Privacy
 
@@ -103,22 +56,61 @@ the hash, the same person produces a different value the next day, so rows
 cannot be linked over time. Coordinates are rounded to two decimal places, and
 Cloudflare only reports city-level accuracy to begin with.
 
-One row is written per unique visitor per day. Known bots and crawlers are
-filtered out by user agent, and requests carrying an `Origin` header not listed
-in `ALLOWED_ORIGINS` are rejected.
+Referrers are reduced to a bare hostname, so no paths or query strings are
+kept. The value comes from `document.referrer` in the page rather than the
+`Referer` header, because the header on a request to this Worker names the
+page itself. Being client-supplied, it is discarded unless it parses as a real
+http(s) URL, and self-referrals are ignored.
 
-## Limits and caveats
+Known bots are filtered by user agent, and `/hit` rejects requests whose
+`Origin` is missing or absent from `ALLOWED_ORIGINS`. That stops other
+websites from writing to the counter, though an `Origin` header is forgeable
+outside a browser, so treat the aggregate numbers as public.
 
-The free tier allows 100,000 Worker requests and 100,000 database row writes
-per day, far beyond what a personal site uses. `workers.dev` is often
-unreachable from mainland China, so visits from there may go uncounted — the
-hosted alternatives have the same gap. Cloudflare describes `workers.dev` as
-intended for personal projects rather than business-critical traffic.
+## Backups
+
+There is no scheduled backup. Take one whenever you like — you are already
+authenticated through `wrangler login`, so no API token is needed:
+
+```bash
+npm run backup     # writes ../data/visitors.sql
+```
+
+Commit the result and the history lives in git. To restore into a fresh
+database, load the dump and rebuild the rollups:
+
+```bash
+npx wrangler d1 execute visitor-map --remote -y --file=../data/visitors.sql
+npx wrangler d1 execute visitor-map --remote -y --file=./rebuild-rollups.sql
+```
+
+## Setting up from scratch
+
+Only needed to move this to another account. A free Cloudflare account is
+enough; no domain is required, since the Worker is served from a free
+`workers.dev` subdomain.
+
+```bash
+cd worker
+npm install
+npx wrangler login
+npx wrangler d1 create visitor-map    # put the printed id in wrangler.jsonc
+npm run init-db
+npx wrangler secret put HASH_SALT     # any long random string
+npm run deploy                        # prints the workers.dev URL
+```
+
+Then set `data-endpoint` in `index.html` and `visitors.html` to that URL, and
+`ALLOWED_ORIGINS` in `wrangler.jsonc` to your site's origin.
+
+Do not run `npm audit fix --force` here: it downgrades wrangler to an older,
+more vulnerable release, and the advisories it reports afterwards point back at
+the newer version in a loop.
 
 ## Regenerating the world map
 
-Only needed if you want a different resolution or latitude range; edit the
-constants at the top of the script first.
+Only needed to change the resolution or latitude range; edit the constants at
+the top of the script first.
 
 ```bash
 curl -L -o /tmp/world.geojson \
