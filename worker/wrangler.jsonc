@@ -11,6 +11,19 @@
 	"vars": {
 		"ALLOWED_ORIGINS": "https://rongliu-leo.github.io"
 	},
+	// Bounds how often one caller can reach /hit. Counted per Cloudflare
+	// location rather than globally, and set high enough that a room full of
+	// people behind one address never notices it.
+	"ratelimits": [
+		{
+			"name": "HIT_LIMITER",
+			"namespace_id": "1001",
+			"simple": {
+				"limit": 60,
+				"period": 60
+			}
+		}
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",

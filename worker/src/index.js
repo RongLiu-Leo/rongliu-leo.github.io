@@ -18,7 +18,7 @@
  * instead of to the total history.
  */
 
-const BOT_PATTERN =
+export const BOT_PATTERN =
   /bot|crawl|spider|slurp|scrap|preview|monitor|uptime|pingdom|lighthouse|headless|curl|wget|python-requests|axios|node-fetch|okhttp|go-http-client|java\/|libwww|httpclient|facebookexternalhit|semrush|ahrefs|petal|yandex|baidu|duckduck|applebot|gptbot|claudebot|ccbot|perplexity/i;
 
 // Cloudflare reports city-level coordinates already; rounding to ~1km further
@@ -76,7 +76,7 @@ function round(value) {
  * the address bar happens to hold. They are folded into a single key, without
  * extension or trailing slash, or one page would be counted as several.
  */
-function pagePath(raw) {
+export function pagePath(raw) {
   if (!raw) return "/";
   let path = String(raw).slice(0, 200).split("?")[0].split("#")[0];
   if (!path.startsWith("/")) path = `/${path}`;
@@ -87,7 +87,7 @@ function pagePath(raw) {
   return path.slice(0, MAX_PAGE_LENGTH) || "/";
 }
 
-function pageTitle(raw) {
+export function pageTitle(raw) {
   if (!raw) return "";
   return String(raw).replace(/\s+/g, " ").trim().slice(0, MAX_TITLE_LENGTH);
 }
@@ -98,7 +98,7 @@ function pageTitle(raw) {
  * visitor came from. Being client-controlled, it is reduced to a bare hostname
  * and discarded unless it parses as a real http(s) URL.
  */
-function referrerHost(raw, allowed) {
+export function referrerHost(raw, allowed) {
   if (!raw || raw.length > 500) return null;
   let url;
   try {
@@ -110,9 +110,19 @@ function referrerHost(raw, allowed) {
 
   const host = url.hostname.toLowerCase().replace(/^www\./, "").slice(0, MAX_REFERRER_LENGTH);
   if (!host || !host.includes(".")) return null;
-  // Navigation within the site itself is not a referral.
-  if (allowed.some((origin) => origin.endsWith(host))) return null;
+  // Navigation within the site itself is not a referral. Compared host to
+  // host, because a domain that merely ends the same way — leo.github.io
+  // against rongliu-leo.github.io — belongs to somebody else.
+  if (allowed.some((origin) => hostOf(origin) === host)) return null;
   return host;
+}
+
+function hostOf(origin) {
+  try {
+    return new URL(origin).hostname.toLowerCase().replace(/^www\./, "");
+  } catch {
+    return "";
+  }
 }
 
 async function recordHit(request, env, cors, allowed) {
@@ -352,6 +362,30 @@ async function cached(request, ctx, cors, path, build) {
   return response;
 }
 
+/**
+ * Nothing identifies a caller, so nothing else bounds how often one of them
+ * can reach `/hit`. The address is used as a counting key and discarded with
+ * the request: it is never written to the database, and the limiter holds it
+ * only for the length of its window.
+ *
+ * Checked before the bot filter, so automated callers are bounded too. Those
+ * requests record nothing, but they still cost invocations.
+ *
+ * Fails open, because a limiter that is unavailable should cost a real
+ * visitor their view no more than a missing one would.
+ */
+async function withinRate(request, env) {
+  const limiter = env.HIT_LIMITER;
+  const key = request.headers.get("CF-Connecting-IP");
+  if (!limiter || !key) return true;
+  try {
+    const { success } = await limiter.limit({ key });
+    return success;
+  } catch {
+    return true;
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     const { headers: cors, origin, allowed } = corsHeaders(request, env);
@@ -371,6 +405,9 @@ export default {
     // here costs the beacon nothing and stops scripted writes to the counter.
     if (pathname === "/hit" && request.method === "POST") {
       if (!origin) return json({ error: "origin required" }, { status: 403 }, cors);
+      if (!(await withinRate(request, env))) {
+        return json({ ok: false, counted: false }, { status: 429 }, cors);
+      }
       return recordHit(request, env, cors, allowed);
     }
 

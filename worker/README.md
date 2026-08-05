@@ -21,6 +21,7 @@ GitHub only updates the pages.
 | Worker (`POST /hit`, `GET /points`, `GET /stats[?page=]`) | `worker/src/index.js` |
 | Database schema | `worker/schema.sql` |
 | Rollup rebuild | `worker/rebuild-rollups.sql` |
+| Tests for the input handling (`npm test`) | `worker/test/` |
 | Pageview beacon, loaded by every page | `assets/js/beacon.js` |
 | Shared map renderer | `assets/js/world-map.js` |
 | Footer widget | `assets/js/visitor-map.js` |
@@ -119,6 +120,14 @@ Rollup writes fail while the schema and the deployed Worker disagree, which is
 why the rebuild goes last: `views` is written before and independently of the
 rollups, so recomputing from it at the end repairs anything missed in between.
 
+## Tests
+
+`npm test` runs Node's own test runner over `worker/test/`, with no
+dependencies to install. It covers the input handling — path folding, title
+and referrer reduction, bot matching — which is where a quiet mistake is most
+expensive: a change there does not fail loudly, it just starts recording the
+wrong thing. `npm run deploy` runs the tests first and stops if any fail.
+
 ## Privacy
 
 Nothing identifying is recorded. There is no IP address, no hash of one, no
@@ -139,10 +148,22 @@ http(s) URL, and self-referrals are ignored.
 Known bots are filtered by user agent, and `/hit` rejects requests whose
 `Origin` is missing or absent from `ALLOWED_ORIGINS`. That stops other
 websites from writing to the counter, though an `Origin` header is forgeable
-outside a browser, so treat the aggregate numbers as public. Without
-per-visitor deduplication there is nothing to bound how often one client can
-call `/hit`; if that ever becomes a problem, add a Cloudflare rate-limiting
-rule in front of the Worker rather than reintroducing an identifier.
+outside a browser, so treat the aggregate numbers as public.
+
+`/hit` is rate limited to 60 calls a minute per caller, which is the one place
+an address is touched at all. It is read from `CF-Connecting-IP`, handed to the
+limiter as a counting key, and discarded with the request — never written, and
+never combined with anything that is. The check runs before the bot filter, so
+automated callers are bounded too: they record nothing, but they still cost
+invocations.
+
+Treat that limit as a seatbelt rather than armour. Counters are kept per
+Cloudflare location and are approximate, so a burst faster than they propagate
+can slip through, and a caller spread across addresses is not bounded at all.
+It fails open by design, since a limiter that is unavailable should not cost a
+real visitor their view. What makes this proportionate is that every rollup can
+be rebuilt from the raw log: if the numbers are ever polluted, delete the
+offending rows by `created_at` and re-run `rebuild-rollups.sql`.
 
 ## Backups
 

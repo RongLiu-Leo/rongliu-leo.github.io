@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node --test",
     "init-db": "wrangler d1 execute visitor-map --remote --file=./schema.sql",
+    "predeploy": "node --test",
     "deploy": "wrangler deploy",
     "tail": "wrangler tail",
     "backup": "node -e \"require('fs').mkdirSync('../data',{recursive:true})\" && wrangler d1 export visitor-map --remote --skip-confirmation --output=../data/visitors.sql"
