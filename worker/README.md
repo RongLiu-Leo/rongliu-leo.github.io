@@ -22,7 +22,7 @@ GitHub only updates the pages.
 | Database schema | `worker/schema.sql` |
 | Rollup rebuild | `worker/rebuild-rollups.sql` |
 | Tests for the input handling (`npm test`) | `worker/test/` |
-| Pageview beacon, loaded by every page | `assets/js/beacon.js` |
+| Pageview beacon, loaded by every page but `visitors.html` | `assets/js/beacon.js` |
 | Shared map renderer | `assets/js/world-map.js` |
 | Footer widget | `assets/js/visitor-map.js` |
 | Visitors page | `visitors.html`, `assets/js/visitors.js` |
@@ -37,6 +37,10 @@ Every page load is one view. There is no deduplication, so a reload counts
 again, and one person reading three project pages counts three times. That is
 the whole definition — the numbers measure traffic, not people, and cannot be
 read as unique visitors.
+
+`visitors.html` is the one page that carries no beacon. It reports on the
+numbers rather than adding to them, and its traffic is mostly me checking them,
+which would crowd out the pages worth measuring.
 
 ## Counting other pages
 
