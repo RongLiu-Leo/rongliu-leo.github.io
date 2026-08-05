@@ -18,7 +18,7 @@ GitHub only updates the pages.
 
 | Piece | Location |
 | --- | --- |
-| Worker (`POST /hit`, `GET /points`, `GET /stats`) | `worker/src/index.js` |
+| Worker (`POST /hit`, `GET /points`, `GET /stats[?page=]`) | `worker/src/index.js` |
 | Database schema | `worker/schema.sql` |
 | Rollup rebuild | `worker/rebuild-rollups.sql` |
 | Pageview beacon, loaded by every page | `assets/js/beacon.js` |
@@ -61,9 +61,17 @@ from the log.
 | `places` | lat, lon, country, region, city | map dots, country/region/city lists |
 | `daily` | day | daily chart, totals, weekday pattern |
 | `hourly` | hour, 0-23 UTC | time-of-day chart |
-| `pages` | page | per-page panels, page count |
-| `page_daily` | day, page | per-page charts |
 | `referrers` | host | referrer list |
+| `pages` | page | the page picker, per-page panels |
+| `page_places` | page + place | everything above, for one page |
+| `page_daily` | day, page | per-page charts |
+| `page_hourly` | page, hour | " |
+| `page_referrers` | page, host | " |
+
+`GET /stats` reads the site-wide rollups and `GET /stats?page=/AtomGS/` reads
+the page-scoped ones, returning the same shape either way, which is what lets
+the visitors page show one report for any scope. Only pages already present in
+`pages` are addressable, so arbitrary input cannot mint cache entries.
 
 Reads are served entirely from the rollups. This matters more than it looks:
 grouping over the raw log would scan every row ever recorded on each request,
@@ -76,7 +84,7 @@ proportional to the number of distinct places and pages instead.
 Counting every view rather than one per visitor per day makes the raw log grow
 with traffic instead of with audience, so it is worth knowing the shape of it:
 a thousand views a day is roughly 75 MB a year against a 5 GB limit. Each view
-costs about six writes against a free allowance of 100,000 a day.
+costs about nine writes against a free allowance of 100,000 a day.
 
 If the counters ever drift from the raw log, rebuild them:
 

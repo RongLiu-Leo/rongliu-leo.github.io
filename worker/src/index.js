@@ -4,6 +4,7 @@
  * POST /hit?page=…&title=…&ref=…  records one pageview
  * GET  /points                    compact payload for the footer widget
  * GET  /stats                     fuller breakdown for the visitors page
+ * GET  /stats?page=…              the same breakdown for a single page
  *
  * Every view is counted, including repeat views by the same person. Nothing
  * identifies the caller: no IP, no hash, no cookie, so the log cannot be
@@ -141,6 +142,10 @@ async function recordHit(request, env, cors, allowed) {
        ON CONFLICT(hour) DO UPDATE SET n = n + 1`
     ).bind(new Date(now).getUTCHours()),
     env.DB.prepare(
+      `INSERT INTO page_hourly (page, hour, n) VALUES (?, ?, 1)
+       ON CONFLICT(page, hour) DO UPDATE SET n = n + 1`
+    ).bind(page, new Date(now).getUTCHours()),
+    env.DB.prepare(
       `INSERT INTO page_daily (day, page, n) VALUES (?, ?, 1)
        ON CONFLICT(day, page) DO UPDATE SET n = n + 1`
     ).bind(day, page),
@@ -158,7 +163,11 @@ async function recordHit(request, env, cors, allowed) {
       env.DB.prepare(
         `INSERT INTO places (lat, lon, country, region, city, n) VALUES (?, ?, ?, ?, ?, 1)
          ON CONFLICT(lat, lon, country, region, city) DO UPDATE SET n = n + 1`
-      ).bind(lat, lon, country, region, city)
+      ).bind(lat, lon, country, region, city),
+      env.DB.prepare(
+        `INSERT INTO page_places (page, lat, lon, country, region, city, n) VALUES (?, ?, ?, ?, ?, ?, 1)
+         ON CONFLICT(page, lat, lon, country, region, city) DO UPDATE SET n = n + 1`
+      ).bind(page, lat, lon, country, region, city)
     );
   }
   if (referrer) {
@@ -166,7 +175,11 @@ async function recordHit(request, env, cors, allowed) {
       env.DB.prepare(
         `INSERT INTO referrers (host, n) VALUES (?, 1)
          ON CONFLICT(host) DO UPDATE SET n = n + 1`
-      ).bind(referrer)
+      ).bind(referrer),
+      env.DB.prepare(
+        `INSERT INTO page_referrers (page, host, n) VALUES (?, ?, 1)
+         ON CONFLICT(page, host) DO UPDATE SET n = n + 1`
+      ).bind(page, referrer)
     );
   }
   await env.DB.batch(writes);
@@ -182,12 +195,18 @@ async function recordHit(request, env, cors, allowed) {
   );
 }
 
-async function readPlaces(env, limit) {
-  const rows = await env.DB.prepare(
-    `SELECT lat, lon, country, region, city, n FROM places ORDER BY n DESC LIMIT ?`
-  )
-    .bind(limit)
-    .all();
+async function readPlaces(env, limit, page) {
+  const rows = page
+    ? await env.DB.prepare(
+        `SELECT lat, lon, country, region, city, n FROM page_places WHERE page = ? ORDER BY n DESC LIMIT ?`
+      )
+        .bind(page, limit)
+        .all()
+    : await env.DB.prepare(
+        `SELECT lat, lon, country, region, city, n FROM places ORDER BY n DESC LIMIT ?`
+      )
+        .bind(limit)
+        .all();
   return rows.results.map((row) => ({
     lat: row.lat,
     lon: row.lon,
@@ -211,8 +230,14 @@ function rank(places, key, build) {
   return [...totals.values()].sort((a, b) => b.n - a.n);
 }
 
-async function readTotals(env) {
-  const row = await env.DB.prepare(`SELECT SUM(n) AS views, MIN(day) AS since FROM daily`).first();
+async function readTotals(env, page) {
+  const row = page
+    ? await env.DB.prepare(
+        `SELECT SUM(n) AS views, MIN(day) AS since FROM page_daily WHERE page = ?`
+      )
+        .bind(page)
+        .first()
+    : await env.DB.prepare(`SELECT SUM(n) AS views, MIN(day) AS since FROM daily`).first();
   return { views: row?.views ?? 0, since: row?.since ?? null };
 }
 
@@ -233,16 +258,36 @@ async function readPoints(env, cors) {
   );
 }
 
-async function readStats(env, cors) {
+/**
+ * The whole breakdown, either site-wide or for one page. Both forms read the
+ * same shape out of matching rollups, so the visitors page renders them with
+ * one code path.
+ */
+async function readStats(env, cors, scope) {
+  const page = scope || null;
   const from = windowStart(DAILY_WINDOW);
-  const [places, totals, dailyRows, hourRows, pageRows, pageDailyRows, referrerRows] = await Promise.all([
-    readPlaces(env, 5000),
-    readTotals(env),
-    env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
-    env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
+  const [places, totals, site, dailyRows, hourRows, pageRows, pageDailyRows, referrerRows] = await Promise.all([
+    readPlaces(env, 5000, page),
+    readTotals(env, page),
+    page ? readTotals(env, null) : null,
+    page
+      ? env.DB.prepare(`SELECT day, n FROM page_daily WHERE page = ? ORDER BY day DESC LIMIT ?`)
+          .bind(page, DAILY_WINDOW)
+          .all()
+      : env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
+    page
+      ? env.DB.prepare(`SELECT hour, n FROM page_hourly WHERE page = ? ORDER BY hour`).bind(page).all()
+      : env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
     env.DB.prepare(`SELECT page, title, n FROM pages ORDER BY n DESC LIMIT 100`).all(),
-    env.DB.prepare(`SELECT day, page, n FROM page_daily WHERE day >= ? ORDER BY day`).bind(from).all(),
-    env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
+    // Only the site-wide view charts every page at once.
+    page
+      ? null
+      : env.DB.prepare(`SELECT day, page, n FROM page_daily WHERE day >= ? ORDER BY day`).bind(from).all(),
+    page
+      ? env.DB.prepare(`SELECT host, n FROM page_referrers WHERE page = ? ORDER BY n DESC LIMIT 50`)
+          .bind(page)
+          .all()
+      : env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
   ]);
 
   const byCountry = rank(places, (p) => p.country, (p) => ({ country: p.country }));
@@ -259,9 +304,14 @@ async function readStats(env, cors) {
 
   return json(
     {
+      scope: page,
       points: places,
       views: totals.views,
       since: totals.since,
+      // The site-wide totals travel with every scope, so a single page can be
+      // shown as a share of the whole without a second request.
+      siteViews: site ? site.views : totals.views,
+      siteSince: site ? site.since : totals.since,
       countries: byCountry.length,
       cityCount: cities.length,
       regionCount: regions.length,
@@ -271,7 +321,7 @@ async function readStats(env, cors) {
       regions: regions.slice(0, 100),
       cities: cities.slice(0, 100),
       pages: pageRows.results,
-      pageDaily: pageDailyRows.results,
+      pageDaily: pageDailyRows ? pageDailyRows.results : null,
       referrers: referrerRows.results,
     },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },
@@ -279,9 +329,9 @@ async function readStats(env, cors) {
   );
 }
 
-async function cached(request, ctx, cors, build) {
+async function cached(request, ctx, cors, path, build) {
   const cache = caches.default;
-  const key = new Request(new URL(request.url).origin + new URL(request.url).pathname, { method: "GET" });
+  const key = new Request(new URL(request.url).origin + path, { method: "GET" });
   const hit = await cache.match(key);
   if (hit) {
     const response = new Response(hit.body, hit);
@@ -296,7 +346,7 @@ async function cached(request, ctx, cors, build) {
 export default {
   async fetch(request, env, ctx) {
     const { headers: cors, origin, allowed } = corsHeaders(request, env);
-    const { pathname } = new URL(request.url);
+    const { pathname, searchParams } = new URL(request.url);
 
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: cors });
@@ -316,11 +366,22 @@ export default {
     }
 
     if (pathname === "/points" && request.method === "GET") {
-      return cached(request, ctx, cors, () => readPoints(env, cors));
+      return cached(request, ctx, cors, "/points", () => readPoints(env, cors));
     }
 
     if (pathname === "/stats" && request.method === "GET") {
-      return cached(request, ctx, cors, () => readStats(env, cors));
+      const requested = searchParams.get("page");
+      if (!requested) {
+        return cached(request, ctx, cors, "/stats", () => readStats(env, cors, null));
+      }
+      // Only pages that have actually been seen are addressable, which keeps
+      // arbitrary input from minting an unbounded number of cache entries.
+      const scope = pagePath(requested);
+      const known = await env.DB.prepare(`SELECT page FROM pages WHERE page = ?`).bind(scope).first();
+      if (!known) return json({ error: "unknown page" }, { status: 404 }, cors);
+      return cached(request, ctx, cors, `/stats?page=${encodeURIComponent(scope)}`, () =>
+        readStats(env, cors, scope)
+      );
     }
 
     return json({ endpoints: ["POST /hit", "GET /points", "GET /stats"] }, { status: 404 }, cors);

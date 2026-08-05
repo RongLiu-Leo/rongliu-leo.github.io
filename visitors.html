@@ -28,6 +28,13 @@
       </div>
 
       <div class="visitors-body" hidden>
+        <div class="container visitors-scope-bar">
+          <label class="visitors-scope-label" for="visitors-scope">Showing</label>
+          <select class="visitors-scope" id="visitors-scope">
+            <option value="">The whole site</option>
+          </select>
+        </div>
+
         <div class="container">
           <h3 id="at-a-glance">At a Glance</h3>
           <ul class="visitors-stats">
@@ -38,7 +45,7 @@
             </li>
             <li>
               <span class="visitors-stat-value stat-pages">&mdash;</span>
-              <span class="visitors-stat-label">pages</span>
+              <span class="visitors-stat-label stat-pages-label">pages</span>
               <span class="visitors-stat-note stat-pages-note"></span>
             </li>
             <li>
@@ -74,7 +81,7 @@
           </ul>
         </div>
 
-        <div class="container">
+        <div class="container visitors-pages-section">
           <h3 id="pages">Pages</h3>
           <div class="visitors-pages"></div>
           <div class="visitors-pages-rest" hidden>

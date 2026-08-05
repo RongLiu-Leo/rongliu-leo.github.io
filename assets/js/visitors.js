@@ -2,8 +2,10 @@
  * Visitors page: reads /stats from the visitor-map Worker and renders the
  * summary cards, the world map, the ranked breakdowns, and the traffic charts.
  *
- * Everything here is derived from the four rollup tables the Worker returns;
- * nothing is fetched from a third party.
+ * The same rendering runs for the whole site or for a single page — the Worker
+ * returns one shape either way — so switching scope only swaps the payload.
+ * Everything shown is derived from the rollup tables it returns; nothing is
+ * fetched from a third party.
  */
 (function () {
   "use strict";
@@ -29,6 +31,7 @@
   var status = root.querySelector(".visitors-status");
   var mapCanvas = root.querySelector(".visitors-map-canvas");
   var mapTooltip = root.querySelector(".visitors-map-tooltip");
+  var select = root.querySelector(".visitors-scope");
 
   var regionNames = null;
   try {
@@ -42,6 +45,11 @@
   var series = [];
   var redraws = [];
   var pending = [];
+
+  // "" is the whole site; anything else is a page path. Payloads are kept so
+  // that flipping back to a scope already looked at costs nothing.
+  var scope = "";
+  var loaded = {};
 
   function countryName(code) {
     if (!code) return "Unknown";
@@ -227,9 +235,9 @@
   }
 
   function attachChartTooltip(canvas, tooltip, getBars) {
-    if (!tooltip) return;
+    if (!tooltip) return null;
 
-    canvas.addEventListener("mousemove", function (event) {
+    function move(event) {
       var bars = getBars();
       if (!bars.length) return;
       var box = canvas.getBoundingClientRect();
@@ -251,22 +259,38 @@
       tooltip.hidden = false;
       tooltip.style.left = Math.min(Math.max(hit.x, 60), box.width - 60) + "px";
       tooltip.style.top = hit.y + "px";
-    });
+    }
 
-    canvas.addEventListener("mouseleave", function () {
+    function leave() {
       tooltip.hidden = true;
-    });
+    }
+
+    canvas.addEventListener("mousemove", move);
+    canvas.addEventListener("mouseleave", leave);
+    return function () {
+      tooltip.hidden = true;
+      canvas.removeEventListener("mousemove", move);
+      canvas.removeEventListener("mouseleave", leave);
+    };
   }
 
   function addChart(canvas, bars, options) {
     if (!canvas) return;
+    // The fixed canvases are redrawn every time the scope changes, so the
+    // listeners from the previous payload have to come off first.
+    if (canvas.detachTooltip) canvas.detachTooltip();
+
     var placedBars = [];
     function render() {
       placedBars = drawBars(canvas, bars, options);
     }
-    attachChartTooltip(canvas, canvas.parentNode.querySelector(".visitors-chart-tooltip"), function () {
-      return placedBars;
-    });
+    canvas.detachTooltip = attachChartTooltip(
+      canvas,
+      canvas.parentNode.querySelector(".visitors-chart-tooltip"),
+      function () {
+        return placedBars;
+      }
+    );
     redraws.push(render);
     render();
   }
@@ -351,13 +375,12 @@
   function pagesSection(data) {
     var host = root.querySelector(".visitors-pages");
     var pages = data.pages || [];
-    if (!host) return;
+    // Only the site-wide view compares pages; a scoped view is already about
+    // one of them.
+    toggle(".visitors-pages-section", !data.scope && pages.length > 0);
+    if (!host || data.scope || !pages.length) return;
 
     host.innerHTML = "";
-    if (!pages.length) {
-      hide(".visitors-pages-caption");
-      return;
-    }
 
     // page_daily arrives as flat rows; the charts need one dense series per
     // page, aligned to the same days as the site-wide chart.
@@ -385,10 +408,10 @@
 
     setText(
       ".visitors-pages-caption",
-      "Views per page across the whole site. Each chart covers the same " +
+      "Views per page across the whole site, each chart covering the same " +
         series.length +
         (series.length === 1 ? " day" : " days") +
-        " as the one above."
+        " as the one above. Pick a page to see the rest of this report for it alone."
     );
   }
 
@@ -396,11 +419,14 @@
     var card = document.createElement("div");
     card.className = "visitors-page-card";
 
-    var link = document.createElement("a");
-    link.className = "visitors-page-title";
-    link.href = item.page;
-    link.textContent = pageLabel(item);
-    link.title = item.page;
+    var title = document.createElement("button");
+    title.type = "button";
+    title.className = "visitors-page-title";
+    title.textContent = pageLabel(item);
+    title.title = "Show this report for " + item.page;
+    title.onclick = function () {
+      choose(item.page);
+    };
 
     var path = document.createElement("span");
     path.className = "visitors-page-path";
@@ -428,7 +454,7 @@
     chart.appendChild(canvas);
     chart.appendChild(tip);
 
-    card.appendChild(link);
+    card.appendChild(title);
     card.appendChild(path);
     card.appendChild(value);
     card.appendChild(chart);
@@ -476,7 +502,18 @@
     var topCountry = (data.byCountry || [])[0];
 
     stat("views", views.toLocaleString(), data.since ? "since " + formatDay(data.since) : "");
-    stat("pages", pages.length.toLocaleString(), pages.length ? "led by " + pageLabel(pages[0]) : "");
+
+    // The second card is the one thing that differs by scope: site-wide it
+    // counts the pages, and on a page it sizes that page against the site.
+    if (data.scope) {
+      var share = data.siteViews ? Math.round((views / data.siteViews) * 100) : 0;
+      setText(".stat-pages-label", "of all views");
+      stat("pages", share + "%", (data.siteViews || 0).toLocaleString() + " site-wide");
+    } else {
+      setText(".stat-pages-label", "pages");
+      stat("pages", pages.length.toLocaleString(), pages.length ? "led by " + pageLabel(pages[0]) : "");
+    }
+
     stat(
       "countries",
       (data.countries || 0).toLocaleString(),
@@ -492,7 +529,9 @@
     stat("month", sumWindow(0, 30).toLocaleString(), trend(sumWindow(0, 30), sumWindow(30, 30), "30 days"));
     stat("peak", busiest.n.toLocaleString(), busiest.day && busiest.n ? "on " + formatDay(busiest.day) : "");
 
-    setText(".stat-since", data.since ? formatDay(data.since, "long") : "\u2014");
+    // The closing note describes how the whole site is counted, so it keeps
+    // the site-wide start date whatever is on screen.
+    setText(".stat-since", data.siteSince ? formatDay(data.siteSince, "long") : "\u2014");
   }
 
   function breakdowns(data) {
@@ -512,6 +551,7 @@
     );
 
     var regions = data.regions;
+    toggle(".visitors-regions-block", !!regions);
     if (regions) {
       fillBars(
         "visitors-regions",
@@ -525,8 +565,6 @@
         total,
         "No regions recorded yet."
       );
-    } else {
-      hide(".visitors-regions-block");
     }
 
     fillBars(
@@ -572,7 +610,12 @@
       return row.n;
     });
 
-    var average = (data.views || 0) / (series.length || 1);
+    // Averaged over the charted window rather than all time, since the total
+    // can reach back further than the chart does.
+    var average =
+      values.reduce(function (sum, value) {
+        return sum + value;
+      }, 0) / (series.length || 1);
     var caption =
       "Views per day " +
       (series.length >= CHART_DAYS ? "over the last " + CHART_DAYS + " days" : "since " + formatDay(series[0].day)) +
@@ -601,6 +644,15 @@
       }
     );
 
+    // The weekday chart widens to fill the row when there is no hourly rollup
+    // to sit beside it.
+    var weekdayBlock = root.querySelector(".visitors-weekdays-block");
+    toggle(".visitors-hours-block", !!data.hours);
+    if (weekdayBlock) {
+      weekdayBlock.className =
+        "col-xs-12 visitors-weekdays-block " + (data.hours ? "col-md-6" : "col-md-12");
+    }
+
     if (data.hours) {
       var hours = new Array(24).fill(0);
       data.hours.forEach(function (row) {
@@ -617,10 +669,6 @@
         }),
         { height: 150 }
       );
-    } else {
-      hide(".visitors-hours-block");
-      var weekdayBlock = root.querySelector(".visitors-weekdays-block");
-      if (weekdayBlock) weekdayBlock.className = weekdayBlock.className.replace("col-md-6", "col-md-12");
     }
 
     var weekdays = new Array(7).fill(0);
@@ -649,15 +697,18 @@
     return date.toLocaleDateString(undefined, { month: "short", timeZone: "UTC" });
   }
 
-  function hide(selector) {
+  function toggle(selector, visible) {
     var node = root.querySelector(selector);
-    if (node) node.hidden = true;
+    if (node) node.hidden = !visible;
   }
 
-  function apply(data) {
+  function render(data) {
     points = data.points || [];
     series = denseDaily(data.daily || [], data.since);
+    redraws = [];
+    pending = [];
 
+    fillScopes(data);
     summary(data);
     pagesSection(data);
     breakdowns(data);
@@ -673,6 +724,76 @@
       start();
     });
     pending = [];
+  }
+
+  /* ---------------------------------------------------------------- scope */
+
+  function fillScopes(data) {
+    if (!select) return;
+    select.innerHTML = "";
+
+    var all = document.createElement("option");
+    all.value = "";
+    all.textContent = "The whole site";
+    select.appendChild(all);
+
+    (data.pages || []).forEach(function (item) {
+      var option = document.createElement("option");
+      option.value = item.page;
+      option.textContent = pageLabel(item) + " \u2014 " + count(item.n);
+      select.appendChild(option);
+    });
+
+    select.value = scope;
+  }
+
+  function load(next) {
+    var key = next || "";
+    if (loaded[key]) {
+      scope = key;
+      render(loaded[key]);
+      return Promise.resolve(true);
+    }
+
+    if (select) select.disabled = true;
+    return fetch(endpoint + "/stats" + (key ? "?page=" + encodeURIComponent(key) : ""))
+      .then(function (response) {
+        if (!response.ok) throw new Error("stats request failed");
+        return response.json();
+      })
+      .then(function (data) {
+        loaded[key] = data;
+        scope = key;
+        if (select) select.disabled = false;
+        render(data);
+        return true;
+      })
+      .catch(function () {
+        if (select) select.disabled = false;
+        // A page that is no longer tracked, or a link to one that never was,
+        // falls back to the whole site rather than to an error.
+        if (key) {
+          if (select) select.value = scope;
+          return load("");
+        }
+        status.textContent = "Visitor statistics are unavailable right now.";
+        status.hidden = false;
+        return false;
+      });
+  }
+
+  function choose(value) {
+    if (select) select.value = value;
+    load(value).then(function (ok) {
+      if (!ok || !window.history || !window.history.replaceState) return;
+      window.history.replaceState(null, "", scope ? "#" + scope : location.pathname + location.search);
+    });
+  }
+
+  if (select) {
+    select.addEventListener("change", function () {
+      choose(select.value);
+    });
   }
 
   var resizeTimer;
@@ -695,13 +816,13 @@
     12
   );
 
-  fetch(endpoint + "/stats")
-    .then(function (response) {
-      if (!response.ok) throw new Error("stats request failed");
-      return response.json();
-    })
-    .then(apply)
-    .catch(function () {
-      status.textContent = "Visitor statistics are unavailable right now.";
-    });
+  // A page path in the fragment opens that page's report directly, so a scope
+  // can be linked to.
+  var requested = "";
+  try {
+    requested = decodeURIComponent(location.hash.replace(/^#/, ""));
+  } catch (e) {
+    requested = "";
+  }
+  load(requested.charAt(0) === "/" ? requested : "");
 })();

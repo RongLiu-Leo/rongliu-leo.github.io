@@ -19,6 +19,12 @@ CREATE TABLE IF NOT EXISTS views (
 -- grows until it exhausts the daily row-read allowance. Empty strings rather
 -- than NULLs in the keys, so ON CONFLICT matches. Rebuild any time with
 -- rebuild-rollups.sql; the raw table is the source of truth.
+--
+-- Each rollup comes in a site-wide form and a page-scoped twin, because the
+-- visitors page shows the same breakdown for the whole site or for one page.
+-- The site-wide tables are redundant in principle — they are the page-scoped
+-- ones grouped again — but reading them costs a fraction as many rows, and
+-- writes are far cheaper than reads here.
 CREATE TABLE IF NOT EXISTS places (
   lat     REAL    NOT NULL,
   lon     REAL    NOT NULL,
@@ -27,6 +33,17 @@ CREATE TABLE IF NOT EXISTS places (
   city    TEXT    NOT NULL DEFAULT '',
   n       INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (lat, lon, country, region, city)
+);
+
+CREATE TABLE IF NOT EXISTS page_places (
+  page    TEXT    NOT NULL,
+  lat     REAL    NOT NULL,
+  lon     REAL    NOT NULL,
+  country TEXT    NOT NULL DEFAULT '',
+  region  TEXT    NOT NULL DEFAULT '',
+  city    TEXT    NOT NULL DEFAULT '',
+  n       INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (page, lat, lon, country, region, city)
 );
 
 CREATE TABLE IF NOT EXISTS daily (
@@ -38,6 +55,13 @@ CREATE TABLE IF NOT EXISTS daily (
 CREATE TABLE IF NOT EXISTS hourly (
   hour INTEGER NOT NULL PRIMARY KEY,
   n    INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS page_hourly (
+  page TEXT    NOT NULL,
+  hour INTEGER NOT NULL,
+  n    INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (page, hour)
 );
 
 -- One row per page of the site. `title` is whatever the page called itself on
@@ -58,4 +82,11 @@ CREATE TABLE IF NOT EXISTS page_daily (
 CREATE TABLE IF NOT EXISTS referrers (
   host TEXT    NOT NULL PRIMARY KEY,
   n    INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS page_referrers (
+  page TEXT    NOT NULL,
+  host TEXT    NOT NULL,
+  n    INTEGER NOT NULL DEFAULT 0,
+  PRIMARY KEY (page, host)
 );
