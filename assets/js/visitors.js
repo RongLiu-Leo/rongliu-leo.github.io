@@ -765,8 +765,12 @@
         return response.json();
       })
       .then(function (data) {
+        // The Worker folds the spellings of a path into one, so a link naming
+        // an older spelling settles onto the page it actually refers to.
+        var canonical = data.scope || "";
         loaded[key] = data;
-        scope = key;
+        loaded[canonical] = data;
+        scope = canonical;
         if (select) select.disabled = false;
         render(data);
         return true;
@@ -827,5 +831,12 @@
   } catch (e) {
     requested = "";
   }
-  load(requested.charAt(0) === "/" ? requested : "");
+  // Going through choose() rewrites an outdated spelling of a path to the one
+  // the report settled on; any other fragment is a section anchor and is left
+  // alone.
+  if (requested.charAt(0) === "/") {
+    choose(requested);
+  } else {
+    load("");
+  }
 })();

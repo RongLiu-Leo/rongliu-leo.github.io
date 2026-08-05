@@ -50,6 +50,14 @@ endpoint and the logic in one place:
 The beacon sends the path and the page title, so a new page labels itself in
 the Pages section without anything being registered in advance.
 
+A page is keyed by its path with no extension and no trailing slash, because
+GitHub Pages serves one file under several spellings — `/visitors.html`,
+`/visitors`, and `/visitors/` are the same page, as are `/AtomGS/` and
+`/AtomGS/index.html`. The Worker folds them on write, and again when a report
+is requested, so a link naming an older spelling still resolves. Views recorded
+before this folding existed were merged by rewriting `page` in the raw log and
+rebuilding the rollups.
+
 ## Tables
 
 `views` is the raw log and the source of truth: one row per pageview. Every

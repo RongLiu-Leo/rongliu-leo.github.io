@@ -69,12 +69,21 @@ function round(value) {
 /**
  * The path is supplied by the page, so it is reduced to a bare path with no
  * query string or fragment before it is stored.
+ *
+ * One file is reachable under several spellings — GitHub Pages serves
+ * visitors.html at /visitors.html and /visitors, and a project directory at
+ * both /AtomGS/ and /AtomGS/index.html — and the beacon reports whichever one
+ * the address bar happens to hold. They are folded into a single key, without
+ * extension or trailing slash, or one page would be counted as several.
  */
 function pagePath(raw) {
   if (!raw) return "/";
   let path = String(raw).slice(0, 200).split("?")[0].split("#")[0];
   if (!path.startsWith("/")) path = `/${path}`;
-  path = path.replace(/index\.html?$/i, "");
+  path = path
+    .replace(/\/index\.html?$/i, "/")
+    .replace(/\.html?$/i, "")
+    .replace(/\/+$/, "");
   return path.slice(0, MAX_PAGE_LENGTH) || "/";
 }
 
