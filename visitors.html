@@ -18,7 +18,7 @@
 <body class="visitors-page">
   <div class="container header-container">
     <h1>Visitors</h1>
-    <h2>Where readers of this site come from</h2>
+    <h2>What people read here, and where they read it from</h2>
   </div>
 
   <main class="page-content" aria-label="Content">
@@ -32,9 +32,14 @@
           <h3 id="at-a-glance">At a Glance</h3>
           <ul class="visitors-stats">
             <li>
-              <span class="visitors-stat-value stat-visits">&mdash;</span>
-              <span class="visitors-stat-label">total visits</span>
-              <span class="visitors-stat-note stat-visits-note"></span>
+              <span class="visitors-stat-value stat-views">&mdash;</span>
+              <span class="visitors-stat-label">page views</span>
+              <span class="visitors-stat-note stat-views-note"></span>
+            </li>
+            <li>
+              <span class="visitors-stat-value stat-pages">&mdash;</span>
+              <span class="visitors-stat-label">pages</span>
+              <span class="visitors-stat-note stat-pages-note"></span>
             </li>
             <li>
               <span class="visitors-stat-value stat-countries">&mdash;</span>
@@ -45,11 +50,6 @@
               <span class="visitors-stat-value stat-cities">&mdash;</span>
               <span class="visitors-stat-label">cities</span>
               <span class="visitors-stat-note stat-cities-note"></span>
-            </li>
-            <li>
-              <span class="visitors-stat-value stat-average">&mdash;</span>
-              <span class="visitors-stat-label">visits per day</span>
-              <span class="visitors-stat-note stat-average-note"></span>
             </li>
             <li>
               <span class="visitors-stat-value stat-today">&mdash;</span>
@@ -75,6 +75,17 @@
         </div>
 
         <div class="container">
+          <h3 id="pages">Pages</h3>
+          <div class="visitors-pages"></div>
+          <div class="visitors-pages-rest" hidden>
+            <h4>Other Pages</h4>
+            <ol class="visitors-bars visitors-page-list"></ol>
+            <button type="button" class="visitors-more" data-list="visitors-page-list" hidden></button>
+          </div>
+          <p class="visitors-caption visitors-pages-caption"></p>
+        </div>
+
+        <div class="container">
           <h3 id="where-they-come-from">Where They Come From</h3>
 
           <div class="visitors-map">
@@ -82,7 +93,7 @@
             <div class="visitors-map-tooltip" hidden></div>
           </div>
           <p class="visitors-caption">
-            One dot per city, sized by how many visits came from it. Hover a dot for the name.
+            One dot per city, sized by how many views came from it. Hover a dot for the name.
           </p>
 
           <div class="row clearfix visitors-breakdowns">
@@ -145,15 +156,17 @@
 
         <div class="container">
           <p class="visitors-note">
-            One visit is one unique visitor per day, counted since
-            <span class="stat-since">&mdash;</span>. Locations are city-level estimates from the
-            network edge; no IP addresses are stored, and figures refresh every five minutes.
+            Every page load across this site counts as one view, recorded since
+            <span class="stat-since">&mdash;</span>. Nothing identifies a visitor: no IP address,
+            no cookie, no fingerprint. Locations are city-level estimates from the network edge,
+            known bots are skipped, and figures refresh every five minutes.
           </p>
         </div>
       </div>
     </div>
   </main>
 
+  <script src="assets/js/beacon.js"></script>
   <script src="assets/js/world-mask.js"></script>
   <script src="assets/js/world-map.js"></script>
   <script src="assets/js/visitors.js"></script>

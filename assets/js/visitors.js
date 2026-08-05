@@ -19,6 +19,7 @@
   var CHART_DAYS = 90;
   var ROLLING = 7;
   var TOP_ROWS = 8;
+  var PAGE_CARDS = 6;
   var WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
   var root = document.getElementById("visitors");
@@ -40,6 +41,7 @@
   var placed = [];
   var series = [];
   var redraws = [];
+  var pending = [];
 
   function countryName(code) {
     if (!code) return "Unknown";
@@ -63,7 +65,7 @@
   }
 
   function count(n) {
-    return n.toLocaleString() + (n === 1 ? " visit" : " visits");
+    return n.toLocaleString() + (n === 1 ? " view" : " views");
   }
 
   function dayKey(time) {
@@ -153,8 +155,8 @@
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, width, height);
 
-    var top = 20;
-    var bottom = height - 20;
+    var top = options.top != null ? options.top : 20;
+    var bottom = height - (options.bottom != null ? options.bottom : 20);
     var plotHeight = bottom - top;
     var step = width / bars.length;
     // The cap keeps a single day of history from drawing one huge slab.
@@ -335,6 +337,125 @@
     }
   }
 
+  /* --------------------------------------------------------------- pages */
+
+  /**
+   * Titles read like "Deformable Beta Splatting | Rong Liu", and only the
+   * first part identifies the page.
+   */
+  function pageLabel(item) {
+    if (item.page === "/") return "Home";
+    return (item.title || "").split("|")[0].trim() || item.page;
+  }
+
+  function pagesSection(data) {
+    var host = root.querySelector(".visitors-pages");
+    var pages = data.pages || [];
+    if (!host) return;
+
+    host.innerHTML = "";
+    if (!pages.length) {
+      hide(".visitors-pages-caption");
+      return;
+    }
+
+    // page_daily arrives as flat rows; the charts need one dense series per
+    // page, aligned to the same days as the site-wide chart.
+    var byPage = {};
+    (data.pageDaily || []).forEach(function (row) {
+      (byPage[row.page] = byPage[row.page] || {})[row.day] = row.n;
+    });
+
+    var total = data.views || 0;
+    pages.slice(0, PAGE_CARDS).forEach(function (item) {
+      var days = byPage[item.page] || {};
+      host.appendChild(pageCard(item, total, days));
+    });
+
+    fillBars(
+      "visitors-page-list",
+      pages.slice(PAGE_CARDS).map(function (item) {
+        return { label: pageLabel(item), n: item.n, title: item.page + " \u00b7 " + count(item.n) };
+      }),
+      total,
+      ""
+    );
+    var rest = root.querySelector(".visitors-pages-rest");
+    if (rest) rest.hidden = pages.length <= PAGE_CARDS;
+
+    setText(
+      ".visitors-pages-caption",
+      "Views per page across the whole site. Each chart covers the same " +
+        series.length +
+        (series.length === 1 ? " day" : " days") +
+        " as the one above."
+    );
+  }
+
+  function pageCard(item, total, days) {
+    var card = document.createElement("div");
+    card.className = "visitors-page-card";
+
+    var link = document.createElement("a");
+    link.className = "visitors-page-title";
+    link.href = item.page;
+    link.textContent = pageLabel(item);
+    link.title = item.page;
+
+    var path = document.createElement("span");
+    path.className = "visitors-page-path";
+    path.textContent = item.page;
+
+    var value = document.createElement("span");
+    value.className = "visitors-page-count";
+    value.textContent = item.n.toLocaleString();
+    if (total) {
+      var share = document.createElement("span");
+      share.className = "visitors-page-share";
+      share.textContent = Math.round((item.n / total) * 100) + "% of all views";
+      value.appendChild(share);
+    }
+
+    var chart = document.createElement("div");
+    chart.className = "visitors-chart";
+    var canvas = document.createElement("canvas");
+    canvas.className = "visitors-page-canvas";
+    canvas.setAttribute("role", "img");
+    canvas.setAttribute("aria-label", "Daily views of " + pageLabel(item));
+    var tip = document.createElement("div");
+    tip.className = "visitors-chart-tooltip";
+    tip.hidden = true;
+    chart.appendChild(canvas);
+    chart.appendChild(tip);
+
+    card.appendChild(link);
+    card.appendChild(path);
+    card.appendChild(value);
+    card.appendChild(chart);
+
+    // Charts measure their container, so they are drawn once the card is in
+    // the document rather than here.
+    pending.push(function () {
+      addChart(
+        canvas,
+        series.map(function (row) {
+          var n = days[row.day] || 0;
+          return { value: n, tip: formatDay(row.day) + " \u00b7 " + count(n) };
+        }),
+        {
+          height: 64,
+          top: 14,
+          bottom: 6,
+          peak: function (value) {
+            return "peak " + value;
+          },
+        }
+      );
+    });
+
+    return card;
+  }
+
   /* ------------------------------------------------------------- rendering */
 
   function drawMap() {
@@ -344,32 +465,27 @@
   }
 
   function summary(data) {
-    var visits = data.visits || 0;
-    var days = series.length || 1;
+    var views = data.views || 0;
     var busiest = series.reduce(
       function (best, row) {
         return row.n > best.n ? row : best;
       },
       { day: null, n: 0 }
     );
-    var average = visits / days;
-    var top = (data.byCountry || [])[0];
+    var pages = data.pages || [];
+    var topCountry = (data.byCountry || [])[0];
 
-    stat("visits", visits.toLocaleString(), data.since ? "since " + formatDay(data.since) : "");
+    stat("views", views.toLocaleString(), data.since ? "since " + formatDay(data.since) : "");
+    stat("pages", pages.length.toLocaleString(), pages.length ? "led by " + pageLabel(pages[0]) : "");
     stat(
       "countries",
       (data.countries || 0).toLocaleString(),
-      top ? "led by " + countryName(top.country) : ""
+      topCountry ? "led by " + countryName(topCountry.country) : ""
     );
     stat(
       "cities",
       (data.cityCount || (data.cities || []).length).toLocaleString(),
       data.regionCount ? data.regionCount.toLocaleString() + (data.regionCount === 1 ? " region" : " regions") : ""
-    );
-    stat(
-      "average",
-      average >= 10 ? Math.round(average).toLocaleString() : average.toFixed(1),
-      "over " + days + (days === 1 ? " day" : " days")
     );
     stat("today", sumWindow(0, 1).toLocaleString(), "so far, UTC");
     stat("week", sumWindow(0, 7).toLocaleString(), trend(sumWindow(0, 7), sumWindow(7, 7), "7 days"));
@@ -380,7 +496,7 @@
   }
 
   function breakdowns(data) {
-    var total = data.visits || 0;
+    var total = data.views || 0;
 
     fillBars(
       "visitors-countries",
@@ -392,7 +508,7 @@
         };
       }),
       total,
-      "No visits recorded yet."
+      "No views recorded yet."
     );
 
     var regions = data.regions;
@@ -427,7 +543,7 @@
       "No cities recorded yet."
     );
 
-    // A visit with no referrer arrived directly, so whatever the referrer
+    // A view with no referrer arrived directly, so whatever the referrer
     // rollup does not account for is direct or stripped traffic.
     var referrers = (data.referrers || []).map(function (item) {
       return { label: item.host, n: item.n, title: item.host + " \u00b7 " + count(item.n) };
@@ -456,10 +572,13 @@
       return row.n;
     });
 
+    var average = (data.views || 0) / (series.length || 1);
     var caption =
-      "Visits per day " +
+      "Views per day " +
       (series.length >= CHART_DAYS ? "over the last " + CHART_DAYS + " days" : "since " + formatDay(series[0].day)) +
-      ".";
+      ", averaging " +
+      (average >= 10 ? Math.round(average).toLocaleString() : average.toFixed(1)) +
+      " a day.";
     if (series.length > ROLLING) caption += " The line is a seven-day average.";
     setText(".visitors-daily-caption", caption);
 
@@ -540,6 +659,7 @@
     series = denseDaily(data.daily || [], data.since);
 
     summary(data);
+    pagesSection(data);
     breakdowns(data);
 
     status.hidden = true;
@@ -549,6 +669,10 @@
     // once the body above is no longer hidden.
     drawMap();
     timeCharts(data);
+    pending.forEach(function (start) {
+      start();
+    });
+    pending = [];
   }
 
   var resizeTimer;

@@ -1,17 +1,20 @@
 /**
  * Visitor map backend.
  *
- * POST /hit?ref=…  records the caller's approximate location
- * GET  /points     compact payload for the footer widget
- * GET  /stats      fuller breakdown for the visitors page
+ * POST /hit?page=…&title=…&ref=…  records one pageview
+ * GET  /points                    compact payload for the footer widget
+ * GET  /stats                     fuller breakdown for the visitors page
+ *
+ * Every view is counted, including repeat views by the same person. Nothing
+ * identifies the caller: no IP, no hash, no cookie, so the log cannot be
+ * grouped back into people or sessions.
  *
  * Location comes from `request.cf`, which Cloudflare fills in at the edge, so
- * there is no GeoIP database and no third-party lookup involved. Raw IPs are
- * never written to the database.
+ * there is no GeoIP database and no third-party lookup involved.
  *
  * Reads are served from rollup tables rather than by scanning the raw log,
- * which keeps query cost tied to the number of distinct places instead of to
- * the total history.
+ * which keeps query cost tied to the number of distinct places and pages
+ * instead of to the total history.
  */
 
 const BOT_PATTERN =
@@ -23,6 +26,8 @@ const COORD_PRECISION = 2;
 
 const CACHE_SECONDS = 300;
 const MAX_REFERRER_LENGTH = 100;
+const MAX_PAGE_LENGTH = 100;
+const MAX_TITLE_LENGTH = 120;
 const DAILY_WINDOW = 90;
 
 function corsHeaders(request, env) {
@@ -55,26 +60,26 @@ function today() {
   return new Date().toISOString().slice(0, 10);
 }
 
-/**
- * Identifies a visitor for de-duplication only. Mixing the day into the hash
- * means the same person produces a different value tomorrow, so the table
- * cannot be used to follow anyone over time.
- */
-async function visitorHash(request, env, day) {
-  const ip = request.headers.get("CF-Connecting-IP") || "";
-  const ua = request.headers.get("User-Agent") || "";
-  const salt = env.HASH_SALT || "";
-  const data = new TextEncoder().encode(`${salt}|${day}|${ip}|${ua}`);
-  const digest = await crypto.subtle.digest("SHA-256", data);
-  return [...new Uint8Array(digest)]
-    .slice(0, 16)
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-}
-
 function round(value) {
   const n = Number.parseFloat(value);
   return Number.isFinite(n) ? Number(n.toFixed(COORD_PRECISION)) : null;
+}
+
+/**
+ * The path is supplied by the page, so it is reduced to a bare path with no
+ * query string or fragment before it is stored.
+ */
+function pagePath(raw) {
+  if (!raw) return "/";
+  let path = String(raw).slice(0, 200).split("?")[0].split("#")[0];
+  if (!path.startsWith("/")) path = `/${path}`;
+  path = path.replace(/index\.html?$/i, "");
+  return path.slice(0, MAX_PAGE_LENGTH) || "/";
+}
+
+function pageTitle(raw) {
+  if (!raw) return "";
+  return String(raw).replace(/\s+/g, " ").trim().slice(0, MAX_TITLE_LENGTH);
 }
 
 /**
@@ -107,63 +112,72 @@ async function recordHit(request, env, cors, allowed) {
   }
 
   const cf = request.cf || {};
+  const params = new URL(request.url).searchParams;
   const now = Date.now();
   const day = today();
-  const visitor = await visitorHash(request, env, day);
   const lat = round(cf.latitude);
   const lon = round(cf.longitude);
   const country = cf.country || "";
   const region = cf.region || "";
   const city = cf.city || "";
-  const referrer = referrerHost(new URL(request.url).searchParams.get("ref"), allowed);
+  const page = pagePath(params.get("page"));
+  const title = pageTitle(params.get("title"));
+  const referrer = referrerHost(params.get("ref"), allowed);
 
-  const inserted = await env.DB.prepare(
-    `INSERT OR IGNORE INTO visits (day, visitor, country, region, city, lat, lon, referrer, created_at)
+  await env.DB.prepare(
+    `INSERT INTO views (day, page, country, region, city, lat, lon, referrer, created_at)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
   )
-    .bind(day, visitor, country || null, region || null, city || null, lat, lon, referrer, now)
+    .bind(day, page, country || null, region || null, city || null, lat, lon, referrer, now)
     .run();
 
-  // A repeat visit on the same day is ignored above, and must not bump the
-  // rollups either, or the counters would drift away from the raw log.
-  const counted = inserted.meta?.changes === 1;
-  if (counted) {
-    const writes = [
+  const writes = [
+    env.DB.prepare(
+      `INSERT INTO daily (day, n) VALUES (?, 1)
+       ON CONFLICT(day) DO UPDATE SET n = n + 1`
+    ).bind(day),
+    env.DB.prepare(
+      `INSERT INTO hourly (hour, n) VALUES (?, 1)
+       ON CONFLICT(hour) DO UPDATE SET n = n + 1`
+    ).bind(new Date(now).getUTCHours()),
+    env.DB.prepare(
+      `INSERT INTO page_daily (day, page, n) VALUES (?, ?, 1)
+       ON CONFLICT(day, page) DO UPDATE SET n = n + 1`
+    ).bind(day, page),
+    // A page keeps its last known title, so a view that arrives without one
+    // does not blank the label already on record.
+    env.DB.prepare(
+      `INSERT INTO pages (page, title, n) VALUES (?, ?, 1)
+       ON CONFLICT(page) DO UPDATE SET
+         n = n + 1,
+         title = CASE WHEN excluded.title <> '' THEN excluded.title ELSE pages.title END`
+    ).bind(page, title),
+  ];
+  if (lat !== null && lon !== null) {
+    writes.push(
       env.DB.prepare(
-        `INSERT INTO daily (day, n) VALUES (?, 1)
-         ON CONFLICT(day) DO UPDATE SET n = n + 1`
-      ).bind(day),
-      env.DB.prepare(
-        `INSERT INTO hourly (hour, n) VALUES (?, 1)
-         ON CONFLICT(hour) DO UPDATE SET n = n + 1`
-      ).bind(new Date(now).getUTCHours()),
-    ];
-    if (lat !== null && lon !== null) {
-      writes.push(
-        env.DB.prepare(
-          `INSERT INTO places (lat, lon, country, region, city, n) VALUES (?, ?, ?, ?, ?, 1)
-           ON CONFLICT(lat, lon, country, region, city) DO UPDATE SET n = n + 1`
-        ).bind(lat, lon, country, region, city)
-      );
-    }
-    if (referrer) {
-      writes.push(
-        env.DB.prepare(
-          `INSERT INTO referrers (host, n) VALUES (?, 1)
-           ON CONFLICT(host) DO UPDATE SET n = n + 1`
-        ).bind(referrer)
-      );
-    }
-    await env.DB.batch(writes);
+        `INSERT INTO places (lat, lon, country, region, city, n) VALUES (?, ?, ?, ?, ?, 1)
+         ON CONFLICT(lat, lon, country, region, city) DO UPDATE SET n = n + 1`
+      ).bind(lat, lon, country, region, city)
+    );
   }
+  if (referrer) {
+    writes.push(
+      env.DB.prepare(
+        `INSERT INTO referrers (host, n) VALUES (?, 1)
+         ON CONFLICT(host) DO UPDATE SET n = n + 1`
+      ).bind(referrer)
+    );
+  }
+  await env.DB.batch(writes);
 
   return json(
     {
       ok: true,
-      counted,
+      counted: true,
       you: { lat, lon, city: city || null, country: country || null },
     },
-    { status: counted ? 201 : 200 },
+    { status: 201 },
     cors
   );
 }
@@ -198,8 +212,12 @@ function rank(places, key, build) {
 }
 
 async function readTotals(env) {
-  const row = await env.DB.prepare(`SELECT SUM(n) AS visits, MIN(day) AS since FROM daily`).first();
-  return { visits: row?.visits ?? 0, since: row?.since ?? null };
+  const row = await env.DB.prepare(`SELECT SUM(n) AS views, MIN(day) AS since FROM daily`).first();
+  return { views: row?.views ?? 0, since: row?.since ?? null };
+}
+
+function windowStart(days) {
+  return new Date(Date.now() - (days - 1) * 86400000).toISOString().slice(0, 10);
 }
 
 async function readPoints(env, cors) {
@@ -209,18 +227,21 @@ async function readPoints(env, cors) {
   const points = places.map(({ lat, lon, country, city, n }) => ({ lat, lon, country, city, n }));
 
   return json(
-    { points, visits: totals.visits, countries: countries.size, since: totals.since },
+    { points, views: totals.views, countries: countries.size, since: totals.since },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },
     cors
   );
 }
 
 async function readStats(env, cors) {
-  const [places, totals, dailyRows, hourRows, referrerRows] = await Promise.all([
+  const from = windowStart(DAILY_WINDOW);
+  const [places, totals, dailyRows, hourRows, pageRows, pageDailyRows, referrerRows] = await Promise.all([
     readPlaces(env, 5000),
     readTotals(env),
     env.DB.prepare(`SELECT day, n FROM daily ORDER BY day DESC LIMIT ?`).bind(DAILY_WINDOW).all(),
     env.DB.prepare(`SELECT hour, n FROM hourly ORDER BY hour`).all(),
+    env.DB.prepare(`SELECT page, title, n FROM pages ORDER BY n DESC LIMIT 100`).all(),
+    env.DB.prepare(`SELECT day, page, n FROM page_daily WHERE day >= ? ORDER BY day`).bind(from).all(),
     env.DB.prepare(`SELECT host, n FROM referrers ORDER BY n DESC LIMIT 50`).all(),
   ]);
 
@@ -239,7 +260,7 @@ async function readStats(env, cors) {
   return json(
     {
       points: places,
-      visits: totals.visits,
+      views: totals.views,
       since: totals.since,
       countries: byCountry.length,
       cityCount: cities.length,
@@ -249,6 +270,8 @@ async function readStats(env, cors) {
       byCountry,
       regions: regions.slice(0, 100),
       cities: cities.slice(0, 100),
+      pages: pageRows.results,
+      pageDaily: pageDailyRows.results,
       referrers: referrerRows.results,
     },
     { headers: { "Cache-Control": `public, max-age=${CACHE_SECONDS}` } },
@@ -286,7 +309,7 @@ export default {
     }
 
     // Browsers always send Origin on cross-origin requests, so demanding one
-    // here costs the widget nothing and stops scripted writes to the counter.
+    // here costs the beacon nothing and stops scripted writes to the counter.
     if (pathname === "/hit" && request.method === "POST") {
       if (!origin) return json({ error: "origin required" }, { status: 403 }, cors);
       return recordHit(request, env, cors, allowed);

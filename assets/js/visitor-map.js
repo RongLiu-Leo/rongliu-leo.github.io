@@ -1,6 +1,7 @@
 /**
- * Footer visitor map. Records the visit, draws the dotted world map, and links
- * through to the full breakdown on visitors.html.
+ * Footer visitor map. Draws the dotted world map from the recorded places and
+ * links through to the full breakdown on visitors.html. Counting the view is
+ * beacon.js's job, so this file only reads.
  */
 (function () {
   "use strict";
@@ -28,8 +29,8 @@
   }
 
   function summarise(data) {
-    if (!data.visits) return "";
-    var text = data.visits.toLocaleString() + (data.visits === 1 ? " visit" : " visits");
+    if (!data.views) return "";
+    var text = data.views.toLocaleString() + (data.views === 1 ? " page view" : " page views");
     if (data.countries) {
       text += " from " + data.countries + (data.countries === 1 ? " country" : " countries");
     }
@@ -44,22 +45,10 @@
   }
 
   function load() {
-    var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || location.protocol === "file:";
-
-    // document.referrer is the only place the real referrer is available; the
-    // Referer header on this request would just name our own page.
-    var hit = endpoint + "/hit";
-    if (document.referrer) hit += "?ref=" + encodeURIComponent(document.referrer.slice(0, 500));
-
-    var recorded = local
-      ? Promise.resolve(null)
-      : fetch(hit, { method: "POST", keepalive: true })
-          .then(function (response) {
-            return response.ok ? response.json() : null;
-          })
-          .catch(function () {
-            return null;
-          });
+    // beacon.js already recorded this view; reusing its result marks where the
+    // current visitor is without counting the page twice.
+    var recorded =
+      (window.VisitorBeacon && window.VisitorBeacon.recorded) || Promise.resolve(null);
 
     return recorded
       .then(function (result) {
