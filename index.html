@@ -30,8 +30,9 @@
 
   <!-- Title and Favicon -->
   <title>Rong Liu | PhD Student | University of Southern California</title>
-  <link rel="stylesheet" href="assets/main.css">
-  <link rel="stylesheet" href="assets/custom.css">
+  <!-- Bump ?v= when editing the stylesheets so browsers do not serve a cached copy. -->
+  <link rel="stylesheet" href="assets/main.css?v=1">
+  <link rel="stylesheet" href="assets/custom.css?v=1">
   <link rel="shortcut icon" type="image/x-icon" href="images/USC.png">
   <link rel="canonical" href="https://rongliu-leo.github.io/">
 
@@ -39,86 +40,171 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 </head>
 <body class="">
-  <div class="container header-container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 header-left">
-        <img class="profile-img no-print" src="images/profile.png"/>
+  <div class="container site-layout">
+    <aside class="site-sidebar header-left">
+      <img class="profile-img no-print" src="images/profile.png"/>
 
-        <div class="header-title-row">
-          <div>
-            <h1>Rong Liu <span class="no-print">(柳荣)</span></h1>
-            <h2>PhD Student</h2>
-            <h2 class="org-name">University of Southern California</h2>
-          </div>
-          <div class="print-contact print-only">
-            <a href="https://github.com/RongLiu-Leo" target="_blank">Github: RongLiu-Leo</a><br>
-            <a href="mailto:liu.rong@usc.edu" target="_blank">Email: liu.rong@usc.edu</a><br>
-            <a href="https://scholar.google.com/citations?user=MrWUyWkAAAAJ" target="_blank">Google Scholar: MrWUyWkAAAAJ</a><br>
-            <a href="https://rongliu-leo.github.io/" target="_blank">Website: https://rongliu-leo.github.io/</a>
-          </div>
+      <div class="header-title-row">
+        <div>
+          <h1>Rong Liu <span class="no-print">(柳荣)</span></h1>
+          <h2>PhD Student</h2>
+          <h2 class="org-name">University of Southern California</h2>
         </div>
-        <ul class="icons">
-          <li><a target="_blank" onclick="window.print();" class="button button--sacnite button--round-l no-print"><i class="ai ai-cv" title="Print CV"></i></a></li>
-          <li><a target="_blank" href="https://github.com/RongLiu-Leo" class="button button--sacnite button--round-l no-print"><i class="fab fa-github" title="Github"></i></a></li>
-          <li><a target="_blank" href="https://www.linkedin.com/in/rong-liu-34a3b4251" class="button button--sacnite button--round-l no-print"><i class="fab fa-linkedin-in" title="LinkedIn"></i></a></li>
-          <li><a target="_blank" href="https://scholar.google.com/citations?user=MrWUyWkAAAAJ" class="button button--sacnite button--round-l no-print"><i class="ai ai-google-scholar" title="Google Scholar"></i></a></li>
-          <li><a target="_blank" href="mailto:liu.rong@usc.edu" class="button button--sacnite button--round-l no-print"><i class="far fa-envelope" title="Email"></i></a></li>
-        </ul>
-
+        <div class="print-contact print-only">
+          <a href="https://github.com/RongLiu-Leo" target="_blank">Github: RongLiu-Leo</a><br>
+          <a href="mailto:liu.rong@usc.edu" target="_blank">Email: liu.rong@usc.edu</a><br>
+          <a href="https://scholar.google.com/citations?user=MrWUyWkAAAAJ" target="_blank">Google Scholar: MrWUyWkAAAAJ</a><br>
+          <a href="https://rongliu-leo.github.io/" target="_blank">Website: https://rongliu-leo.github.io/</a>
+        </div>
       </div>
+      <ul class="icons">
+        <li><a target="_blank" onclick="window.print();" class="button button--sacnite button--round-l no-print"><i class="ai ai-cv" title="Print CV"></i></a></li>
+        <li><a target="_blank" href="https://github.com/RongLiu-Leo" class="button button--sacnite button--round-l no-print"><i class="fab fa-github" title="Github"></i></a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/rong-liu-34a3b4251" class="button button--sacnite button--round-l no-print"><i class="fab fa-linkedin-in" title="LinkedIn"></i></a></li>
+        <li><a target="_blank" href="https://scholar.google.com/citations?user=MrWUyWkAAAAJ" class="button button--sacnite button--round-l no-print"><i class="ai ai-google-scholar" title="Google Scholar"></i></a></li>
+        <li><a target="_blank" href="mailto:liu.rong@usc.edu" class="button button--sacnite button--round-l no-print"><i class="far fa-envelope" title="Email"></i></a></li>
+      </ul>
+    </aside>
 
-
-      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 header-right">
+    <main class="site-main page-content" aria-label="Content">
+      <div class="header-right">
         <h3 id="about-me">About Me</h3>
         <div class="section-block">
           <p>I’m Rong Liu, a Research Intern at Netflix Eyeline Studios and an incoming PhD student in Computer Science at the University of Southern California.</p>
           <p>My long-term research goal is to answer how we enable machines to <strong>understand</strong>, <strong>reconstruct</strong>, <strong>generate</strong>, and <strong>interact</strong> with our everyday physical world through computer vision, graphics, and machine learning.</p>
           <p>Current research interests: <strong>3D/4D Reconstruction and Generation</strong>, <strong>Neural Representation and Rendering</strong>, and <strong>World Modeling</strong>.</p>
         </div>
-        <h3 id="Education">Education</h3>
-        <div class="row section-block">
-          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 details">
-            <div>
-              <h4 id="university-of-southern-california-phd" style="display: inline;"><b>University of Southern California</b></h4>
-              <i>Starting in August 2026</i>
-            </div>
-            <p>Doctor of Philosophy in Computer Science</p>
-            <p class="no-print">Starting in August 2026</p>
+        <h3 id="Education" class="print-only">Education</h3>
+        <div class="section-block print-only edu-list">
+          <div>
+            <h4 id="university-of-southern-california-phd" style="display: inline;"><b>University of Southern California</b></h4>
+            <i>Starting in August 2026</i>
           </div>
-          <div class="hidden-xs hidden-sm col-md-3 col-lg-3 no-print">
-            <img src="images/USC.png" class="edu-logo" alt="USC">
+          <p>Doctor of Philosophy in Computer Science</p>
+          <div>
+            <h4 id="university-of-southern-california" style="display: inline;"><b>University of Southern California</b></h4>
+            <i>August 2022 - May 2024</i>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 details">
-            <div>
-              <h4 id="university-of-southern-california" style="display: inline;"><b>University of Southern California</b></h4>
-              <i>August 2022 - May 2024</i>
-            </div>
+          <div>
             <p style="display: inline;">Master of Science in Computer Science <a href="images/Honor.pdf">(Honors Merit)</a></p>
-            <p class="no-print">August 2022 - May 2024</p>
-            <p class="print-only">GPA: 4.0/4.0</p>
+            <i>GPA: 4.0/4.0</i>
           </div>
-          <div class="hidden-xs hidden-sm col-md-3 col-lg-3 no-print">
-            <img src="images/USC.png" class="edu-logo" alt="USC">
+          <div>
+            <h4 id="dalian-university-of-technology" style="display: inline;"><b>Dalian University of Technology</b></h4>
+            <i>September 2018 - June 2022</i>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 details">
-            <div>
-              <h4 id="dalian-university-of-technology" style="display: inline;"><b>Dalian University of Technology</b></h4>
-              <i>September 2018 - June 2022</i>
-            </div>
-            <p>Bachelor of Engineering in Computer Engineering</p>
-            <p class="no-print">September 2018 - June 2022</p>
-            <p class="print-only">GPA: 88/100</p>
-          </div>
-          <div class="hidden-xs hidden-sm col-md-3 col-lg-3 no-print">
-            <img src="images/DLUT.png" class="edu-logo" alt="DUT">
+          <div>
+            <p style="display: inline;">Bachelor of Engineering in Computer Engineering</p>
+            <i>GPA: 88/100</i>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      <div class="container">
+
+      <section class="print-only">
+        <h3 id="experiences">Experiences</h3>
+
+        <div class="layout layout-left border-weak experience-item">
+          <div class="col-print-12 details exp-details">
+            <div>
+              <h4 id="research-engineer" style="display:inline;"><b>Research Engineer</b></h4>
+              <i>May 2024 - May 2026</i>
+            </div>
+            <div>
+              <p style="display:inline;">USC Institute for Creative Technologies</p>
+              <i>Supervisor: Prof. Andrew Feng</i>
+            </div>
+          </div>
+          <div class="col-print-12 content pub-content">
+            <ul>
+              <li>Deformable Beta Splatting</li>
+              <li>SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting</li>
+              <li>Splat Feature Solver</li>
+              <li>NanoGS: Training-Free Gaussian Splat Simplification</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="layout layout-left border-weak experience-item">
+          <div class="col-print-12 details exp-details">
+            <div>
+              <h4 id="research-intern" style="display:inline;"><b>Research Intern</b></h4>
+              <i>June 2025 - August 2025</i>
+            </div>
+            <div>
+              <p style="display:inline;">United Imaging Intelligence</p>
+              <i>Supervisor: Dr. Zhongpai Gao</i>
+            </div>
+          </div>
+          <div class="col-print-12 content pub-content">
+            <ul>
+              <li>Universal Beta Splatting</li>
+              <li>Radiance fields on medical data</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="layout layout-left border-weak experience-item">
+          <div class="col-print-12 details exp-details">
+            <div>
+              <h4 id="research-assistant-usc" style="display:inline;"><b>Research Assistant</b></h4>
+              <i>May 2023 - May 2024</i>
+            </div>
+            <div>
+              <p style="display:inline;">USC Institute for Creative Technologies</p>
+              <i>Supervisor: Prof. Andrew Feng</i>
+            </div>
+          </div>
+          <div class="col-print-12 content pub-content">
+            <ul>
+              <li>Neural Radiance Fields (NeRF)</li>
+              <li>Scalable NeRF on large terrain datasets</li>
+              <li>3D Gaussian Splatting</li>
+              <li>Atomizing Gaussian Splatting for High-Fidelity Radiance Field</li>
+              <li>Mesh extraction from Radiance Field</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="layout layout-left border-weak experience-item">
+          <div class="col-print-12 details exp-details">
+            <div>
+              <h4 id="research-assistant-dlut" style="display:inline;"><b>Research Assistant</b></h4>
+              <i>July 2020 - July 2022</i>
+            </div>
+            <div>
+              <p style="display:inline;">Dalian University of Technology</p>
+              <i>Supervisor: Prof. Liangtian Wan</i>
+            </div>
+          </div>
+          <div class="col-print-12 content pub-content">
+            <ul>
+              <li>Objective Detection (RCNN and YOLO)</li>
+              <li>Transfer Learning</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="layout layout-left border-no experience-item">
+          <div class="col-print-12 details exp-details">
+            <div>
+              <h4 id="teaching-assistant" style="display:inline;"><b>Teaching Assistant</b></h4>
+              <i>September 2021 - June 2022</i>
+            </div>
+            <div>
+              <p style="display:inline;">Dalian University of Technology</p>
+            </div>
+          </div>
+          <div class="col-print-12 content pub-content">
+            <ul>
+              <li>Program Design Basics and C Programming</li>
+              <li>Object-Oriented Method and C++ Program Design</li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <section>
         <h3 id="selected-publications">Selected Publications</h3>
 
         <div class="clearfix layout layout-left border-weak">
@@ -214,9 +300,9 @@
           </div>
         </div>
 
-      </div>
+      </section>
 
-      <div class="container">
+      <section>
         <h3 id="preprints">Preprints</h3>
 
         <div class="clearfix layout layout-left border-weak">
@@ -249,125 +335,9 @@
           </div>
         </div>
 
-      </div>
+      </section>
 
-      <div class="container">
-        <h3 id="experiences">Experiences</h3>
-          
-
-  
-    
-        <div class="clearfix layout layout-left border-weak experience-item">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details exp-details">
-            <div>
-              <h4 id="research-engineer" style="display:inline;"><b>Research Engineer</b></h4>
-              <i>May 2024 - May 2026</i>
-              <p class="no-print">Supervisor: Prof. Andrew Feng</p>
-            </div>
-            <div>
-              <p style="display:inline;">USC Institute for Creative Technologies</p>
-              <i>Supervisor: Prof. Andrew Feng</i>
-              <p class="no-print">May 2024 - Present</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content pub-content">
-            <ul>
-              <li>Deformable Beta Splatting</li>
-              <li>SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting</li>
-              <li>Splat Feature Solver</li>
-              <li>NanoGS: Training-Free Gaussian Splat Simplification</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="clearfix layout layout-left border-weak experience-item">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details exp-details">
-            <div>
-              <h4 id="research-intern" style="display:inline;"><b>Research Intern</b></h4>
-              <i>June 2025 - August 2025</i>
-              <p class="no-print">Supervisor: Dr. Zhongpai Gao</p>
-            </div>
-            <div>
-              <p style="display:inline;"><a target="_blank" href="https://www.uii-ai.com/">United Imaging Intelligence</a></p>
-              <i>Supervisor: <a target="_blank" href="https://sites.google.com/site/gaozhongpai/publications">Dr. Zhongpai Gao</a></i>
-              <p class="no-print">June 2025 - August 2025</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content pub-content">
-            <ul>
-              <li>Universal Beta Splatting</li>
-              <li>Radiance fields on medical data</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="clearfix layout layout-left border-weak experience-item">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details exp-details">
-            <div>
-              <h4 id="research-assistant-usc" style="display:inline;"><b>Research Assistant</b></h4>
-              <i>May 2023 - May 2024</i>
-              <p class="no-print">Supervisor: Prof. Andrew Feng</p>
-            </div>
-            <div>
-              <p style="display:inline;"><a target="_blank" href="https://ict.usc.edu/">USC Institute for Creative Technologies</a></p>
-              <i>Supervisor: <a target="_blank" href="https://ict.usc.edu/about-us/leadership/research-leadership/andrew-feng/">Prof. Andrew Feng</a></i>
-              <p class="no-print">May 2023 - May 2024</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content pub-content">
-            <ul>
-              <li>Neural Radiance Fields (NeRF)</li>
-              <li>Scalable NeRF on large terrain datasets</li>
-              <li>3D Gaussian Splatting</li>
-              <li>Atomizing Gaussian Splatting for High-Fidelity Radiance Field</li>
-              <li>Mesh extraction from Radiance Field</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="clearfix layout layout-left border-weak experience-item">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details exp-details">
-            <div>
-              <h4 id="research-assistant-dlut" style="display:inline;"><b>Research Assistant</b></h4>
-              <i>July 2020 - July 2022</i>
-              <p class="no-print">Supervisor: Prof. Liangtian Wan</p>
-            </div>
-            <div>
-              <p style="display:inline;">Dalian University of Technology</p>
-              <i>Supervisor: Prof. Liangtian Wan</i>
-              <p class="no-print">July 2020 - July 2022</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content pub-content">
-            <ul>
-              <li>Objective Detection (RCNN and YOLO)</li>
-              <li>Transfer Learning</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="clearfix layout layout-left border-no experience-item">
-          <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details exp-details">
-            <div>
-              <h4 id="teaching-assistant" style="display:inline;"><b>Teaching Assistant</b></h4>
-              <i>September 2021 - June 2022</i>
-            </div>
-            <div>
-              <p style="display:inline;">Dalian University of Technology</p>
-              <p class="no-print">September 2021 - June 2022</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content pub-content">
-            <ul>
-              <li>Program Design Basics and C Programming</li>
-              <li>Object-Oriented Method and C++ Program Design</li>
-            </ul>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="container">
+      <section>
         <h3 id="awards">Awards</h3>
         <div class="row clearfix">
           <div class="col-md-12">
@@ -381,9 +351,9 @@
             </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="container">
+      <section>
         <h3 id="service">Service</h3>
         <div class="row clearfix">
           <div class="col-md-12">
@@ -397,7 +367,7 @@
                   <a href="https://eccv.ecva.net/">ECCV</a> 2026, 
                   <a href="https://neurips.cc/">NeurIPS</a> 2026
                 </p>
-      
+
               </li>
               <li>
                 <p><strong>Journal Reviewer:</strong> <a href="https://dl.acm.org/journal/ieeetcsvt">TCSVT</a>, <a href="https://dl.acm.org/journal/tomm">TOMM</a>, <a href="https://dl.acm.org/journal/tip">TIP</a>, <a href="https://dl.acm.org/journal/tom">TMM</a>, <a href="https://dl.acm.org/journal/comgrafor">CGF</a></p>
@@ -408,10 +378,11 @@
             </ul>
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </main>
+    </main>
+  </div>
+
   <div class="container footer-container no-print">
     <div id="visitor-map" data-endpoint="https://visitor-map.rong-leo-827.workers.dev" hidden>
       <canvas class="visitor-map-canvas" aria-label="Map of visitor locations" role="img"></canvas>

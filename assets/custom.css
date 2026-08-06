@@ -1,5 +1,144 @@
 /* Reusable layout and component styles – keeps HTML DRY */
 
+/* Bootstrap pins .container to 1170px, which leaves very wide empty gutters on
+   large screens. Let it track the viewport instead, up to a readable cap. */
+:root {
+  --page-max-width: 1600px;
+  --page-gutter: 100px;
+}
+@media screen and (min-width: 992px) {
+  .container {
+    width: auto;
+    max-width: var(--page-max-width);
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+}
+
+/* Page shell: profile pinned on the left, all other content scrolls on the right */
+.site-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 30px;
+}
+/* Bootstrap's container clearfix would otherwise count as two flex items and
+   pick up the gap. */
+.site-layout::before,
+.site-layout::after {
+  display: none;
+}
+/* The profile is the theme's full-size design (a 300px column) uniformly scaled
+   by --profile-scale, so type, image and buttons keep their relative sizes. */
+.site-sidebar {
+  --profile-scale: 0.7;
+  --profile-width: calc(300px * var(--profile-scale));
+  /* Longhands: a var() inside the `flex` shorthand is parsed unreliably. */
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: var(--profile-width);
+  max-width: var(--profile-width);
+}
+/* min-width:0 lets the grid inside the column shrink instead of overflowing. */
+.site-main {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.site-sidebar .profile-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+/* The title row is only a flex row so the print contact block can sit beside
+   the name; on screen that block is hidden, so center what is left. */
+@media screen {
+  .site-sidebar .header-title-row {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* A viewport-tall sticky box keeps the profile centered against whatever part
+     of the content is on screen, without needing a transform offset. */
+  .site-sidebar {
+    position: sticky;
+    top: 30px;
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  /* On a short viewport the box would otherwise squash the photo into an oval. */
+  .site-sidebar > * {
+    flex-shrink: 0;
+  }
+  .site-sidebar h1,
+  .site-sidebar h2 {
+    margin-left: 0;
+    text-align: center;
+  }
+  .site-sidebar h1 {
+    font-size: calc(3rem * var(--profile-scale));
+  }
+  .site-sidebar h2 {
+    font-size: calc(2.5rem * var(--profile-scale));
+  }
+  .site-sidebar .org-name {
+    font-size: calc(2rem * var(--profile-scale));
+  }
+  .site-sidebar .profile-img {
+    margin-bottom: calc(20px * var(--profile-scale));
+  }
+  /* Flex keeps the five buttons on one row; the whitespace between inline-block
+     list items would push the last one to a second row. */
+  .site-sidebar .icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(20px * var(--profile-scale));
+  }
+  /* The five buttons add up to exactly the column width, so shrinking would
+     squash the circles into ellipses. */
+  .site-sidebar .icons li {
+    flex: 0 0 auto;
+  }
+  .site-sidebar .icons .button.button--sacnite {
+    width: calc(60px * var(--profile-scale));
+    height: calc(60px * var(--profile-scale));
+  }
+  .site-sidebar .icons i {
+    font-size: calc(30px * var(--profile-scale));
+    line-height: calc(60px * var(--profile-scale));
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .site-layout {
+    display: block;
+  }
+  .site-sidebar {
+    max-width: none;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .site-sidebar .profile-img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media print {
+  .site-layout {
+    display: block;
+    margin-top: 5px;
+  }
+  .site-sidebar {
+    position: static;
+    max-width: none;
+  }
+}
+
 /* Publication / preprint media column */
 .pub-media {
   text-align: center;
@@ -17,18 +156,6 @@
 /* Publication content column */
 .pub-content {
   padding: 0;
-}
-
-/* Education logos */
-.edu-logo {
-  width: 65px;
-  height: 65px;
-  margin: 0 auto 20px;
-  display: block;
-  border-radius: 40px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* Header title row and print contact */
@@ -52,14 +179,21 @@
   margin-bottom: 10px;
 }
 
-/* Experience: single block for screen + print; layout switches in print */
+/* Education renders in print only. Each entry has to be a flex item, like the
+   experience rows are, so that its right-floated date or GPA is contained by its
+   own row; as plain blocks the floats spill into the next entry and get placed
+   beside the previous one instead of against the margin. */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Experience entries render only in print, where the role stacks above its list */
 .exp-details {
   padding: 0 30px 0 0;
 }
-@media print {
-  .experience-item.layout-left {
-    flex-direction: column;
-  }
+.experience-item {
+  flex-direction: column;
 }
 
 .footer-container {
