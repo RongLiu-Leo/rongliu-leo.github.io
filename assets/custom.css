@@ -4,7 +4,7 @@
    large screens. Let it track the viewport instead, up to a readable cap. */
 :root {
   --page-max-width: 1600px;
-  --page-gutter: 100px;
+  --page-gutter: clamp(24px, 5vw, 100px);
 }
 @media screen and (min-width: 992px) {
   .container {
