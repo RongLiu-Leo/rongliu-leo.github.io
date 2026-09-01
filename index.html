@@ -74,14 +74,18 @@
           <p>Previously, I have worked at <strong>USC Institute for Creative Technologies</strong>, <strong>United Imaging Intelligence</strong>, and <strong>Netflix Eyeline Studios</strong>.</p>
           <p>My long-term research goal is to answer how we enable machines to <strong>understand</strong>, <strong>reconstruct</strong>, <strong>generate</strong>, and <strong>interact</strong> with our everyday physical world through computer vision, graphics, and machine learning.</p>
           <p>Current research interests: <strong>3D/4D Reconstruction and Generation</strong>, <strong>Neural Representation and Rendering</strong>, and <strong>World Modeling</strong>.</p>
+          <p>I am currently seeking <strong>2027 summer research internships</strong>.</p>
         </div>
         <h3 id="Education" class="print-only">Education</h3>
         <div class="section-block print-only edu-list">
           <div>
             <h4 id="university-of-southern-california-phd" style="display: inline;"><b>University of Southern California</b></h4>
-            <i>August 2026 - Present</i>
+            <i>August 2026 - May 2030 (Expected)</i>
+          </div>  
+          <div>
+            <p style="display: inline;">Doctor of Philosophy in Computer Science</p>
+            <!-- <i>GPA: 4.0/4.0</i> -->
           </div>
-          <p>Doctor of Philosophy in Computer Science</p>
           <div>
             <h4 id="university-of-southern-california" style="display: inline;"><b>University of Southern California</b></h4>
             <i>August 2022 - May 2024</i>
@@ -102,6 +106,16 @@
       </div>
 
       <section class="print-only">
+        <h3 id="technical-skills">Technical Skills</h3>
+        <div class="section-block">
+          <p><strong>Programming:</strong> Python, C++, CUDA, JavaScript/WebGL</p>
+          <p><strong>Machine Learning:</strong> PyTorch, diffusion models, generative modeling, model compression, transfer learning, object detection</p>
+          <p><strong>3D Vision &amp; Graphics:</strong> 3D Gaussian Splatting, Neural Radiance Fields (NeRF), differentiable and neural rendering, real-time rendering, novel view synthesis, 3D/4D reconstruction, world modeling, monocular SLAM, camera geometry, relighting and appearance modeling, mesh extraction</p>
+          <p><strong>Tools:</strong> Blender, COLMAP, synthetic data generation, CMake, Git, Linux</p>
+        </div>
+      </section>
+
+      <section class="print-only">
         <h3 id="experiences">Experiences</h3>
 
         <div class="layout layout-left border-weak experience-item">
@@ -117,8 +131,8 @@
           </div>
           <div class="col-print-12 content pub-content">
             <ul>
-              <li>Investigated 3D/4D splatting methods for reconstructing dynamic scenes in virtual-production workflows</li>
-              <li>Built an automated Blender pipeline for generating controllable synthetic training data</li>
+              <li>Investigated 3D/4D splatting representations for world modeling of dynamic scenes in virtual-production workflows</li>
+              <li>Built an automated Blender pipeline for large-scale synthetic data generation with controllable lighting and camera conditions</li>
               <li>Developed an image-relighting diffusion model conditioned on lighting cues to enable controllable scene illumination</li>
             </ul>
           </div>
@@ -137,10 +151,10 @@
           </div>
           <div class="col-print-12 content pub-content">
             <ul>
-              <li>Developed deformable Beta kernels for neural rendering, achieving SOTA visual fedility with only 55% fewer parameters and rendering 1.5x faster than 3DGS-MCMC; published at SIGGRAPH 2025</li>
-              <li>Co-developed an online dense monocular SLAM system that integrates 3D Gaussian Splatting with dynamic depth and pose updates; published at I3D 2025</li>
+              <li>Developed deformable Beta kernels with CUDA-accelerated real-time rendering, reaching state-of-the-art fidelity with 45% of the parameters and 1.5x faster rendering than 3DGS-MCMC, and were the first splatting method to surpass state-of-the-art NeRFs; published at SIGGRAPH 2025</li>
+              <li>Co-developed an online dense monocular SLAM system integrating 3D Gaussian Splatting with dynamic depth and camera pose updates for real-time scene reconstruction; published at I3D 2025</li>
               <li>Formulated 2D-to-3D feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions for high-quality 3D semantic features; published at ICLR 2026</li>
-              <li>Co-developed a training-free Gaussian-splat simplification method that preserves appearance and geometry without calibrated images or post-optimization; published at ECCV 2026</li>
+              <li>Co-developed a training-free splat compression method that runs on CPU and cuts primitive count while preserving appearance and geometry, requiring no calibrated images or post-optimization; published at ECCV 2026</li>
             </ul>
           </div>
         </div>
@@ -158,7 +172,7 @@
           </div>
           <div class="col-print-12 content pub-content">
             <ul>
-              <li>Generalized 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable spatial, angular, and temporal dependency modeling; published at ICLR 2026</li>
+              <li>Generalized 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels that unify spatial, angular, and temporal dependency modeling, outperforming prior methods on static, view-dependent, and dynamic benchmarks while rendering in real time via a CUDA implementation; published at ICLR 2026</li>
               <li>Investigated radiance-field representations for reconstructing and rendering medical data</li>
             </ul>
           </div>
@@ -197,8 +211,8 @@
           </div>
           <div class="col-print-12 content pub-content">
             <ul>
-              <li>Trained and evaluated R-CNN and YOLO models for object-detection research</li>
-              <li>Developed transfer-learning methods to adapt deep models to new domains with limited labeled data for radar signal processing</li>
+              <li>Reframed radar signal sorting as object detection over pulse-stream images, training and benchmarking YOLO-MobileNet, Faster R-CNN, and Cascade R-CNN detectors</li>
+              <li>Developed a multi-source deep transfer-learning pipeline that pre-trains on UAV-swarm pulses collected across separate reconnaissance areas and fine-tunes on the target area, improving sorting accuracy over baselines when target-domain data is scarce; published in Information Fusion and granted as patent CN113030958B</li>
             </ul>
           </div>
         </div>
@@ -234,7 +248,7 @@
             <h4 id="nanogs-training-free-gaussian-splat-simplification"><b>NanoGS: Training-Free Gaussian Splat Simplification</b></h4>
             <p>Butian Xiong*, <strong>Rong Liu*</strong>, Tiantian Zhou, Meida Chen, Zhiwen Fan, Andrew Feng</p>
             <p><strong>ECCV 2026</strong></p>
-            <p><em>NanoGS is a training-free framework for Gaussian Splat simplification, which achieves substantial simplification ratios while preserving fidelity and geometry without post-optimization or calibrated images.</em></p>
+            <p class="no-print"><em>NanoGS is a training-free framework for Gaussian Splat simplification, which achieves substantial simplification ratios while preserving fidelity and geometry without post-optimization or calibrated images.</em></p>
             <div>
               <p><a href="https://saliteta.github.io/NanoGS/">Website</a> | <a href="https://arxiv.org/abs/2603.16103">Paper</a> | <a href="https://rongliu-leo.github.io/NanoGS/">Web App</a> | <a href="https://github.com/RongLiu-Leo/NanoGS">Code (Web)</a> | <a href="https://github.com/saliteta/NanoGS">Code (Python)</a></p>
             </div>
@@ -249,7 +263,7 @@
             <h4 id="universal-beta-splatting"><b>Universal Beta Splatting</b></h4>
             <p><strong>Rong Liu</strong>, Zhongpai Gao, Benjamin Planche, Meida Chen, Van Nguyen Nguyen, Meng Zheng, Anwesa Choudhuri, Terrence Chen, Yue Wang, Andrew Feng, Ziyan Wu</p>
             <p><strong>ICLR 2026</strong></p>
-            <p><em>Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.</em></p>
+            <p class="no-print"><em>Universal Beta Splatting generalizes 3D Gaussian Splatting to N-dimensional anisotropic Beta kernels, enabling controllable dependency modeling across spatial, angular, and temporal dimensions within a single representation.</em></p>
             <div>
               <p><a href="https://rongliu-leo.github.io/universal-beta-splatting/">Website</a> | <a href="https://arxiv.org/abs/2510.03312">Paper</a> | <a href="https://github.com/RongLiu-Leo/universal-beta-splatting">Code</a></p>
             </div>
@@ -264,7 +278,7 @@
             <h4 id="splat-feature-solver"><b>Splat Feature Solver</b></h4>
             <p>Butian Xiong, <strong>Rong Liu</strong>, Kenneth Xu, Meida Chen, Andrew Feng</p>
             <p><strong>ICLR 2026</strong></p>
-            <p><em>A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.</em></p>
+            <p class="no-print"><em>A unified, kernel- and feature-agnostic framework that formulates feature lifting as a sparse linear inverse problem, enabling efficient closed-form solutions with high-quality 3D semantic features.</em></p>
             <div>
               <p><a href="https://splat-distiller.pages.dev/">Website</a> | <a href="https://arxiv.org/abs/2508.12216">Paper</a> | <a href="https://github.com/saliteta/splat-distiller/">Code</a></p>
             </div>
@@ -280,7 +294,7 @@
             <h4 id="deformable-beta-splatting"><b>Deformable Beta Splatting</b></h4>
             <p><strong>Rong Liu*</strong>, Dylan Sun*, Meida Chen, Yue Wang†, Andrew Feng†</p>
             <p><strong>ACM SIGGRAPH 2025</strong></p>
-            <p><em>Deformable Beta Splatting introduces deformable Beta Kernels with adaptive frequency control for both geometry and color encoding, capturing complex geometries and lighting while only using 45% parameters and rendering 1.5x faster than 3DGS-MCMC.</em></p>
+            <p class="no-print"><em>Deformable Beta Splatting introduces deformable Beta Kernels with adaptive frequency control for both geometry and color encoding, capturing complex geometries and lighting while only using 45% parameters and rendering 1.5x faster than 3DGS-MCMC.</em></p>
             <div>
               <p><a href="https://rongliu-leo.github.io/beta-splatting/">Website</a> | <a href="https://arxiv.org/abs/2501.18630">Paper</a> | <a href="https://github.com/RongLiu-Leo/beta-splatting/">Code</a></p>
             </div>
@@ -296,7 +310,7 @@
             <h4 id="splatmap-online-dense-monocular-slam-with-3d-gaussian-splatting"><b>SplatMAP: Online Dense Monocular SLAM with 3D Gaussian Splatting</b></h4>
             <p>Yue Hu, <strong>Rong Liu</strong>, Meida Chen, Peter Beerel, Andrew Feng</p>
             <p><strong>ACM I3D 2025</strong></p>
-            <p><em>A real-time monocular SLAM system that fuses 3D Gaussian Splatting with SLAM’s dynamic depth and pose updates via SLAM-Informed Adaptive Densification and Geometry-Guided Optimization.</em></p>
+            <p class="no-print"><em>A real-time monocular SLAM system that fuses 3D Gaussian Splatting with SLAM’s dynamic depth and pose updates via SLAM-Informed Adaptive Densification and Geometry-Guided Optimization.</em></p>
 
             <div>
               <p><a href="https://ergowho.github.io/SplatMap/">Website</a> | <a href="https://arxiv.org/abs/2501.07015">Paper</a></p>
@@ -312,7 +326,7 @@
             <h4 id="atomgs-atomizing-gaussian-splatting-for-high-fidelity-radiance-field"><b>AtomGS: Atomizing Gaussian Splatting for High-Fidelity Radiance Field</b></h4>
             <p><strong>Rong Liu</strong>, Rui Xu, Yue Hu, Meida Chen, Andrew Feng</p>
             <p><strong>BMVC 2024</strong></p>
-            <p><em>AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.</em></p>
+            <p class="no-print"><em>AtomGS proposes an atomized proliferation of Gaussians and edge-aware normal loss to refine Gaussian splatting, boosting geometric precision and rendering fidelity in novel-view synthesis.</em></p>
             <div>
               <p><a href="https://rongliu-leo.github.io/AtomGS/">Website</a> | <a href="https://arxiv.org/abs/2405.12369">Paper</a> | <a href="https://github.com/RongLiu-Leo/AtomGS">Code</a> | <a href="https://github.com/RongLiu-Leo/Gaussian-Splatting-Monitor">GS Monitor</a> | <a href="https://bmva-archive.org.uk/bmvc/2024/papers/Paper_577/poster.pdf">Poster</a></p>
             </div>
@@ -327,7 +341,7 @@
             <h4 id="uav-swarm-based-radar-signal-sorting-via-multi-source-data-fusion-a-deep-transfer-learning-framework"><b>UAV swarm based radar signal sorting via multi-source data fusion: A deep transfer learning framework</b></h4>
             <p>Liangtian Wan, <strong>Rong Liu</strong>, Lu Sun, Hansong Nie, Xianpeng Wang</p>
             <p><strong>Information Fusion</strong>. 78 (2022): 90-101</p>
-            <p><em>A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.</em></p>
+            <p class="no-print"><em>A UAV-swarm–enabled deep transfer learning framework that fuses radar pulses across time and space to accurately classify and sort complex radar signals.</em></p>
             <div>
               <p><a href="https://www.sciencedirect.com/science/article/pii/S1566253521001834">Paper</a> | <a href="https://patentscope.wipo.int/search/en/detail.jsf?docPN=CN113030958">Patent</a></p>
             </div>
@@ -347,7 +361,7 @@
             <h4 id="universal-photorealistic-style-transfer-a-lightweight-and-adaptive-approach"><b>Universal Photorealistic Style Transfer: A Lightweight and Adaptive Approach</b></h4>
             <p><strong>Rong Liu</strong>, Enyu Zhao, Zhiyuan Liu, Andrew Feng, Scott John Easley</p>
             <p>arXiv:2309.10011</p>
-            <p><em>A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.</em></p>
+            <p class="no-print"><em>A lightweight style transfer network that learns instance-adaptive photorealistic transfer on-the-fly and scales effortlessly to high-resolution images and videos.</em></p>
             <div>
               <p><a href="https://rongliu-leo.github.io/IPST/">Website</a> | <a href="https://arxiv.org/abs/2309.10011">Paper</a> | <a href="https://github.com/RongLiu-Leo/Video-Style-Transfer">Code</a></p>
             </div>
