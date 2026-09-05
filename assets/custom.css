@@ -187,10 +187,18 @@
   display: flex;
   flex-direction: column;
 }
+.edu-list h4,
+.edu-list p {
+  display: inline;
+}
 
 /* Experience entries render only in print, where the role stacks above its list */
 .experience-item {
   flex-direction: column;
+}
+.experience-item .details h4,
+.experience-item .details p {
+  display: inline;
 }
 
 .footer-container {
@@ -243,6 +251,7 @@
 /* Replaces the top margin the page header used to contribute. */
 .visitors-page .page-content {
   padding-top: 30px;
+  padding-bottom: 30px;
 }
 .visitors-page .container + .container {
   margin-top: 45px;
