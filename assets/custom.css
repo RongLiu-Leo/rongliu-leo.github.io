@@ -189,9 +189,6 @@
 }
 
 /* Experience entries render only in print, where the role stacks above its list */
-.exp-details {
-  padding: 0 30px 0 0;
-}
 .experience-item {
   flex-direction: column;
 }
